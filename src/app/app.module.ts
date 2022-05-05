@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+//import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
@@ -14,6 +14,11 @@ import { TermsComponent } from './shared/terms/terms.component';
 import { ClassifiedsComponent } from './shared/classifieds/classifieds.component';
 import { PressreleasesComponent } from './shared/pressreleases/pressreleases.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ClientComponent } from './client/client/client.component';
+import { SkillsComponent } from './client/skills/skills.component';
+import { ClassesComponent } from './client/classes/classes.component';
+import { ClientModule } from './client/client/client.module';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,17 +31,22 @@ import { FooterComponent } from './shared/footer/footer.component';
     TermsComponent,
     ClassifiedsComponent,
     PressreleasesComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    
+    // SkillsComponent
+      // ClassesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    // ServiceWorkerModule.register('ngsw-worker.js', {
+    //  enabled: environment.production,
+    //    Register the ServiceWorker as soon as the application is stable
+    //     or after 30 seconds (whichever comes first).
+    //  registrationStrategy: 'registerWhenStable:30000'
+    // })
+    ClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
