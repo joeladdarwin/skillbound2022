@@ -11,6 +11,7 @@ li {
 
 a:hover {
   text-decoration: none;
+  cursor: pointer !important;
 }
 
 /*Headers*/
@@ -74,21 +75,8 @@ section+section {
   border: 1px solid #dedede;
 }
 
-.block-heading h2:hover {
-  box-shadow: 0 0 5px #dedede;
-}
 
-#back-top {
-  position: fixed;
-  bottom: 30px;
-  width: 40px;
-  color: #bbb;
-  height: 50px;
-  right: 30px;
-  display: block;
-  text-align: center;
-  /* background: url("../images/top.png") no-repeat; */
-}
+
 
 
 /*------------- Top bar----------------*/
@@ -101,43 +89,13 @@ section+section {
 
 }
 
-#top .contact-action {
-  margin-bottom: 0;
-}
 
-#top p i {
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-#top .login-cart li {
-  float: left;
-}
-
-#top .login-cart li a {
-  color: #fff;
-  padding: 0 15px;
-  font-size: 14px;
-  -webkit-transition: .4s ease-in-out;
-  -moz-transition: .4s ease-in-out;
-  -ms-transition: .4s ease-in-out;
-  -o-transition: .4s ease-in-out;
-  transition: .4s ease-in-out;
-  text-decoration: none;
-}
-
-#top .login-cart li a:hover {
-  color: #ffff00;
-}
-
-#top .login-cart li a i {
-  margin-right: 3px;
-}
 
 header {
   padding: 25px 0;
   text-align: center;
 }
+
 
 /*	Search Box Start
     ==================================================*/
@@ -166,13 +124,6 @@ header {
   border-radius: none !important;
 }
 
-/* .person-btn:hover {
-  padding: 10px;
-  background-color: #fdfdfd;
-  border: 1px solid #fdfdfd;
-  outline: none;
-
-} */
 
 .person-btn:active {
   border: none;
@@ -189,6 +140,12 @@ header {
 .icon-navbar {
   padding-top:15px ;
 
+}
+.icon-navbar div div a{
+  color: #fff !important;
+}
+.icon-navbar div div a:hover{
+  cursor: pointer !important;
 }
 .profile-dropdown button{
    
@@ -264,7 +221,6 @@ overflow: hidden;
 
 .navbar-list li:hover {
   background-color: #62caed;
-  border: #797777 solid 1px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #555;
   background-position: left;
@@ -329,14 +285,13 @@ overflow: hidden;
   }
 
   .icon-navbar-3 {
-    justify-content: space-around !important;
+    justify-content: space-evenly !important;
     padding-left: 0 !important;
 
   }
-
-
-
 }
+
+
 @media only screen and (max-width: 600px){
 .icon-navbar {
     margin: auto 20% !important;

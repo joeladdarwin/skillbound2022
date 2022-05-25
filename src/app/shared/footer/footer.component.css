@@ -32,6 +32,10 @@
 .footer-dark ul a:hover {
   opacity:1 ;
 }
+.email-connect:hover{
+  color: #fff;
+  opacity: 1;
+}
 
 @media (max-width:767px) {
   .footer-dark .item:not(.social) {
@@ -64,4 +68,8 @@
   /* opacity: 0.3; */
   font-size: 13px;
   margin-bottom: 0;
+}
+p a:hover{
+  color: #fff !important;
+
 }
