@@ -59,9 +59,8 @@
             <span class="px-1">User name</span>
           </button>
           <ul class="profile-dropdown-list">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Message</a></li>
-            <li><a href="#">Logout</a></li>
+            <li *ngFor="let details of profile_detail"><a href="#">{{details.name}}</a></li>
+
           </ul>
         </div>
 
@@ -102,29 +101,9 @@
     </button>
     <div class="collapse navbar-collapse navbars " id="collapsibleNavbar">
       <ul class="navbar-nav navbar-list d-flex justify-content-space-around">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search Skills</a>
+        <li class="nav-item" *ngFor="let link of links">
+          <a class="nav-link" href="#">{{link.name}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Browse Skills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Skills Members Have</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Skills Members want</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Post vedio Files</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Post Audio Files</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Classes</a>
-        </li>
-
-
       </ul>
     </div>
   </div>

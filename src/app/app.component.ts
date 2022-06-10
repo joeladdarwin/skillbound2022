@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from './service/users.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'skillbound';
+  customer : any;
+  constructor(private service:UsersService){
+     this.service.getCurrentUserSkill().subscribe((data: any) =>{
+    //  console.log(data);
+     })
+  }
+
+
+  
 }

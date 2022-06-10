@@ -11,5 +11,18 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  links1 =[{name:"Home",href:"#"},
+          {name:"Classifieds",href:"#"},
+          {name:"FAQ",href:"#"},
+          {name:"About Us",href:"#"},
+          {name:"Terms & Conditions",href:"#"}
+        ]
+  links2= [{name:"Privacy Policy",href:"#"},
+          {name:"Saftey Guidelines",href:"#"},
+          {name:"Contact Us",href:"#"},
+          {name:"Press Releases",href:"#"},
+          {name:"Press",href:"#"}
+          
+        ]
 
 }

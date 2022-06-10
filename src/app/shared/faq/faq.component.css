@@ -1,0 +1,33 @@
+h2{
+  color:#49c1f9;  
+}
+ul li{
+  list-style: none;
+  /* margin: 8px auto !important; */
+}
+
+.question-list{
+  font-weight: 500;
+  margin-top:15px ;
+}
+.answer-list{
+  margin:10px auto;
+}
+.textBold{
+  font-weight: 500;
+}
+
+ul li{
+  margin:10px auto 10px auto !important;
+}
+li a{
+  text-decoration: none;
+  color:#4a4a4a;
+  font-weight: 500;
+}
+li a:hover{
+  color: #6abecd;
+}
+ul{
+  padding-left: 15px !important;
+}

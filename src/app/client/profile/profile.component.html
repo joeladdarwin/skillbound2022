@@ -1,0 +1,237 @@
+<div class="container-fluid">
+  <!--start container -->
+
+  <mat-accordion>
+    <!-- Start skills -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Skills </span>
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="my-2">
+        <mat-accordion class="my-6">
+          <!-- Skills you have listed -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="sub-mat-header">
+              <mat-panel-title class="mat-header-subtitle">
+                <span>
+                  Skills you have listed
+                </span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="row">
+              <div class="container row justify-content-center">
+                <div class="d-flex col-xl-4 col-lg-6  col-md-6 col-12" *ngFor="let skills of userData">
+
+                  <div
+                    class="col-3 border border m-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative"
+                    style="width:200px; height:250px">
+                    <div class="triangle-bar position-absolute" style="width:100px; height:100px;  "></div>
+
+                    <span class="d-block mt-1 h6">{{skills.category}}</span> <!-- Skill name -->
+                    <span class="d-block mb-1 sub-head">{{skills.subCategory}}</span><!-- Sub skill name-->
+                    <div class="d-block" *ngIf="skills.levelSkill"><span class="mat-body-strong " id="skill-level">Level
+                        of Skill</span>
+                    </div>
+                    <!-- Start skill level progress bar  -->
+                    <div class="progress skill-progress" *ngIf="skills.levelSkill">
+                      <div class="progress-bar {{skills.levelSkill}}" role="progressbar" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!-- End skill level progress bar -->
+
+                    <div class="d-block "><span class="font-weight-bold mat-body-strong " id="skill-level">Teaching
+                        Level</span>
+                    </div>
+
+                    <!-- start teaching level progress bar -->
+                    <div class="progress skill-progress">
+                      <div class="progress-bar {{skills.teachingLevel}}" role="progressbar" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!-- End teaching level progress bar -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </mat-expansion-panel>
+
+
+
+          <!-- Desired Skills -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="sub-mat-header">
+              <mat-panel-title class="mat-header-subtitle">
+                <span>
+                  Desired Skills
+                </span>
+              </mat-panel-title>
+
+
+            </mat-expansion-panel-header>
+            <!-- <div class="col-md-12 m-1">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      fip@jukmuh.al
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (239) 816-9029
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (320) 380-4539
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank"
+                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="triangle">
+
+            </div>
+
+          </mat-expansion-panel>
+
+          <!-- Skills For Sale -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="sub-mat-header">
+              <mat-panel-title class="mat-header-subtitle">
+                <span>Skills For Sale</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </div>
+    </mat-expansion-panel>
+    <!-- End Skills -->
+
+    <!-- Start Personal Settings -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Pesonal settings</span>
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End Personal Settings -->
+
+    <!-- Start Friends List -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Friends</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End Friends List -->
+
+    <!-- Start Gallery -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Gallery</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End Gallery -->
+
+    <!-- Start Feedback -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Feedback </span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End Feedback -->
+
+    <!-- Start video -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Video</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End video -->
+
+    <!-- Start Audio -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="mat-header">
+        <mat-panel-title>
+          <span class="mat-header-title">Audio</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!-- End Audio -->
+  </mat-accordion>
+
+</div><!-- End the Container -->
+<!-- Start Script -->
+
+
+<!-- End Script -->
