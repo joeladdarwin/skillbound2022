@@ -1,0 +1,72 @@
+<div class="container">
+  <h5 class="text-center ">Edit member with skills</h5>
+  <div class="lh-1">
+    <!-- category -->
+    <div class="form-group m-2 lh-lg">
+      <mat-form-field appearance="fill" width="200px">
+        <mat-label>Select an Category</mat-label>
+        <mat-select (selectionChange)="selectSubCategory($event.value)">
+          <mat-option [value]="category.id" *ngFor="let category of this.categoryData">
+            {{category.cat_name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- sub Category -->
+    <div class="form-group m-2 lh-lg">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an Sub Category</mat-label>
+        <mat-select>
+          <mat-option disabled selected></mat-option>
+          <mat-option value="" *ngFor="let subCategory of this.subCategoryData">
+            {{subCategory.s_cat_name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- level of skill -->
+    <div class="form-group m-2 lh-lg">
+      <!-- <label for="power" class="lh-base">Level of Skill</label> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Select an Level of Skill</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1" *ngFor="let level of levels">{{level.name}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- level of teaching -->
+    <div class="form-group m-2 lh-lg">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an Level of Teaching skill</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1" *ngFor="let level of levels">{{level.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- wishes -->
+    <div class="form-group m-2 lh-lg">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an I wish to</mat-label>
+        <mat-select disableRipple>
+          <mat-option value="1" *ngFor="let swapList of swapList">{{swapList.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- button -->
+    <div class="form-group m-2 lh-lg edit-btn-part">
+      <button class="btn btn-success m-1 px-2 py-1">Change
+        <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
+      </button>
+      <button class="btn btn-primary m-1 px-2 py-1">Cancel
+        <!-- <mat-icon>cancel</mat-icon> -->
+      </button>
+      <button class="btn btn-danger m-1 px-2 py-1"> Delete
+        <!-- <mat-icon>delete</mat-icon> -->
+      </button>
+    </div>
+  </div>
+</div>

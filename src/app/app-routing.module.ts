@@ -11,7 +11,8 @@ const routes: Routes = [{ path: 'clients', loadChildren: () => import('./client/
 { path: 'wantSkills', loadChildren: () => import('./client/want-skills/want-skills.module').then(m => m.WantSkillsModule) }, 
 { path: 'postFiles', loadChildren: () => import('./client/post-files/post-files.module').then(m => m.PostFilesModule) }, 
 { path: 'classes', loadChildren: () => import('./client/classes/classes.module').then(m => m.ClassesModule) },
-{ path: 'profile', loadChildren: () => import('./client/profile/profile.module').then(m => m.ProfileModule) },
+{ path: '', loadChildren: () => import('./client/profile/profile.module').then(m => m.ProfileModule) },
+
 {path:'terms', component:TermsComponent},
 {path:'faq', component:FaqComponent},
 {path:'aboutus', component:AboutusComponent},

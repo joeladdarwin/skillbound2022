@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,9 +24,27 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProfilesComponent } from './profile-detail/profiles/profiles.component';
+import { ProfilesComponent } from './shared/profiles/profiles.component';
 import { UsersService } from './service/users.service';
 import { AboutusComponent } from './shared/aboutus/aboutus.component';
+import { CreateComponent } from './profile-detail/create/create.component';
+import { EditComponent } from './profile-detail/edit/edit.component';
+import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
+import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
+import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
+import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
+import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
+import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+// import { SkillCardComponent } from './profile/skill-card/skill-card.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +61,11 @@ import { AboutusComponent } from './shared/aboutus/aboutus.component';
     HeaderComponent,
     ProfilesComponent,
     AboutusComponent,
+    CreateComponent,
+    EditComponent,
+    // SkillCardComponent
+    
+
   ],
   imports: [
     BrowserModule,
@@ -50,6 +74,8 @@ import { AboutusComponent } from './shared/aboutus/aboutus.component';
     MatBadgeModule,
     HttpClientModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatSelectModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -57,7 +83,25 @@ import { AboutusComponent } from './shared/aboutus/aboutus.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MdbAccordionModule,
+    MdbCarouselModule,
+    MdbCheckboxModule,
+    MdbCollapseModule,
+    MdbDropdownModule,
+    MdbFormsModule,
+    MdbModalModule,
+    MdbPopoverModule,
+    MdbRadioModule,
+    MdbRangeModule,
+    MdbRippleModule,
+    MdbScrollspyModule,
+    MdbTabsModule,
+    MdbTooltipModule,
+    MdbValidationModule,
+    HttpClientModule,
+
+
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

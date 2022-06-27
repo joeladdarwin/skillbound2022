@@ -12,5 +12,5 @@ export class ProfilesComponent implements OnInit {
   ngOnInit(): void {
    
 }
-
+  
 }

@@ -1,148 +1,110 @@
-import { LowerCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { Gender, IUser, ISkills } from 'src/app/service/user.model';
+// import { LowerCasePipe } from '@angular/common';
+import { Component, OnInit,Input } from '@angular/core';
+import { IUser, ISkills, WishesColor } from 'src/app/service/user.model';
 import { UsersService } from 'src/app/service/users.service';
+
+import {MatDialog} from '@angular/material/dialog';
+// import { CreateComponent } from 'src/app/profile-detail/create/create.component';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { SkillCardComponent } from './skill-card/skill-card.component';
+import { EditComponent } from 'src/app/profile-detail/edit/edit.component'
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  
 })
 export class ProfileComponent  {
    userData?: IUser[];
    skill?:ISkills[];
   user: any;
-  expert: any;
-  // user: any;
-  // userService: any;
+  expert: any;  
+  creator: any;
+ @Input() lazyRender= '';
 
-  constructor(private service: UsersService) { 
+  categoryData: any;  
+
+  constructor(public service: UsersService) 
+ { 
+    // this.wishColor = WishesColor;
   }
   ngOnInit(): void {
-    this.service.getCurrentUserSkill().subscribe((user:any)=>{
-      console.log(user);    
-      this.expert = "#ff0000";
-      this.userData =this.userInterFaceData(user);
-
-    })
-  
+  // get skill value
+    // this.service.getCurrentUserSkill().subscribe((user:any)=>{
+    //   console.log(user);    
+    //   this.userData =this.userInterFaceData(user);
+      // this.getWishColor(wish);
+    // });  
   }
+
+  // getWishColor(wish:any) {
+  //   for (let data in this.userData ) {
+  //     console.log(data);
+  //   }
+  //   return "#ff0000";
+  // }
 
   getClass(level:string) {
     return level && level.toLowerCase();
   }
   
+  // user data fetch interface
   userInterFaceData(users: any) {
     return users.map((userData: any) => {
       return {
       id: userData.id,
       username:userData.username,
       category:userData.category,
-      subCategory: userData.s_cat_name|| undefined,
+      subCategory: userData.s_cat_name,
       emailid:userData.emailid,
       name: userData.fname,
       gender:userData.Gender,
       country:userData.country,
-      keywords:userData.sk_got_keywords || undefined,
-      levelSkill: userData.level1.toLowerCase() || undefined,
-      wishesTo:userData.level3 || undefined,
-      teachingLevel:userData.level2.toLowerCase() || undefined,
+      keywords:userData.sk_got_keywords ,
+      levelSkill: userData.level1.toLowerCase(),
+      wishesTo:userData.level3,
+      teachingLevel:userData.level2.toLowerCase(),
       fname:userData.fname,
-      lname:userData.lname || undefined,
-      work:userData.work || undefined,
-      company:userData.Company || undefined,
-      desiredskills:userData.desiredskills || undefined,
-      business:userData.business || undefined,
-      qualifications:userData.qualifications || undefined,
-      school:userData.school || undefined,
-      licenses:userData.licenses || undefined,
-      experiences:userData.experiences || undefined,
-      rates:userData.rates || undefined,
+      lname:userData.lname,
+      work:userData.work,
+      company:userData.Company,
+      desiredskills:userData.desiredskills,
+      business:userData.business,
+      qualifications:userData.qualifications,
+      school:userData.school,
+      licenses:userData.licenses,
+      experiences:userData.experiences,
+      rates:userData.rates,
       bod:userData.bod,
-      address:userData.address || undefined,
-      borough:userData.borough || undefined,
-      province:userData.province || undefined,
-      village:userData.village || undefined,
-      town:userData.town || undefined,
-      city:userData.city || undefined,
-      state:userData.state || undefined,
-      zip:userData.zip || undefined,
-      phone:userData.phone || undefined,
+      address:userData.address,
+      borough:userData.borough,
+      province:userData.province,
+      village:userData.village,
+      town:userData.town,
+      city:userData.city,
+      state:userData.state,
+      zip:userData.zip,
+      phone:userData.phone,
     }
     });
-    // let currentUser: IUser =
     
-    // {
-    //   id: user.id,
-    //   username:user.username,
-    //   category:user.category,
-    //   subCategory:(user.s_cat_name != "")? user.s_cat_name: undefined,
-    //   emailid:user.emailid,
-    //   name: user.fname,
-    //   gender:user.Gender,
-    //   country:user.country,
-    //   keywords:(user.sk_got_keywords != "")? user.sk_got_keywords:undefined,
-    //   levelSkill: user.level1 || undefined,
-    //   skillkeywords:(user.level3 !="")? user.level3:undefined,
-    //   teachingLevel:(user.level2 !="")? user.level2:undefined,
-    //   fname:user.fname,
-    //   lname:(user.lname !="")? user.lname:undefined,
-    //   work:(user.work !="")? user.work:undefined,
-    //   company:(user.Company !="")? user.company:undefined,
-    //   desiredskills:(user.desiredskills != "")? user.desiredskills:undefined,
-    //   business:(user.business != "")? user.business:undefined,
-    //   qualifications:(user.qualifications != "")? user.qualifications:undefined,
-    //   school:(user.school !="")? user.school:undefined,
-    //   licenses:(user.licenses !="")? user.licenses:undefined,
-    //   experiences:(user.experiences !="")? user.experiences:undefined,
-    //   rates:(user.rates !="")? user.rates:undefined,
-    //   bod:user.bod,
-    //   address:(user.address !="")? user.address:undefined,
-    //   borough:(user.borough !="")? user.borough:undefined,
-    //   province:(user.province !="")? user.province:undefined,
-    //   village:(user.village !="")? user.village:undefined,
-    //   town:(user.town !="")? user.town:undefined,
-    //   city:(user.city !="")? user.city:undefined,
-    //   state:(user.state !="")? user.state:undefined,
-    //   zip:(user.zip !="")? user.zip:undefined,
-    //   phone:(user.phone !="")? user.phone:undefined,
+  } 
 
-
-    // }
-    // return {
-      
-    //   Company: user.emailId,
-    //   Qualification: user.emailId,
-    //   school: user.emailId,
-    //   licenses: user.emailId,
-    //   experiences: user.emailId,
-    //   rates: user.emailId,
-    //   bod: user.emailId,
-    //   country: user.emailId,
-    //   state: user.emailId,
-    //   city: user.emailId,
-    //   photolink: user.emailId,
-    //   category: user.emailId,
-    //   userId: user.emailId
-    // }  
-  }
-
-  // datalist(){
-  // this.service.getData().subscribe(data=>{
-  //   console.log(data);
-  //  this.user = {  } as IUser;
-  //      console.log("hi" + this.user);
-  //     // this.user.name=;
-  //     this.post =data;
-  //   }
-  //     )
+  // editSkill(){
+  //   this.dialog.open(EditComponent);
   // }
   
-    
-  
-  
-  
+  // lazy render call
+
 
 }
+
+
+function wish(wish: any) {
+  throw new Error('Function not implemented.');
+}
+
 
 

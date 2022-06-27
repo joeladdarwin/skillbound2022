@@ -1,0 +1,118 @@
+/* triangle shape design */
+.cross-content {
+  position: absolute;
+  top: 30px;
+  width: 100px;
+  left: 112px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1;
+}
+.mat-header-title {
+  font-weight: 500;
+}
+
+.mat-header-subtitle {
+  font-size: 16px;
+}
+
+
+
+mat-icon {
+  font-size: 16px;
+}
+
+/* start card container */
+.card-container {
+  box-shadow: 1px 2px 8px #aaa;
+  line-height: 2;
+  position: relative;
+  width: 200px;
+  height: 250px;
+  background: #d6d5d564;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cornertriangle {
+
+  border-style: solid;
+  border-width: 0 100px 110px 0;
+  border-color: transparent #fb8cff transparent transparent;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.editIcon {
+  position: absolute;
+  color: #6cc6e4;
+  top: 15px;
+  left: 15px;
+  font-size: 22px;
+}
+
+.skill-name{
+  width: 120px;
+  text-align: center;
+}
+
+.skill-name:hover {
+  color: #aaa;
+  transition: #aaa 12s ease-in;
+
+}
+
+.sub-head {
+  font-weight: 400;
+  font-size: 11px;
+}
+
+div #skill-level {
+  font-weight: 600px !important;
+}
+
+.skill-progress {
+  width: 100%;
+  height: 10px;
+}
+
+/* progress bar basic */
+.basic {
+  background-color: #e07f10b3 !important;
+  width: 50%
+}
+
+/* prgoress bar good */
+.good {
+  background-color: #ffd900ae !important;
+  width: 75%
+}
+
+/* progress bar expert */
+.expert {
+  background-color: #079b2c97 !important;
+  width: 100%;
+}
+
+
+.ellipses {
+  position: absolute;
+  top: 6px;
+  left: 165px;
+  z-index: 1;
+}
+
+.ellipses mat-icon {
+  font-size: 20px;
+}
+
+.swap {
+  background-color: #1d8df7;
+}
+
+/* swapTrain="#f7f515",
+teach="#f2005a",
+tutor="#8301d2",
+employed="#05eef5",
+Consult="#255f40" */

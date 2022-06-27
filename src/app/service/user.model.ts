@@ -1,15 +1,21 @@
 // Level of skills
 export enum Level {
-      Basic=0,
-      Good=1,
-      Expert=2
+      Basic = 0,
+      Good = 1,
+      Expert = 2
   }
 
   // Type of Gender
   export enum Gender{
-    male=0,
-    female=1,
-    Others=2
+    male = 0,
+    female = 1,
+    Others = 2
+  }
+
+  // Whishes color
+  export enum WishesColor{
+    
+
   }
 
 //  Type of Wishes
@@ -75,5 +81,6 @@ export interface IUser{
   zip?:string;
   phone?:string;
   wishesTo?:Level;
+  wishesColor?:string;
 }
 
