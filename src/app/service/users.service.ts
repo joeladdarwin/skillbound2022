@@ -8,8 +8,8 @@ import { EditComponent } from 'src/app/profile-detail/edit/edit.component';
   providedIn: 'root'
 })
 export class UsersService {
-   userId= "289";
-  currentSkilCard:any;
+   userId= "3061";
+  currentSkillCard:any;
   // @Input() categoryId :any;
 
 
@@ -29,11 +29,13 @@ export class UsersService {
   }
 
   // get sub category
-   getSubCategory(categoryId: any){
-    return this.http.get("http://localhost:3000/subCategory/" + (categoryId));
+   getSubCategory(selectedCategoryName: any){
+    return this.http.post("http://localhost:3000/subCategory/",{ category:(selectedCategoryName)}  );
   }
+ 
+
   getCurrentCardSkill(){
-    return this.currentSkilCard
+    return this.currentSkillCard
   }
 
 }

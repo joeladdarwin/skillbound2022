@@ -5,10 +5,13 @@
     <div class="form-group m-2 lh-lg">
       <mat-form-field appearance="fill" width="200px">
         <mat-label>Select an Category</mat-label>
-        <mat-select (selectionChange)="selectSubCategory($event.value)">
-          <mat-option [value]="category.id" *ngFor="let category of this.categoryData">
+        <mat-select [(value)]="categoryName" (selectionChange)="selectSubCategory($event.value)">
+
+          <mat-option [value]="category.cat_name" *ngFor="let category of categoryData">
             {{category.cat_name}}</mat-option>
+
         </mat-select>
+
       </mat-form-field>
     </div>
 
@@ -16,9 +19,9 @@
     <div class="form-group m-2 lh-lg">
       <mat-form-field appearance="fill">
         <mat-label>Select an Sub Category</mat-label>
-        <mat-select>
-          <mat-option disabled selected></mat-option>
-          <mat-option value="" *ngFor="let subCategory of this.subCategoryData">
+        <mat-select [(value)]="subCategoryName">
+          <!-- <mat-option disabled selected></mat-option> -->
+          <mat-option [value]="subCategory.s_cat_name" *ngFor="let subCategory of subCategoryData">
             {{subCategory.s_cat_name}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -29,8 +32,8 @@
       <!-- <label for="power" class="lh-base">Level of Skill</label> -->
       <mat-form-field appearance="fill">
         <mat-label>Select an Level of Skill</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1" *ngFor="let level of levels">{{level.name}}</mat-option>
+        <mat-select [(value)]="skillLevel">
+          <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
 
         </mat-select>
       </mat-form-field>
@@ -40,8 +43,8 @@
     <div class="form-group m-2 lh-lg">
       <mat-form-field appearance="fill">
         <mat-label>Select an Level of Teaching skill</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1" *ngFor="let level of levels">{{level.name}}</mat-option>
+        <mat-select [(value)]="teachLevel" disableRipple>
+          <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -51,14 +54,14 @@
       <mat-form-field appearance="fill">
         <mat-label>Select an I wish to</mat-label>
         <mat-select disableRipple>
-          <mat-option value="1" *ngFor="let swapList of swapList">{{swapList.name}}</mat-option>
+          <mat-option [value]="swapList.name" *ngFor="let swapList of swapList">{{swapList.name}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
     <!-- button -->
     <div class="form-group m-2 lh-lg edit-btn-part">
-      <button class="btn btn-success m-1 px-2 py-1">Change
+      <button class="btn btn-success m-1 px-2 py-1" (click)="editSkillData()">Change
         <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
       </button>
       <button class="btn btn-primary m-1 px-2 py-1">Cancel

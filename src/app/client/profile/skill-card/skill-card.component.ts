@@ -10,47 +10,49 @@ import { EditComponent } from 'src/app/profile-detail/edit/edit.component';
   selector: 'app-skill-card',
   templateUrl: './skill-card.component.html',
   styleUrls: ['./skill-card.component.css'],
-  animations:[
-    // traingle shape animation
-    trigger('wishAnimation', [
-      state('start', style({
-        // 'background-color':'#a4e5fa',
-        transform: 'translateX(100px) translateY(80px)'
+  // animations:[
+  //   // traingle shape animation
+  //   trigger('wishAnimation', [
+  //     state('start', style({
+  //       // 'background-color':'#a4e5fa',
+  //       transform: 'translateX(130px) '
 
-      })),
-      state('end', style({
-      transform: 'translateX(0px) translateY(0px)'
+  //     })),
+  //     state('end', style({
+  //     transform: 'translateX(0px) '
 
-      }) ),
-      transition('start => end', animate(500))
+  //     }) ),
+  //     transition('start <=> end', animate(500))
 
-    ]),
+  //   ]),
 
     // wish content animation
-    trigger('wishSkill', [
-      state('start', style({
-        transform: 'translateX(100px) translateY(80px) rotate(45deg)' 
-      })),
-      state('end', style({
-        transform: 'translateX(0px) translateY(0px) rotate(45deg)'
+  //   trigger('wishSkill', [
+  //     state('start', style({
+  //       transform: 'translateX(100px)' 
+  //     })),
+  //     state('end', style({
+  //       transform: 'translateX(0px) translateY(0px) '
 
-      }) ),
-      transition('start => end', animate(500) )
-    ])
-  ]
+  //     }) ),
+  //     transition('start <=> end', animate(500) )
+  //   ])
+  // ]
 })
 export class SkillCardComponent implements OnInit {
   userData?: IUser[];
    skill?:ISkills[];
-  state = 'start';
+  // state = 'start';
   lazyRender: IUser[] | undefined;
     user: any;
-
+    changeText:boolean;
   // @Input() userData='';
 
 
 
-  constructor(public userService: UsersService, public dialog:MatDialog) { }
+  constructor(public userService: UsersService, public dialog:MatDialog) {
+    this.changeText = false;
+   }
 
   ngOnInit(): void {
       // get skill value
@@ -61,28 +63,29 @@ export class SkillCardComponent implements OnInit {
   }
 
   getWishData(wish:any) {
-    let wishColorCode ="transparent #f7f515 transparent transparent";
+    console.log(wish);
+    let wishColorCode =" #f7f515  ";
     console.log(wish);
      switch(wish.toLowerCase()){
       case "swap":
-         wishColorCode = " transparent #8ec4f7 transparent transparent";
+         wishColorCode = "  #8ec4f7  ";
       break;
 
       case "swap and train":
-        wishColorCode = " transparent #fffd86 transparent transparent"; 
+        wishColorCode = "  #fffd86  "; 
         break;
       
       case "teach":
-        wishColorCode = "transparent #fd71a4 transparent transparent"; 
+        wishColorCode = " #fd71a4  "; 
         break;
       case "tutor":
-        wishColorCode = "transparent #ac60db transparent transparent"; 
+        wishColorCode = " #ac60db  "; 
         break;
       case "Consult in	":
-        wishColorCode = "transparent #fb8cff transparent transparent"; 
+        wishColorCode = " #fb8cff  "; 
         break;
       case "Be employed in":
-        wishColorCode = "transparent #255f40 transparent transparent"; 
+        wishColorCode = " #255f40  "; 
         break;
      }
 
@@ -103,9 +106,11 @@ export class SkillCardComponent implements OnInit {
       gender:userData.Gender,
       country:userData.country,
       keywords:userData.sk_got_keywords ,
+      skillLevel:userData.level1,
       levelSkill: userData.level1.toLowerCase(),
       wishesTo: userData.level3.replace(",","").charAt(0).substr(0).toUpperCase(0) + userData.level3.replace(",","").slice(1),
       wishesColor: this.getWishData(userData.level3.replace(" this skill","")),
+      teachLevel:userData.level2,
       teachingLevel:userData.level2.toLowerCase(),
       fname:userData.fname,
       lname:userData.lname,
@@ -125,7 +130,7 @@ export class SkillCardComponent implements OnInit {
       village:userData.village,
       town:userData.town,
       city:userData.city,
-      state:userData.state,
+      // state:userData.state,
       zip:userData.zip,
       phone:userData.phone,
     }
@@ -134,17 +139,17 @@ export class SkillCardComponent implements OnInit {
 
   } 
 
-  onTriangleAnimation(){
-    this.state == 'start' ? this.state = 'end': undefined;
-  }
+  // onTriangleAnimation(){
+  //    document.getElementsByClassName('wishesPart').style.display = 'block';
 
+  // }
   getClass(level:string) {
     return level && level.toLowerCase();
   }
 
   // edit the skill
    editSkill(selectedId:string){
-  this.userService.currentSkilCard = this.userData?.filter(x =>x.id == selectedId)
+  this.userService.currentSkillCard = this.userData?.filter(x =>x.id == selectedId)
     this.dialog.open(EditComponent);
 
   }  

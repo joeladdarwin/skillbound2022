@@ -1,12 +1,12 @@
 /* triangle shape design */
 .cross-content {
   position: absolute;
-  top: 30px;
-  width: 100px;
-  left: 112px;
+  top: 5px;
+  /* width: 100px;
+  left: 112px; */
   text-align: center;
-  font-size: 11px;
-  line-height: 1;
+  font-size: 13px;
+  line-height: 1.5;
 }
 .mat-header-title {
   font-weight: 500;
@@ -33,12 +33,19 @@ mat-icon {
   border-radius: 12px;
   overflow: hidden;
 }
+.card:hover {
+  opacity:0.6;
+}
 
-.cornertriangle {
-
-  border-style: solid;
-  border-width: 0 100px 110px 0;
-  border-color: transparent #fb8cff transparent transparent;
+.wishesPart {
+  /* display: none; */
+  z-index: 1;
+  opacity: 1 !important;
+  width:120px;
+  height: 250px;
+  transition: transform 4s ;
+  /* border-width: 0 100px 110px 0; */
+  /* border-color: transparent #fb8cff transparent transparent; */
   right: 0;
   top: 0;
   position: absolute;
@@ -56,8 +63,11 @@ mat-icon {
   width: 120px;
   text-align: center;
 }
+/* .skill-name:hover .wishesPart { */
+/* } */
 
 .skill-name:hover {
+
   color: #aaa;
   transition: #aaa 12s ease-in;
 

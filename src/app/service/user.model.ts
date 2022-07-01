@@ -44,6 +44,7 @@ export interface ISkills{
 
 //  User Data
 export interface IUser{
+
   id: string;
   levelSkill?:Level;
   teachingLevel?:Level;
@@ -82,5 +83,7 @@ export interface IUser{
   phone?:string;
   wishesTo?:Level;
   wishesColor?:string;
+  skillLevel?:string;
+  teachLevel?:string;
 }
 

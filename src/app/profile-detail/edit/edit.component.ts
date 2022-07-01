@@ -17,8 +17,13 @@ export class EditComponent implements OnInit {
   categoryData: any;
   subCategoryData: any;
   selectedCategoryId:any;
-  categoryId: any;
+  selectedCategoryName: any;
   data: any;
+  categoryName: any;
+  subCategoryName: any;
+  skillLevel:any;
+  teachLevel:any;
+  wishesTo:any;
 
   constructor(public userService: UsersService ) { }
 
@@ -26,14 +31,20 @@ export class EditComponent implements OnInit {
     this.userService.getCategory().subscribe((category:any)=>{
       // console.log(category);
       this.categoryData = category;
-    });
 
-    
-    this.data = this.userService.getCurrentCardSkill()
-    console.log(this.data);
       
     
+    }); 
     
+    this.data = this.userService.getCurrentCardSkill();
+    this.categoryName = this.data[0].category;
+    this.callService(this.categoryName);
+    this.subCategoryName = this.data[0].subCategory;
+    this.skillLevel = this.data[0].skillLevel;
+    this.teachLevel =this.data[0].teachLevel;
+    this.wishesTo =this.data[0].wishesTo;
+    console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory );  
+       
   }
 
     levels = [{name:'Basic'},
@@ -47,25 +58,28 @@ export class EditComponent implements OnInit {
     {name:'Swap and train'},
     {name:'Teach'},
     {name:'Tutor'},
-    {name:'be employed in'},
-    {name:'consoult in'},
+    {name:'Be employed in'},
+    {name:'Consoult in'},
     {name:'Offer a good service'}]
 
-  selectSubCategory(selectedCategoryId: any){
-    this.categoryId =selectedCategoryId;
+  selectSubCategory(selectedCategoryName: any){
+    this.selectedCategoryName =selectedCategoryName;
     // alert(selectedCategoryId);
 
-    console.log(this.categoryId);
-    this.callService(this.categoryId);
+    console.log(this.selectedCategoryName);
+    this.callService(this.selectedCategoryName);
 
     }
 
-    callService(categoryId: any) {
-      this.userService.getSubCategory(categoryId).subscribe((subCategory:any)=>{
-            console.log(subCategory);
+    callService(selectedCategoryName: any) {
+      this.userService.getSubCategory(selectedCategoryName).subscribe((subCategory:any)=>{
+            console.log("asfsfd" + subCategory);
             this.subCategoryData = subCategory;
             console.log(this.subCategoryData);
           });
+    }
+    editSkillData(){
+      
     }
   
 }
