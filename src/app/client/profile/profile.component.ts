@@ -87,6 +87,8 @@ export class ProfileComponent  {
       state:userData.state,
       zip:userData.zip,
       phone:userData.phone,
+      cat_id:userData.id,
+      s_cat_id:userData.id
     }
     });
     

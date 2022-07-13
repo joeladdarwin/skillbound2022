@@ -1,75 +1,80 @@
 <div class="container">
   <h5 class="text-center ">Edit member with skills</h5>
   <div class="lh-1">
-    <!-- category -->
-    <div class="form-group m-2 lh-lg">
-      <mat-form-field appearance="fill" width="200px">
-        <mat-label>Select an Category</mat-label>
-        <mat-select [(value)]="categoryName" (selectionChange)="selectSubCategory($event.value)">
+    <form (ngSubmit)="editSkillData(f.value)" #f="ngForm">
+      <!-- category -->
+      <div class="form-group m-2 lh-lg">
+        <mat-form-field appearance="fill" width="200px">
+          <mat-label for="categoryId">Select an Category</mat-label>
+          <mat-select id="categoryId" name="categoryId" (selectionChange)="selectSubCategory($event.value)"
+            [(value)]="categoryId">
+            <mat-option *ngFor=" let category of categoryData" [value]="category.id">
+              {{category.cat_name}}</mat-option>
 
-          <mat-option [value]="category.cat_name" *ngFor="let category of categoryData">
-            {{category.cat_name}}</mat-option>
+          </mat-select>
 
-        </mat-select>
+        </mat-form-field>
+      </div>
 
-      </mat-form-field>
-    </div>
+      <!-- sub Category -->
+      <div class="form-group m-2 lh-lg">
+        <mat-form-field appearance="fill">
+          <mat-label for="subCategory">Select an Sub Category</mat-label>
+          <mat-select [(value)]="subCategoryId" id="subCategoryId" name="subCategoryId">
+            <!-- <mat-option disabled selected></mat-option> -->
+            <mat-option *ngFor="let subCategory of subCategoryData" [value]="subCategory.id">
+              {{subCategory.s_cat_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <!-- sub Category -->
-    <div class="form-group m-2 lh-lg">
-      <mat-form-field appearance="fill">
-        <mat-label>Select an Sub Category</mat-label>
-        <mat-select [(value)]="subCategoryName">
-          <!-- <mat-option disabled selected></mat-option> -->
-          <mat-option [value]="subCategory.s_cat_name" *ngFor="let subCategory of subCategoryData">
-            {{subCategory.s_cat_name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+      <!-- level of skill -->
+      <div class="form-group m-2 lh-lg">
+        <!-- <label for="power" class="lh-base">Level of Skill</label> -->
+        <mat-form-field appearance="fill">
+          <mat-label for="skillLevel">Select an Level of Skill</mat-label>
+          <mat-select [(value)]="skillLevel" id="skillLevel" name="skillLevel">
+            <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
 
-    <!-- level of skill -->
-    <div class="form-group m-2 lh-lg">
-      <!-- <label for="power" class="lh-base">Level of Skill</label> -->
-      <mat-form-field appearance="fill">
-        <mat-label>Select an Level of Skill</mat-label>
-        <mat-select [(value)]="skillLevel">
-          <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-        </mat-select>
-      </mat-form-field>
-    </div>
+      <!-- level of teaching -->
+      <div class="form-group m-2 lh-lg">
+        <mat-form-field appearance="fill">
+          <mat-label>Select an Level of Teaching skill</mat-label>
+          <mat-select [(value)]="teachLevel" for="teachLevel" disableRipple name="teachLevel">
+            <mat-option [value]="level.name" *ngFor="let level of levels" id="teachLevel">{{level.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <!-- level of teaching -->
-    <div class="form-group m-2 lh-lg">
-      <mat-form-field appearance="fill">
-        <mat-label>Select an Level of Teaching skill</mat-label>
-        <mat-select [(value)]="teachLevel" disableRipple>
-          <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+      <!-- wishes -->
+      <div class="form-group m-2 lh-lg">
+        <mat-form-field appearance="fill">
+          <mat-label for="skillWishes">Select an I wish to</mat-label>
+          <mat-select [formControl]="selectWishes" id="skillWishes" multiple name="skillWishes">
 
-    <!-- wishes -->
-    <div class="form-group m-2 lh-lg">
-      <mat-form-field appearance="fill">
-        <mat-label>Select an I wish to</mat-label>
-        <mat-select disableRipple>
-          <mat-option [value]="swapList.name" *ngFor="let swapList of swapList">{{swapList.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+            <mat-option *ngFor="let swapList of swapList" [value]="swapList.name">{{swapList.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <!-- button -->
-    <div class="form-group m-2 lh-lg edit-btn-part">
-      <button class="btn btn-success m-1 px-2 py-1" (click)="editSkillData()">Change
-        <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
-      </button>
-      <button class="btn btn-primary m-1 px-2 py-1">Cancel
-        <!-- <mat-icon>cancel</mat-icon> -->
-      </button>
-      <button class="btn btn-danger m-1 px-2 py-1"> Delete
-        <!-- <mat-icon>delete</mat-icon> -->
-      </button>
-    </div>
+
+      <!-- button -->
+      <div class="form-group m-2 lh-lg edit-btn-part">
+        <button class="btn btn-success m-1 px-2 py-1" type="submit">Save
+          <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
+        </button>
+        <button class="btn btn-primary m-1 px-2 py-1">Cancel
+          <!-- <mat-icon>cancel</mat-icon> -->
+        </button>
+        <button class="btn btn-danger m-1 px-2 py-1"> Delete
+          <!-- <mat-icon>delete</mat-icon> -->
+        </button>
+      </div>
+
+    </form>
   </div>
 </div>

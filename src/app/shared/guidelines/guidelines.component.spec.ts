@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TriangleAnimateComponent } from './triangle-animate.component';
+import { GuidelinesComponent } from './guidelines.component';
 
-describe('TriangleAnimateComponent', () => {
-  let component: TriangleAnimateComponent;
-  let fixture: ComponentFixture<TriangleAnimateComponent>;
+describe('GuidelinesComponent', () => {
+  let component: GuidelinesComponent;
+  let fixture: ComponentFixture<GuidelinesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TriangleAnimateComponent ]
+      declarations: [ GuidelinesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TriangleAnimateComponent);
+    fixture = TestBed.createComponent(GuidelinesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

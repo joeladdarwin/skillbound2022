@@ -85,5 +85,7 @@ export interface IUser{
   wishesColor?:string;
   skillLevel?:string;
   teachLevel?:string;
+  cat_id?:string;
+  sub_cat_id?:string;
 }
 

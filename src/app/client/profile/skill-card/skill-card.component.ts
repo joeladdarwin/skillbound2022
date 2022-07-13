@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { IUser, ISkills, WishesColor } from 'src/app/service/user.model';
 import { UsersService } from 'src/app/service/users.service';
 import {MatDialog} from '@angular/material/dialog';
@@ -63,10 +63,15 @@ export class SkillCardComponent implements OnInit {
   }
 
   getWishData(wish:any) {
+   var wishes = wish.toLowerCase().replace(/ , /g,",").split(",").filter(Boolean);
+    var wishValue = wishes[wishes.length-1];
     console.log(wish);
-    let wishColorCode =" #f7f515  ";
-    console.log(wish);
-     switch(wish.toLowerCase()){
+    console.log(wishes);
+    console.log(wishValue + typeof(wishValue));
+
+    let wishColorCode ="#f7f ";
+    console.log(wishValue);
+     switch(wishValue){
       case "swap":
          wishColorCode = "  #8ec4f7  ";
       break;
@@ -75,16 +80,16 @@ export class SkillCardComponent implements OnInit {
         wishColorCode = "  #fffd86  "; 
         break;
       
-      case "teach":
+      case "teach ":
         wishColorCode = " #fd71a4  "; 
         break;
-      case "tutor":
+      case "tutor ":
         wishColorCode = " #ac60db  "; 
         break;
-      case "Consult in	":
+      case "consult in":
         wishColorCode = " #fb8cff  "; 
         break;
-      case "Be employed in":
+      case "be employed in ":
         wishColorCode = " #255f40  "; 
         break;
      }
@@ -96,6 +101,11 @@ export class SkillCardComponent implements OnInit {
   // user data fetch interface
   userInterFaceData(users: any) {
     return users.map((userData: any) => {
+      console.log(userData);
+      let splitedData =userData.level3.split(',');
+      let wishedsData = splitedData.map((data:any)=> data.charAt(0).toUpperCase()+ data.slice(1).toLowerCase());
+      console.log(splitedData );
+      console.log(wishedsData);
       return {
       id: userData.id,
       username:userData.username,
@@ -108,8 +118,8 @@ export class SkillCardComponent implements OnInit {
       keywords:userData.sk_got_keywords ,
       skillLevel:userData.level1,
       levelSkill: userData.level1.toLowerCase(),
-      wishesTo: userData.level3.replace(",","").charAt(0).substr(0).toUpperCase(0) + userData.level3.replace(",","").slice(1),
-      wishesColor: this.getWishData(userData.level3.replace(" this skill","")),
+       wishesTo: wishedsData,
+      wishesColor: this.getWishData(userData.level3.replace( /this skill/g,"")),
       teachLevel:userData.level2,
       teachingLevel:userData.level2.toLowerCase(),
       fname:userData.fname,
@@ -133,7 +143,10 @@ export class SkillCardComponent implements OnInit {
       // state:userData.state,
       zip:userData.zip,
       phone:userData.phone,
+      cat_id:userData.cat_id,
+      sub_cat_id:userData.sub_cat_id
     }
+    
     })
      
 

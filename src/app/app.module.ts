@@ -5,6 +5,10 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +27,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { ProfilesComponent } from './shared/profiles/profiles.component';
 import { UsersService } from './service/users.service';
 import { AboutusComponent } from './shared/aboutus/aboutus.component';
@@ -45,6 +48,7 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
+import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
 // import { SkillCardComponent } from './profile/skill-card/skill-card.component';
 
 @NgModule({
@@ -65,6 +69,7 @@ import { PrivacyComponent } from './shared/privacy/privacy.component';
     CreateComponent,
     EditComponent,
     PrivacyComponent,
+    GuidelinesComponent,
     // SkillCardComponent
     
 
@@ -79,6 +84,7 @@ import { PrivacyComponent } from './shared/privacy/privacy.component';
     MatDialogModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable

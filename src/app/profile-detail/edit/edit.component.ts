@@ -3,43 +3,45 @@ import { UsersService } from 'src/app/service/users.service';
 import {MatDialog} from '@angular/material/dialog';
 import {NgForm} from '@angular/forms';
 import {FormControl} from '@angular/forms';
-
-
-
-
-
+import { FormGroup,  } from '@angular/forms';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  selectWishes = new FormControl('');
   categoryData: any;
   subCategoryData: any;
   selectedCategoryId:any;
   selectedCategoryName: any;
   data: any;
-  categoryName: any;
-  subCategoryName: any;
+  categoryId: any;
+  subCategoryId: any;
   skillLevel:any;
   teachLevel:any;
   wishesTo:any;
+  // form: FormGroup;
+  user: Object = {};
+
 
   constructor(public userService: UsersService ) { }
 
   ngOnInit(): void {
     this.userService.getCategory().subscribe((category:any)=>{
-      // console.log(category);
-      this.categoryData = category;
-
-      
+      console.log(category);
+      this.categoryData = category;      
     
     }); 
     
-    this.data = this.userService.getCurrentCardSkill();
-    this.categoryName = this.data[0].category;
-    this.callService(this.categoryName);
-    this.subCategoryName = this.data[0].subCategory;
+    this.data = this.userService.getCurrentCardSkill(); //get data from service call
+    console.log(this.data);
+    this.categoryId = this.data[0].cat_id;
+        console.log(this.categoryId);
+
+    this.callService(this.categoryId);
+    this.subCategoryId = this.data[0].sub_cat_id;
+    console.log(this.subCategoryId);
     this.skillLevel = this.data[0].skillLevel;
     this.teachLevel =this.data[0].teachLevel;
     this.wishesTo =this.data[0].wishesTo;
@@ -62,23 +64,27 @@ export class EditComponent implements OnInit {
     {name:'Consoult in'},
     {name:'Offer a good service'}]
 
-  selectSubCategory(selectedCategoryName: any){
-    this.selectedCategoryName =selectedCategoryName;
+  selectSubCategory(selectedCategoryId: any){
+    this.selectedCategoryId = selectedCategoryId;
     // alert(selectedCategoryId);
 
-    console.log(this.selectedCategoryName);
-    this.callService(this.selectedCategoryName);
+    console.log(this.selectedCategoryId);
+    this.callService(this.selectedCategoryId);
 
     }
 
-    callService(selectedCategoryName: any) {
-      this.userService.getSubCategory(selectedCategoryName).subscribe((subCategory:any)=>{
-            console.log("asfsfd" + subCategory);
+    callService(selectedCategoryId: any) {
+      this.userService.getSubCategory(selectedCategoryId).subscribe((subCategory:any)=>{
+            //console.log("asfsfd" + subCategory);
             this.subCategoryData = subCategory;
             console.log(this.subCategoryData);
           });
     }
-    editSkillData(){
+    editSkillData(user: any){
+      console.log("hi");
+      console.log(user);
+        // this.submitted.emit(this.form.getRawValue());
+
       
     }
   

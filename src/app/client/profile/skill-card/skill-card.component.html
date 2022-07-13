@@ -6,14 +6,17 @@
         class="col-3 m-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
         style="width:200px; height:250px">
         <mat-icon class="editIcon" mat-button (click)="editSkill(skills.id)">edit</mat-icon>
-        <div class="wishesPart justify-item-center align-item-center "
-          [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="changeText">
-          <!-- <span class="cross-content justify-content-center align-content-center"
-            *ngIf="skills.wishesTo"></span> -->
-          {{skills.wishesTo}}
+        <div class="wishesPart justify-content-around align-items-center d-flex p-3"
+          [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="changeText && skills.wishesTo">
+          <span class="cross-content " *ngIf="skills.wishesTo">{{skills.wishesTo}}
+            <!-- <ul *ngFor="let wish of skills.wishesTo; let j= index">
+              <li>{{wish.whishesTo}}</li>
+            </ul> -->
+          </span>
         </div>
-        <div>
-          <span class=" d-block mt-1 h6 skill-name" (click)=" renderData()">{{skills.category}}</span>
+        <div class=" card-content-part ">
+          <span class=" d-block mt-1 h6 skill-name" (click)=" renderData()">{{skills.category}}
+          </span>
           <!-- Skill name -->
           <span class="d-block mb-1 sub-head">{{skills.subCategory}}</span>
           <!-- Sub skill name-->
