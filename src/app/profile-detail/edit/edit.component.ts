@@ -3,13 +3,15 @@ import { UsersService } from 'src/app/service/users.service';
 import {MatDialog} from '@angular/material/dialog';
 import {NgForm} from '@angular/forms';
 import {FormControl} from '@angular/forms';
-import { FormGroup,  } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  editForm!: NgForm;
   selectWishes = new FormControl('');
   categoryData: any;
   subCategoryData: any;
@@ -22,9 +24,14 @@ export class EditComponent implements OnInit {
   teachLevel:any;
   wishesTo:any;
   // form: FormGroup;
-  user: Object = {};
+  userEditData = {
+    categoryId:'',
+  };
+  selectedObject: any;
+  showPopover = false;
 
 
+  // userService: any;
   constructor(public userService: UsersService ) { }
 
   ngOnInit(): void {
@@ -80,18 +87,31 @@ export class EditComponent implements OnInit {
             console.log(this.subCategoryData);
           });
     }
-    editSkillData(user: any){
-      console.log("hi");
-      console.log(user);
+    
+  getUpdatedData(){
+
+    this.editForm.form.patchValue({})
+}
+
+editSkillData(userEditData: any){
+    alert("data came");
+
+  this.userEditData.categoryId = this.editForm.value.categoryId;
+      // console.log("hi");
+      console.log(this.userEditData.categoryId);
+      //console.log(this.selectedObject);
+
         // this.submitted.emit(this.form.getRawValue());
 
       
     }
-  
+
 }
 
 
 function category(category: any) {
   throw new Error('Function not implemented.');
 }
+
+
 

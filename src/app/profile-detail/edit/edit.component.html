@@ -3,11 +3,11 @@
   <div class="lh-1">
     <form (ngSubmit)="editSkillData(f.value)" #f="ngForm">
       <!-- category -->
-      <div class="form-group m-2 lh-lg">
+      <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill" width="200px">
           <mat-label for="categoryId">Select an Category</mat-label>
           <mat-select id="categoryId" name="categoryId" (selectionChange)="selectSubCategory($event.value)"
-            [(value)]="categoryId">
+            [(value)]="categoryId" class="form-control">
             <mat-option *ngFor=" let category of categoryData" [value]="category.id">
               {{category.cat_name}}</mat-option>
 
@@ -17,10 +17,10 @@
       </div>
 
       <!-- sub Category -->
-      <div class="form-group m-2 lh-lg">
+      <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
           <mat-label for="subCategory">Select an Sub Category</mat-label>
-          <mat-select [(value)]="subCategoryId" id="subCategoryId" name="subCategoryId">
+          <mat-select [(value)]="subCategoryId" id="subCategoryId" name="subCategoryId" class="form-control">
             <!-- <mat-option disabled selected></mat-option> -->
             <mat-option *ngFor="let subCategory of subCategoryData" [value]="subCategory.id">
               {{subCategory.s_cat_name}}</mat-option>
@@ -29,11 +29,11 @@
       </div>
 
       <!-- level of skill -->
-      <div class="form-group m-2 lh-lg">
+      <div class="form-group m-1 lh-lg">
         <!-- <label for="power" class="lh-base">Level of Skill</label> -->
         <mat-form-field appearance="fill">
           <mat-label for="skillLevel">Select an Level of Skill</mat-label>
-          <mat-select [(value)]="skillLevel" id="skillLevel" name="skillLevel">
+          <mat-select [(value)]="skillLevel" id="skillLevel" name="skillLevel" class="form-control">
             <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
 
           </mat-select>
@@ -41,20 +41,20 @@
       </div>
 
       <!-- level of teaching -->
-      <div class="form-group m-2 lh-lg">
+      <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
-          <mat-label>Select an Level of Teaching skill</mat-label>
-          <mat-select [(value)]="teachLevel" for="teachLevel" disableRipple name="teachLevel">
+          <mat-label for="teachLevel">Select an Level of Teaching skill</mat-label>
+          <mat-select [(value)]="teachLevel" id="teachLevel" disableRipple name="teachLevel" class="form-control">
             <mat-option [value]="level.name" *ngFor="let level of levels" id="teachLevel">{{level.name}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
       <!-- wishes -->
-      <div class="form-group m-2 lh-lg">
+      <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
           <mat-label for="skillWishes">Select an I wish to</mat-label>
-          <mat-select [formControl]="selectWishes" id="skillWishes" multiple name="skillWishes">
+          <mat-select [formControl]="selectWishes" id="skillWishes" multiple name="skillWishes" class="form-control">
 
             <mat-option *ngFor="let swapList of swapList" [value]="swapList.name">{{swapList.name}}</mat-option>
           </mat-select>
@@ -63,14 +63,12 @@
 
 
       <!-- button -->
-      <div class="form-group m-2 lh-lg edit-btn-part">
-        <button class="btn btn-success m-1 px-2 py-1" type="submit">Save
+      <div class="form-group m-1 lh-lg edit-btn-part">
+        <button class="btn btn-submit m-1 px-2 py-1" type="submit" (click)="getUpdatedData()">Save
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
-        <button class="btn btn-primary m-1 px-2 py-1">Cancel
-          <!-- <mat-icon>cancel</mat-icon> -->
-        </button>
-        <button class="btn btn-danger m-1 px-2 py-1"> Delete
+
+        <button class="btn btn-delete m-1 px-2 py-1 float-end"> Delete
           <!-- <mat-icon>delete</mat-icon> -->
         </button>
       </div>

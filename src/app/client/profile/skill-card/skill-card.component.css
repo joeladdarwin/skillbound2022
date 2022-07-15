@@ -33,14 +33,14 @@ mat-icon {
 /* .card:hover {
   opacity:0.6;
 } */
-.card{
+.card-container{
     transition: .4s ease-in-out;
 }
-.card:hover .card-content-part{
+.card-container:hover .card-content-part{
   opacity: 0.4;
   
 }
-.card:hover .wishesPart{
+.card-container:hover .wishesPart{
   animation: animate 3s ;
 }
 @keyframes animate{
