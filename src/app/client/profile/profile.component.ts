@@ -7,7 +7,6 @@ import {MatDialog} from '@angular/material/dialog';
 // import { CreateComponent } from 'src/app/profile-detail/create/create.component';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SkillCardComponent } from './skill-card/skill-card.component';
-import { EditComponent } from 'src/app/profile-detail/edit/edit.component'
 
 
 @Component({
@@ -28,7 +27,7 @@ export class ProfileComponent  {
 
   constructor(public service: UsersService) 
  { 
-    // this.wishColor = WishesColor;
+    
   }
   ngOnInit(): void {
   // get skill value
@@ -46,53 +45,54 @@ export class ProfileComponent  {
   //   return "#ff0000";
   // }
 
-  getClass(level:string) {
-    return level && level.toLowerCase();
-  }
+  // getClass(level:string) {
+  //   return level && level.toLowerCase();
+  // }
   
   // user data fetch interface
-  userInterFaceData(users: any) {
-    return users.map((userData: any) => {
-      return {
-      id: userData.id,
-      username:userData.username,
-      category:userData.category,
-      subCategory: userData.s_cat_name,
-      emailid:userData.emailid,
-      name: userData.fname,
-      gender:userData.Gender,
-      country:userData.country,
-      keywords:userData.sk_got_keywords ,
-      levelSkill: userData.level1.toLowerCase(),
-      wishesTo:userData.level3,
-      teachingLevel:userData.level2.toLowerCase(),
-      fname:userData.fname,
-      lname:userData.lname,
-      work:userData.work,
-      company:userData.Company,
-      desiredskills:userData.desiredskills,
-      business:userData.business,
-      qualifications:userData.qualifications,
-      school:userData.school,
-      licenses:userData.licenses,
-      experiences:userData.experiences,
-      rates:userData.rates,
-      bod:userData.bod,
-      address:userData.address,
-      borough:userData.borough,
-      province:userData.province,
-      village:userData.village,
-      town:userData.town,
-      city:userData.city,
-      state:userData.state,
-      zip:userData.zip,
-      phone:userData.phone,
-      cat_id:userData.id,
-      s_cat_id:userData.id
-    }
-    });
+  // userInterFaceData(users: any) {
+  //   return users.map((userData: any) => {
+  //     console.log(userData);
+  //     return {
+  //     id: userData.id,
+  //     username:userData.username,
+  //     category:userData.category,
+  //     subCategory: userData.s_cat_name,
+  //     emailid:userData.emailid,
+  //     name: userData.fname,
+  //     gender:userData.Gender,
+  //     country:userData.country,
+  //     keywords:userData.sk_got_keywords ,
+  //     levelSkill: userData.level1.toLowerCase(),
+  //     wishesTo:userData.level3,
+  //     teachingLevel:userData.level2.toLowerCase(),
+  //     fname:userData.fname,
+  //     lname:userData.lname,
+  //     work:userData.work,
+  //     company:userData.Company,
+  //     desiredskills:userData.desiredskills,
+  //     business:userData.business,
+  //     qualifications:userData.qualifications,
+  //     school:userData.school,
+  //     licenses:userData.licenses,
+  //     experiences:userData.experiences,
+  //     rates:userData.rates,
+  //     bod:userData.bod,
+  //     address:userData.address,
+  //     borough:userData.borough,
+  //     province:userData.province,
+  //     village:userData.village,
+  //     town:userData.town,
+  //     city:userData.city,
+  //     state:userData.state,
+  //     zip:userData.zip,
+  //     phone:userData.phone,
+  //     cat_id:userData.id,
+  //     s_cat_id:userData.id
+  //   }
+  //   });
     
-  } 
+  // } 
 
   // editSkill(){
   //   this.dialog.open(EditComponent);

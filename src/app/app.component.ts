@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'skillbound';
   customer : any;
   constructor(private service:UsersService){
-     this.service.getCurrentUserSkill().subscribe((data: any) =>{
+     //this.service.getCurrentUserSkill().subscribe((data: any) =>{
     //  console.log(data);
-     })
+    // })
   }
 
 

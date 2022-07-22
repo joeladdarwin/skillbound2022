@@ -6,12 +6,15 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { SkillCardComponent } from './skill-card/skill-card.component';
-
+import {SkillEditComponent} from './skill-card/skill-edit/skill-edit.component';
+import { SkillAddComponent } from './skill-card/skill-add/skill-add.component'
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 
@@ -20,10 +23,10 @@ import { SkillCardComponent } from './skill-card/skill-card.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
-    
+    ProfileComponent,    
     SkillCardComponent,
-    
+    SkillEditComponent,
+    SkillAddComponent
     // TriangleAnimateComponent
     
   ],
@@ -35,7 +38,12 @@ import { SkillCardComponent } from './skill-card/skill-card.component';
     MatProgressBarModule,
     MatGridListModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    
+    ReactiveFormsModule,
+    FormsModule
+
   ]
 })
 export class ProfileModule {

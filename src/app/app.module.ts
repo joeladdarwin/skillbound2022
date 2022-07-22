@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -49,6 +49,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
 import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
+import { NotificationComponent } from './profile-detail/notification/notification.component';
 // import { SkillCardComponent } from './profile/skill-card/skill-card.component';
 
 @NgModule({
@@ -70,6 +71,7 @@ import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
     EditComponent,
     PrivacyComponent,
     GuidelinesComponent,
+    NotificationComponent,
     // SkillCardComponent
     
 
@@ -112,6 +114,9 @@ import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
 
   ],
   providers: [UsersService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+  ],
 })
 export class AppModule { }

@@ -1,0 +1,58 @@
+<div class="container">
+  <h5 class="text-center">Please add the skills <br>you have</h5>
+  <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select (selectionChange)="selectSubCategory($event.value)" name="categoryId" ngModel>
+          <mat-option *ngFor=" let categoryList of categoryData" [value]="categoryList.id">{{categoryList.cat_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Sub Category</mat-label>
+        <mat-select name="subCategoryId" ngModel>
+          <mat-option *ngFor="let subCategoryDataList of subCategoryData" [value]="subCategoryDataList.id">
+            {{subCategoryDataList.s_cat_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Level of Skill</mat-label>
+        <mat-select name="skillLevel" ngModel>
+          <mat-option *ngFor="let level of levels" [value]="level">{{level}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Level of Teaching Skill</mat-label>
+        <mat-select name="teachLeal" ngModel>
+          <mat-option *ngFor="let level of levels" [value]="level">{{level}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>I wish to</mat-label>
+        <mat-select name="wishes" ngModel multiple>
+          <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{swapList}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <button class="btn btn-addSkill" type="submit">Post the skill you have</button>
+    </div>
+  </form>
+
+
+
+</div>

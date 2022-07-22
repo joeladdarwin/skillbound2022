@@ -8,7 +8,7 @@
       <!-- category -->
       <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill" width="200px">
-          <mat-label for="categoryId">Select an Category</mat-label>
+          <mat-label for="categoryId">Category</mat-label>
           <mat-select id="categoryId" name="categoryId" (selectionChange)="selectSubCategory($event.value)"
             [(value)]="categoryId" class="form-control" formControlName="categoryId" [(ngModel)]="categoryId">
             <mat-option *ngFor=" let category of categoryData" [value]="category.id">
@@ -22,7 +22,7 @@
       <!-- sub Category -->
       <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
-          <mat-label for="subCategory">Select an Sub Category</mat-label>
+          <mat-label for="subCategory">Sub Category:</mat-label>
           <mat-select [(value)]="subCategoryId" id="subCategoryId" name="subCategoryId" class="form-control"
             formControlName="subCategoryId" [(ngModel)]="subCategoryId">
             <!-- <mat-option disabled selected></mat-option> -->
@@ -36,7 +36,7 @@
       <div class="form-group m-1 lh-lg">
         <!-- <label for="power" class="lh-base">Level of Skill</label> -->
         <mat-form-field appearance="fill">
-          <mat-label for="skillLevel">Select an Level of Skill</mat-label>
+          <mat-label for="skillLevel">Level of Skill</mat-label>
           <mat-select [(value)]="skillLevel" id="skillLevel" name="skillLevel" class="form-control"
             formControlName="skillLevel" [(ngModel)]="skillLevel">
             <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
@@ -48,7 +48,7 @@
       <!-- level of teaching -->
       <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
-          <mat-label for="teachLevel">Select an Level of Teaching skill</mat-label>
+          <mat-label for="teachLevel">Level of Teaching Skill</mat-label>
           <mat-select [(value)]="teachLevel" id="teachLevel" disableRipple name="teachLevel" class="form-control"
             formControlName="teachLevel" [(ngModel)]="teachLevel">
             <mat-option [value]="level.name" *ngFor="let level of levels" id="teachLevel">{{level.name}}</mat-option>
@@ -59,7 +59,7 @@
       <!-- wishes -->
       <div class="form-group m-1 lh-lg">
         <mat-form-field appearance="fill">
-          <mat-label for="skillWishes">{{wishesTo !=="" ? wishesTo:"select wishes"}}</mat-label>
+          <mat-label for="skillWishes">{{wishesTo !=="" ? wishesTo:"I wish to"}}</mat-label>
           <mat-select id="skillWishes" name="selectWishes" class="form-control" formControlName="selectWishes" multiple>
 
             <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{swapList}}</mat-option>
@@ -70,7 +70,7 @@
 
       <!-- button -->
       <div class="form-group m-1 lh-lg edit-btn-part">
-        <button class="btn btn-submit m-1 px-2 py-1" type="submit" [mat-dialog-close]="true">Save
+        <button class="btn btn-submit m-1 px-2 py-1" type="submit" [mat-dialog-close]="true">Submit
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
 

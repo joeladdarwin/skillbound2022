@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import {MatDialog} from '@angular/material/dialog';
-import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup} from '@angular/forms';
-import {SkillCardComponent} from 'src/app/client/profile/skill-card/skill-card.component';
+import {MatDialog} from '@angular/material/dialog';
+
+//import {SkillCardComponent} from 'src/app/client/profile/skill-card/skill-card.component'
+interface Food {
+  value: string;
+  viewValue: string;
+}
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-skill-edit',
+  templateUrl: './skill-edit.component.html',
+  styleUrls: ['./skill-edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class SkillEditComponent implements OnInit {
+
   [x: string]: any;
   selectWishes = new FormControl('');
   categoryData: any;
@@ -40,11 +45,11 @@ export class EditComponent implements OnInit {
     selectWishes:new FormControl([''])
 })
 
-  // userService: any;
-  constructor(public userService: UsersService,  ) { }
- //myCompOneObj = new SkillCardComponent();
+
+  constructor(public userService: UsersService, private dialog:MatDialog){ }
+
   ngOnInit(): void {
-    this.userService.getCategory().subscribe((category:any)=>{
+     this.userService.getCategory().subscribe((category:any)=>{
       // console.log(category);
       this.categoryData = category;      
     
@@ -64,10 +69,9 @@ export class EditComponent implements OnInit {
     this.wishesTo =this.data[0].wishesTo.toString().replace(/this skill/g,'');
 
     console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory );  
-       
+    
   }
-
-    levels = [{name:'Basic'},
+   levels = [{name:'Basic'},
     {name:'Good'},
     {name:'Expert'}
     ]
@@ -80,8 +84,7 @@ export class EditComponent implements OnInit {
       'Consoult in',
       'Offer a good service'] ;
     
-
-  selectSubCategory(selectedCategoryId: any){
+      selectSubCategory(selectedCategoryId: any){
     this.selectedCategoryId = selectedCategoryId;
     // alert(selectedCategoryId);
 
@@ -118,35 +121,12 @@ export class EditComponent implements OnInit {
      
       console.log(updateAlert);
        this.ngOnInit();
-      //  this.skillCard.
+
+      //this.skillEditUpdate.updateNotification(updateAlert);
+     // this.userService.notificationData =updateAlert;
 
     })
   console.log(this.editedData.value);
   }
   
 }
-
-
-  //this.userEditData.categoryId = this.editForm.value.categoryId;
-      // console.log("hi");
-      //console.log(this.userEditData.categoryId);
-      //console.log(this.selectedObject);
-
-        // this.submitted.emit(this.form.getRawValue());
-
-      
-    
-
-
-
-
-function category(category: any) {
-  throw new Error('Function not implemented.');
-}
-
-
-
-// function getCurrentCardSkill() {
-//   throw new Error('Function not implemented.');
-// }
-

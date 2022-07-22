@@ -1,0 +1,71 @@
+/* .edit-btn-part button{
+  font-size: 14px;
+  
+}*/
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.btn-submit {
+  background-color: #a4e5fa;
+}
+
+.btn-submit:hover {
+  /* background-color: #76d6f7; */
+  box-shadow: 2px 5px 5px #757575;
+}
+
+.btn-delete {
+  background-color: #f4f4f4;
+}
+
+.btn-delete:hover {
+  box-shadow: 5px 5px 5px #757575;
+}
+
+#categoryId,
+#subCategoryId,
+#skillLevel,
+#teachLevel,
+#skillWishes {
+  border: 0;
+  background-color: #f5f5f5;
+  line-height: 1;
+  padding: 0;
+}
+
+#categoryId,
+#skillLevel,
+#teachLevel,
+#skillWishes,
+#subCategoryId:focus {
+  box-shadow: none;
+}
+
+.container {
+  position: relative;
+}
+
+.close-icon {
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  font-size: 25px;
+  font-weight: bolder;
+  /* border: 5px solid transparent; */
+}
+
+.close-icon:hover {
+  color: #79d4f3;
+}
+
+.success-msg {
+  border: 1px solid #fcfc87;
+  border-radius: 5px;
+  padding: 2px 30px 2px 5px;
+  background-color: #fcfc87;
+  position: absolute;
+  right: 0%;
+  bottom: 3%;
+}

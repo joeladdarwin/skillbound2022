@@ -46,6 +46,8 @@ export interface ISkills{
 export interface IUser{
 
   id: string;
+  skillId:string;
+  user_id:string;
   levelSkill?:Level;
   teachingLevel?:Level;
   emailid?:string;

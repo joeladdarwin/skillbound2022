@@ -1,3 +1,4 @@
+<mat-icon mat-button class="addIcon" (click)="addSkill()">add_circle</mat-icon>
 <!-- Start Card -->
 <div class="row card" (mouseover)="changeText = true" (mouseout)="changeText=false">
   <div class="container row justify-content-center">
@@ -5,7 +6,8 @@
       <div
         class="col-3 m-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
         style="width:200px; height:250px">
-        <mat-icon class="editIcon" mat-button (click)="editSkill(skills.id)">edit</mat-icon>
+        <mat-icon class="editIcon" mat-button (click)="editSkill(skills.skillId)">edit</mat-icon>
+        <mat-icon class="deleteIcon" mat-button (click)="deleteSkill(skills)">delete</mat-icon>
         <div class="wishesPart justify-content-around align-items-center d-flex p-3"
           [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="changeText && skills.wishesTo">
           <span class="cross-content " *ngIf="skills.wishesTo">{{skills.wishesTo}}
@@ -46,7 +48,4 @@
   </div>
 </div>
 <!-- End Card -->
-
-<script>
-
-</script>
+<div class="delete-msg" *ngIf="deletNotification">That skill was deteletd</div>

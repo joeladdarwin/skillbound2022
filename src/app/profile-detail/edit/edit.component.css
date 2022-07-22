@@ -29,3 +29,26 @@
 #subCategoryId:focus{
   box-shadow: none;
 }
+.container{
+  position: relative;
+}
+.close-icon{
+  position: absolute;
+  top:-5px;
+  right: 15px;
+  font-size: 25px;
+  font-weight: bolder;
+  /* border: 5px solid transparent; */
+}
+.close-icon:hover {
+  color:#79d4f3;
+}
+.success-msg{
+  border: 1px solid #fcfc87;
+  border-radius: 5px;
+  padding: 2px 30px 2px 5px;
+  background-color: #fcfc87;
+  position: absolute;
+  right:0%;
+  bottom: 3%;
+}
