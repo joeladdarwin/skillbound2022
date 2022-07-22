@@ -14,7 +14,8 @@ import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { SkillCardComponent } from './skill-card/skill-card.component';
 import {SkillEditComponent} from './skill-card/skill-edit/skill-edit.component';
-import { SkillAddComponent } from './skill-card/skill-add/skill-add.component'
+import { SkillAddComponent } from './skill-card/skill-add/skill-add.component';
+import { WantSkillCardComponent } from './want-skill-card/want-skill-card.component'
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 
@@ -26,7 +27,8 @@ import { SkillAddComponent } from './skill-card/skill-add/skill-add.component'
     ProfileComponent,    
     SkillCardComponent,
     SkillEditComponent,
-    SkillAddComponent
+    SkillAddComponent,
+    WantSkillCardComponent
     // TriangleAnimateComponent
     
   ],

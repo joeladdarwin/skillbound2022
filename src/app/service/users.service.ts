@@ -46,11 +46,25 @@ export class UsersService {
   getCurrentCardSkill(){
     return this.currentSkillCard
   }
-
+   
   //update notification
+  getCurrentUserId(){
+    return this.userId
+  }
 
+  userSkillAdd(addSkilldata:any){
+    return this.http.post(`${this.url}addSkill`,addSkilldata)
+  }
   updateNotification(){
     return this.notificationData
   }
 
+
+  //startwant Skill table data
+  
+  //get want skill data
+  getCurrentUserWantSkill(){
+    return this.http.get(`${this.url}wantSkill${this.userId}`)
+  }
+ 
 }

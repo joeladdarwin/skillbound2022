@@ -104,9 +104,9 @@ export class ProfileComponent  {
 }
 
 
-function wish(wish: any) {
-  throw new Error('Function not implemented.');
-}
+// function wish(wish: any) {
+//   throw new Error('Function not implemented.');
+// }
 
 
 

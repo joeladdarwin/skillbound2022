@@ -10,11 +10,12 @@ import { SkillCardComponent } from '../skill-card.component';
   styleUrls: ['./skill-add.component.css']
 })
 export class SkillAddComponent implements OnInit {
-categoryData:any;
-selectedCategoryId:any;
-subCategoryData:any;
+categoryData:any;   //get category list
+selectedCategoryId:any; //selected category Id
+subCategoryData:any;  //sub category list
+userId:any; //current user Id
 
-  constructor(private userService:UsersService, public userData:SkillCardComponent) { }
+  constructor(private userService:UsersService) { }
   @Input()
   user_Id!: string;
   ngOnInit(): void {
@@ -23,7 +24,10 @@ subCategoryData:any;
       this.categoryData = category; 
       console.log(this.categoryData)   ;
     });
+    this.userId = this.userService.getCurrentUserId();
+     console.log(this.userId);
   }
+  
   levels = ['Basic','Good','Expert'];
   swapList : string[] = [
       'Swap',
@@ -45,8 +49,23 @@ subCategoryData:any;
            // alert(this.subCategoryData);
           });
   }
+  addStringtoWishes(val: any) {
+      return val.map((e: any) => e + ' this skill');
+    }
   onClickSubmit(userlogin:any){
-    alert(this.user_Id);
+    console.log(this.userId);
+    console.log(userlogin);
+    const addSkilldata = {
+      userId:this.userId,
+      categoryId:userlogin.categoryId,
+      subCategoryId:userlogin.subCategoryId,
+      skillLevel:userlogin.skillLevel,
+      teachLevel:userlogin.teachLevel,
+      //wishes:userlogin.wishes,
+      wishes: userlogin.wishes == [''] ? '' : this.addStringtoWishes(userlogin.wishes)
+    }
+    console.log(addSkilldata);
+    this.userService.userSkillAdd(addSkilldata).subscribe((addSkillnotification:any)=>{})
   }
 
 }
