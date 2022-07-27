@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:UsersService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,11 @@ export class HeaderComponent implements OnInit {
   profile_detail =[{name:'Profile',href:'#'},
   {name:'Message',href:'#'},
 {name:'Logout',href:'#'}]
+
+onLogout(){
+  
+}
+
 
 }
 

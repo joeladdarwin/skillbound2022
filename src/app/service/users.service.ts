@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
   url ="http://localhost:3000/";
-   userId= 768;
+   userId= 992;
   currentSkillCard:any;
   notificationData:any;
   // @Input() categoryId :any;
@@ -17,6 +17,20 @@ export class UsersService {
   constructor(private http:HttpClient) {
 
   }
+  //login
+  // loginRequest(data:any){
+  //   return this.http.post(`${this.url}login`, data)
+  // }
+  // isAuthendication():boolean{
+  //   if(sessionStorage.getItem('token')!==null){
+  //     return true;
+  //   }
+  //   return false
+  // }
+logout(){
+   //this.token = null;  
+   // this.isAuthenticated = false;  
+}
 
   // get skills
    getCurrentUserSkill(){

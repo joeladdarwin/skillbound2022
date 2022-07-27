@@ -2,9 +2,25 @@
   font-size: 14px;
   
 }*/
+
 .example-additional-selection {
   opacity: 0.75;
   font-size: 0.75em;
+}
+@media only screen and (max-width: 600px) {
+  form {
+    margin: auto 17%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  form {
+    margin: auto 5%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  form {
+    margin: auto ;
+  }
 }
 
 .btn-submit {
@@ -68,4 +84,7 @@
   position: absolute;
   right: 0%;
   bottom: 3%;
+}
+.form-control.ng-touched.ng-invalid {
+  border: 1.5px solid #f00
 }

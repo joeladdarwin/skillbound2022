@@ -1,15 +1,15 @@
 <mat-icon mat-button class="addIcon" (click)="addSkill()">add_circle</mat-icon>
 <!-- Start Card -->
-<div class="row card" (mouseover)="changeText = true" (mouseout)="changeText=false">
+<div class="row card">
   <div class="container row justify-content-center">
     <div class=" d-flex col-xl-4 col-lg-6 col-md-6 col-12" *ngFor="let skills of userData; let i = index">
       <div
-        class="col-3 m-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
-        style="width:200px; height:250px">
+        class="col-3 mx-1 my-3 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
+        style="width:200px; height:250px" (mouseover)="skills.skillWish = true" (mouseout)="skills.skillWish=false">
         <mat-icon class="editIcon" mat-button (click)="editSkill(skills.skillId)">edit</mat-icon>
         <mat-icon class="deleteIcon" mat-button (click)="deleteSkill(skills)">delete</mat-icon>
         <div class="wishesPart justify-content-around align-items-center d-flex p-3"
-          [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="changeText && skills.wishesTo">
+          [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="skills.skillWish && skills.wishesTo ">
           <span class="cross-content " *ngIf="skills.wishesTo">{{skills.wishesTo}}
             <!-- <ul *ngFor="let wish of skills.wishesTo; let j= index">
               <li>{{wish.whishesTo}}</li>

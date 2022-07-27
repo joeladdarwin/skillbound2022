@@ -31,6 +31,7 @@ export class SkillEditComponent implements OnInit {
   skillId:any;
   successMsg:any;
   formSuccessMessage:boolean = false;
+  
   // form: FormGroup;
   // userEditData = {
   //   categoryId:'',

@@ -1,16 +1,20 @@
 <div class="container pt-4">
   <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
 
-  <h5 class="text-center ">Edit member with skills</h5>
 
-  <div class="lh-1">
-    <form (ngSubmit)="editSkillData()" [formGroup]="editedData">
+  <div class="lh-1 justify-content-center">
+    <h5 class="text-center">Edit member with skills</h5>
+
+    <form (ngSubmit)="editSkillData()" [formGroup]="editedData"
+      class="row justify-content-evenly justify-content-col-center flex-col-column ">
+
+      <!-- <div class="row "> -->
       <!-- category -->
-      <div class="form-group m-1 lh-lg">
-        <mat-form-field appearance="fill" width="200px">
+      <div class="form-group m-1  col-lg-3 col-md-4">
+        <mat-form-field appearance="fill">
           <mat-label for="categoryId">Category</mat-label>
           <mat-select id="categoryId" name="categoryId" (selectionChange)="selectSubCategory($event.value)"
-            [(value)]="categoryId" class="form-control" formControlName="categoryId" [(ngModel)]="categoryId">
+            [(value)]="categoryId" class="form-control" formControlName="categoryId" [(ngModel)]="categoryId" required>
             <mat-option *ngFor=" let category of categoryData" [value]="category.id">
               {{category.cat_name}}</mat-option>
 
@@ -20,11 +24,11 @@
       </div>
 
       <!-- sub Category -->
-      <div class="form-group m-1 lh-lg">
+      <div class="form-group m-1 col-lg-3 col-md-4">
         <mat-form-field appearance="fill">
           <mat-label for="subCategory">Sub Category:</mat-label>
           <mat-select [(value)]="subCategoryId" id="subCategoryId" name="subCategoryId" class="form-control"
-            formControlName="subCategoryId" [(ngModel)]="subCategoryId">
+            formControlName="subCategoryId" [(ngModel)]="subCategoryId" required>
             <!-- <mat-option disabled selected></mat-option> -->
             <mat-option *ngFor="let subCategory of subCategoryData" [value]="subCategory.id">
               {{subCategory.s_cat_name}}</mat-option>
@@ -33,12 +37,12 @@
       </div>
 
       <!-- level of skill -->
-      <div class="form-group m-1 lh-lg">
+      <div class="form-group m-1 col-lg-3 col-md-4">
         <!-- <label for="power" class="lh-base">Level of Skill</label> -->
         <mat-form-field appearance="fill">
           <mat-label for="skillLevel">Level of Skill</mat-label>
           <mat-select [(value)]="skillLevel" id="skillLevel" name="skillLevel" class="form-control"
-            formControlName="skillLevel" [(ngModel)]="skillLevel">
+            formControlName="skillLevel" [(ngModel)]="skillLevel" required>
             <mat-option [value]="level.name" *ngFor="let level of levels">{{level.name}}</mat-option>
 
           </mat-select>
@@ -46,21 +50,22 @@
       </div>
 
       <!-- level of teaching -->
-      <div class="form-group m-1 lh-lg">
+      <div class="form-group m-1  col-lg-3 col-md-4">
         <mat-form-field appearance="fill">
           <mat-label for="teachLevel">Level of Teaching Skill</mat-label>
           <mat-select [(value)]="teachLevel" id="teachLevel" disableRipple name="teachLevel" class="form-control"
-            formControlName="teachLevel" [(ngModel)]="teachLevel">
+            formControlName="teachLevel" [(ngModel)]="teachLevel" required>
             <mat-option [value]="level.name" *ngFor="let level of levels" id="teachLevel">{{level.name}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
       <!-- wishes -->
-      <div class="form-group m-1 lh-lg">
+      <div class="form-group m-1  col-lg-3 col-md-4">
         <mat-form-field appearance="fill">
           <mat-label for="skillWishes">{{wishesTo !=="" ? wishesTo:"I wish to"}}</mat-label>
-          <mat-select id="skillWishes" name="selectWishes" class="form-control" formControlName="selectWishes" multiple>
+          <mat-select id="skillWishes" name="selectWishes" class="form-control" formControlName="selectWishes" multiple
+            required>
 
             <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{swapList}}</mat-option>
           </mat-select>
@@ -69,13 +74,15 @@
 
 
       <!-- button -->
-      <div class="form-group m-1 lh-lg edit-btn-part">
+      <div class="form-group m-1  edit-btn-part  col-lg-3 col-md-4">
         <button class="btn btn-submit m-1 px-2 py-1" type="submit" [mat-dialog-close]="true">Submit
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
 
 
       </div>
+      <!-- </div> -->
+
 
     </form>
   </div>

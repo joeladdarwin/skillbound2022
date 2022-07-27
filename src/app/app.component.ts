@@ -9,7 +9,7 @@ import { UsersService } from './service/users.service';
 export class AppComponent {
   title = 'skillbound';
   customer : any;
-  constructor(private service:UsersService){
+  constructor(public service:UsersService){
      //this.service.getCurrentUserSkill().subscribe((data: any) =>{
     //  console.log(data);
     // })

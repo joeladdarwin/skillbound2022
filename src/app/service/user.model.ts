@@ -89,5 +89,6 @@ export interface IUser{
   teachLevel?:string;
   cat_id?:string;
   sub_cat_id?:string;
+  skillWish:boolean;
 }
 

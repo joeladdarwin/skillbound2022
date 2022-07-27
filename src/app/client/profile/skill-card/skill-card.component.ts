@@ -99,10 +99,10 @@ export class SkillCardComponent implements OnInit {
       wishesColor: this.getWishData(userData.level3.replace( /this skill/g,"")),
       teachLevel:userData.level2,
       teachingLevel:userData.level2.toLowerCase(),
-      fname:userData.fname,
-      lname:userData.lname,
-      work:userData.work,
-      company:userData.Company,
+      //fname:userData.fname,
+      //lname:userData.lname,
+      //work:userData.work,
+      //company:userData.Company,
       desiredskills:userData.desiredskills,
       business:userData.business,
       qualifications:userData.qualifications,
@@ -121,7 +121,8 @@ export class SkillCardComponent implements OnInit {
       zip:userData.zip,
       phone:userData.phone,
       cat_id:userData.cat_id,
-      sub_cat_id:userData.sub_cat_id
+      sub_cat_id:userData.sub_cat_id,
+      skillWish:false
     }
     
     })
