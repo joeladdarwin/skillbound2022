@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import {FormControl,FormGroup} from '@angular/forms';
+import {FormControl,FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 
 //import {SkillCardComponent} from 'src/app/client/profile/skill-card/skill-card.component'
@@ -39,12 +39,12 @@ export class SkillEditComponent implements OnInit {
   selectedObject: any;
   showPopover = false;
     editedData = new FormGroup({
-    categoryId : new FormControl(''),
-    subCategoryId: new FormControl(''),
-    skillLevel: new FormControl(''),
-    teachLevel: new FormControl(''),
-    selectWishes:new FormControl([''])
-})
+    categoryId : new FormControl('',Validators.required),
+    subCategoryId: new FormControl('',Validators.required),
+    skillLevel: new FormControl('', Validators.required),
+    teachLevel: new FormControl('',Validators.required),
+    selectWishes:new FormControl([''],Validators.required)
+});
 
 
   constructor(public userService: UsersService, private dialog:MatDialog){ }
@@ -67,7 +67,7 @@ export class SkillEditComponent implements OnInit {
     console.log(this.subCategoryId);
     this.skillLevel = this.data[0].skillLevel;
     this.teachLevel =this.data[0].teachLevel;
-    this.wishesTo =this.data[0].wishesTo.toString().replace(/this skill/g,'');
+    this.wishesTo =this.data[0].wishesTo.toString().replace(/this skill/g,'').split(",");
 
     console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory );  
     
@@ -107,6 +107,8 @@ export class SkillEditComponent implements OnInit {
     }
     
   editSkillData() {
+    console.log(this.editedData);
+
     const formValue = this.editedData.value;
     console.log( formValue.selectWishes);
     const payload = {

@@ -64,8 +64,8 @@
       <div class="form-group m-1  col-lg-3 col-md-4">
         <mat-form-field appearance="fill">
           <mat-label for="skillWishes">{{wishesTo !=="" ? wishesTo:"I wish to"}}</mat-label>
-          <mat-select id="skillWishes" name="selectWishes" class="form-control" formControlName="selectWishes" multiple
-            required>
+          <mat-select id="skillWishes" name="selectWishes" class="form-control" formControlName="selectWishes"
+            [(ngModel)]="wishesTo" [(value)]="wishesTo" multiple required>
 
             <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{swapList}}</mat-option>
           </mat-select>
@@ -75,7 +75,8 @@
 
       <!-- button -->
       <div class="form-group m-1  edit-btn-part  col-lg-3 col-md-4">
-        <button class="btn btn-submit m-1 px-2 py-1" type="submit" [mat-dialog-close]="true">Submit
+        <button class="btn btn-submit m-1 px-2 py-1" type="submit" [mat-dialog-close]="true"
+          [disabled]="!editedData.valid">Submit
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
   url ="http://localhost:3000/";
-   userId= 992;
+   userId= 701;
   currentSkillCard:any;
   notificationData:any;
   // @Input() categoryId :any;
