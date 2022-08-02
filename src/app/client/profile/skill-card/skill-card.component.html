@@ -2,25 +2,43 @@
 <!-- Start Card -->
 <div class="row card">
   <div class="container row justify-content-center">
-    <div class=" d-flex col-xl-4 col-lg-6 col-md-6 col-12" *ngFor="let skills of userData; let i = index">
+    <div
+      class="d-flex col-xl-4 col-lg-6 col-md-6 col-12"
+      *ngFor="let skills of userData; let i = index"
+    >
       <div
         class="col-3 mx-1 my-3 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
-        style="width:200px; height:250px" (mouseover)="skills.skillWish = true" (mouseout)="skills.skillWish=false">
-        <mat-icon class="editIcon" mat-button (click)="editSkill(skills.skillId)">edit</mat-icon>
-        <mat-icon class="deleteIcon" mat-button (click)="deleteSkill(skills)">delete</mat-icon>
-        <div class="wishesPart justify-content-around align-items-center d-flex p-3"
-          [ngStyle]="{'background-color':skills.wishesColor}" *ngIf="skills.skillWish && skills.wishesTo ">
-          <span class="cross-content " *ngIf="skills.wishesTo">{{skills.wishesTo}}
+        style="width: 200px; height: 250px"
+        (mouseover)="skills.skillWish = true"
+        (mouseout)="skills.skillWish = false"
+      >
+        <mat-icon
+          class="editIcon"
+          mat-button
+          (click)="editSkill(skills.skillId)"
+          >edit</mat-icon
+        >
+        <mat-icon class="deleteIcon" mat-button (click)="deleteSkill(skills)"
+          >delete</mat-icon
+        >
+        <div
+          class="wishesPart justify-content-around align-items-center d-flex p-3"
+          [ngStyle]="{ 'background-color': skills.wishesColor }"
+          *ngIf="skills.skillWish && skills.wishesTo"
+        >
+          <span class="cross-content" *ngIf="skills.wishesTo"
+            >{{ skills.wishesTo }}
             <!-- <ul *ngFor="let wish of skills.wishesTo; let j= index">
               <li>{{wish.whishesTo}}</li>
             </ul> -->
           </span>
         </div>
-        <div class=" card-content-part ">
-          <span class=" d-block mt-1 h6 skill-name" (click)=" renderData()">{{skills.category}}
+        <div class="card-content-part">
+          <span class="d-block mt-1 h6 skill-name" (click)="renderData()"
+            >{{ skills.category }}
           </span>
           <!-- Skill name -->
-          <span class="d-block mb-1 sub-head">{{skills.subCategory}}</span>
+          <span class="d-block mb-1 sub-head">{{ skills.subCategory }}</span>
           <!-- Sub skill name-->
           <!-- level of skill -->
           <div class="d-block mt-2" *ngIf="skills.levelSkill">
@@ -28,24 +46,38 @@
           </div>
           <!-- Start skill level progress bar  -->
           <div class="progress skill-progress" *ngIf="skills.skillLevel">
-            <div class="progress-bar {{skills.levelSkill}}" title="{{skills.skillLevel}}" role="progressbar"
-              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar {{ skills.levelSkill }}"
+              title="{{ skills.skillLevel }}"
+              role="progressbar"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           <!-- End skill level progress bar -->
           <div class="d-block mt-2" *ngIf="skills.teachingLevel">
-            <span class="font-weight-bold mat-body-strong " id="skill-level">Teaching Level</span>
+            <span class="font-weight-bold mat-body-strong" id="skill-level"
+              >Teaching Level</span
+            >
           </div>
           <!-- start teaching level progress bar -->
           <div class="progress skill-progress" *ngIf="skills.teachingLevel">
-            <div class="progress-bar {{skills.teachingLevel}}" title="{{skills.teachingLevel}}" role="progressbar"
-              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar {{ skills.teachingLevel }}"
+              title="{{ skills.teachingLevel }}"
+              role="progressbar"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           <!-- End teaching level progress bar -->
         </div>
-
       </div>
     </div>
   </div>
 </div>
 <!-- End Card -->
 <div class="delete-msg" *ngIf="deletNotification">That skill was deteletd</div>
+<div>{{ newMusicianEvent }}</div>

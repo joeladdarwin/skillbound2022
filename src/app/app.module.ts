@@ -1,15 +1,14 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +24,6 @@ import { ClassifiedsComponent } from './shared/classifieds/classifieds.component
 import { PressreleasesComponent } from './shared/pressreleases/pressreleases.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilesComponent } from './shared/profiles/profiles.component';
 import { UsersService } from './service/users.service';
@@ -73,11 +71,10 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     GuidelinesComponent,
     NotificationComponent,
     // SkillCardComponent
-    
-
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MatIconModule,
     MatBadgeModule,
@@ -87,13 +84,14 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
+    SimpleNotificationsModule.forRoot(),
+
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
-    BrowserAnimationsModule,
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -109,14 +107,9 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    HttpClientModule,
-
-
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

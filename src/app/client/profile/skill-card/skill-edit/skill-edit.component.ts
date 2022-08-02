@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import {FormControl,FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+// import { NotificationsService } from 'angular2-notifications';
 
-//import {SkillCardComponent} from 'src/app/client/profile/skill-card/skill-card.component'
+//import { SkillCardComponent } from 'src/app/client/profile/skill-card/skill-card.component';
+//import { ProfileComponent } from 'src/app/client/profile/profile.component';
 interface Food {
   value: string;
   viewValue: string;
@@ -11,125 +13,155 @@ interface Food {
 @Component({
   selector: 'app-skill-edit',
   templateUrl: './skill-edit.component.html',
-  styleUrls: ['./skill-edit.component.css']
+  styleUrls: ['./skill-edit.component.css'],
 })
 export class SkillEditComponent implements OnInit {
+  matDialogClose: boolean = false;
+  title = 'hi';
 
   [x: string]: any;
   selectWishes = new FormControl('');
   categoryData: any;
   subCategoryData: any;
-  selectedCategoryId:any;
+  selectedCategoryId: any;
   selectedCategoryName: any;
   data: any;
-  datas:any;
+  datas: any;
   categoryId: any;
   subCategoryId: any;
-  skillLevel:any;
-  teachLevel:any;
-  wishesTo:any;
-  skillId:any;
-  successMsg:any;
-  formSuccessMessage:boolean = false;
-  
+  skillLevel: any;
+  teachLevel: any;
+  wishesTo: any;
+  skillId: any;
+
   // form: FormGroup;
   // userEditData = {
   //   categoryId:'',
   // };
   selectedObject: any;
   showPopover = false;
-    editedData = new FormGroup({
-    categoryId : new FormControl('',Validators.required),
-    subCategoryId: new FormControl('',Validators.required),
+  editedData = new FormGroup({
+    categoryId: new FormControl('', Validators.required),
+    subCategoryId: new FormControl('', Validators.required),
     skillLevel: new FormControl('', Validators.required),
-    teachLevel: new FormControl('',Validators.required),
-    selectWishes:new FormControl([''],Validators.required)
-});
+    teachLevel: new FormControl('', Validators.required),
+    selectWishes: new FormControl([''], Validators.required),
+  });
 
-
-  constructor(public userService: UsersService, private dialog:MatDialog){ }
+  constructor(
+    public userService: UsersService,
+    private dialog: MatDialog
+  ) // public notificationService: NotificationsService
+  {}
 
   ngOnInit(): void {
-     this.userService.getCategory().subscribe((category:any)=>{
+    this.userService.getCategory().subscribe((category: any) => {
       // console.log(category);
-      this.categoryData = category;      
-    
-    }); 
-    
+      this.categoryData = category;
+    });
+
     this.data = this.userService.getCurrentCardSkill(); //get data from service call
-     this.skillId= this.data[0].skillId;
-     
+    console.log(this.data);
+    this.skillId = this.data[0].skillId;
+
     this.categoryId = this.data[0].cat_id;
-        // console.log(this.categoryId);
+    // console.log(this.categoryId);
 
     this.callService(this.categoryId);
-    this.subCategoryId = this.data[0].sub_cat_id;
+    this.subCategoryId = this.data[0].s_cat_id;
     console.log(this.subCategoryId);
     this.skillLevel = this.data[0].skillLevel;
-    this.teachLevel =this.data[0].teachLevel;
-    this.wishesTo =this.data[0].wishesTo.toString().replace(/this skill/g,'').split(",");
+    this.teachLevel = this.data[0].teachLevel;
+    this.wishesTo = this.data[0].wishesTo
+      .toString()
+      .replace(/this skill/g, '')
+      .split(',');
 
-    console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory );  
-    
+    console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory);
   }
-   levels = [{name:'Basic'},
-    {name:'Good'},
-    {name:'Expert'}
-    ]
-    swapList : string[] = [
-      'Swap',
-      'Partner with',       
-      'Swap and train',
-      'Teach','Tutor', 
-      'Be employed in', 
-      'Consoult in',
-      'Offer a good service'] ;
-    
-      selectSubCategory(selectedCategoryId: any){
+  levels = [{ name: 'Basic' }, { name: 'Good' }, { name: 'Expert' }];
+  swapList: string[] = [
+    'Swap',
+    'Partner with',
+    'Swap and train',
+    'Teach',
+    'Tutor',
+    'Be employed in',
+    'Consoult in',
+    'Offer a good service',
+  ];
+
+  selectSubCategory(selectedCategoryId: any) {
     this.selectedCategoryId = selectedCategoryId;
     // alert(selectedCategoryId);
 
     console.log(this.selectedCategoryId);
     this.callService(this.selectedCategoryId);
+  }
 
-    }
+  callService(selectedCategoryId: any) {
+    this.userService
+      .getSubCategory(selectedCategoryId)
+      .subscribe((subCategory: any) => {
+        //console.log("asfsfd" + subCategory);
+        this.subCategoryData = subCategory;
+        console.log(this.subCategoryData);
+      });
+  }
 
-    callService(selectedCategoryId: any) {
-      this.userService.getSubCategory(selectedCategoryId).subscribe((subCategory:any)=>{
-            //console.log("asfsfd" + subCategory);
-            this.subCategoryData = subCategory;
-            console.log(this.subCategoryData);
-          });
-    }
+  addStringtoWishes(val: any) {
+    return val.map((e: any) => e + ' this skill');
+  }
 
-    addStringtoWishes(val: any) {
-      return val.map((e: any) => e + ' this skill');
-    }
-    
   editSkillData() {
     console.log(this.editedData);
 
     const formValue = this.editedData.value;
-    console.log( formValue.selectWishes);
+    console.log(formValue.selectWishes);
     const payload = {
-      
       skillId: this.skillId,
       categoryId: formValue.categoryId,
       subCategoryId: formValue.subCategoryId,
       skillLevel: formValue.skillLevel,
       teachLevel: formValue.teachLevel,
-      selectWishes: formValue.selectWishes == [''] ? '' : this.addStringtoWishes(formValue.selectWishes),
-    }
-   this.userService.skillDataUpdate(payload).subscribe((updateAlert:any)=>{
-     
+      selectWishes:
+        formValue.selectWishes == ['']
+          ? ''
+          : this.addStringtoWishes(formValue.selectWishes),
+    };
+    this.userService.skillDataUpdate(payload).subscribe((updateAlert: any) => {
+      // this.updateAlert = updateAlert;
       console.log(updateAlert);
-       this.ngOnInit();
+      this.matDialogClose = true;
+      updateMsgs(updateAlert);
 
-      //this.skillEditUpdate.updateNotification(updateAlert);
-     // this.userService.notificationData =updateAlert;
+      // this.notificationService.success('Message', updateAlert, {
+      //   position: ['bottom', 'right'],
+      //   timeOut: 2000,
+      //   animate: 'fade',
+      //   showProgressBar: true,
+      // });
+      //this.editMsg.emit('{ updateAlert}');
+      // this.profileComponent.updatemsg();
+      //this.ngOnInit();
+      // this.editPopup = true;
+      //updateMsg(updateAlert);
+    });
 
-    })
-  console.log(this.editedData.value);
+    // this.updateMsg = function (updateAlert: any) {
+    //   alert(this.updateMsg);
+    //   this.msg.emit(this.updateMsg);
+    //this.userService.updateMsgs = updateAlert;
+    //};
+
+    console.log(this.editedData.value);
   }
-  
+}
+
+function updateMsgs(updateAlert: any) {
+  throw new Error('Function not implemented.');
+}
+
+function updateAlert(updateAlert: any) {
+  throw new Error('Function not implemented.');
 }

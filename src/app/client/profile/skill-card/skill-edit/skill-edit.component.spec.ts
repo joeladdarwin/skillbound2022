@@ -8,9 +8,8 @@ describe('SkillEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillEditComponent ]
-    })
-    .compileComponents();
+      declarations: [SkillEditComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,41 +1,42 @@
 // import { LowerCasePipe } from '@angular/common';
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IUser, ISkills, WishesColor } from 'src/app/service/user.model';
 import { UsersService } from 'src/app/service/users.service';
 
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 // import { CreateComponent } from 'src/app/profile-detail/create/create.component';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { SkillCardComponent } from './skill-card/skill-card.component';
-
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  
 })
-export class ProfileComponent  {
-   userData?: IUser[];
-   skill?:ISkills[];
+export class ProfileComponent {
+  userData?: IUser[];
+  skill?: ISkills[];
   user: any;
-  expert: any;  
+  expert: any;
   creator: any;
- @Input() lazyRender= '';
+  @Input() lazyRender = '';
 
-  categoryData: any;  
+  categoryData: any;
 
-  constructor(public service: UsersService) 
- { 
-    
-  }
+  constructor(public service: UsersService) {}
   ngOnInit(): void {
-  // get skill value
+    // get skill value
     // this.service.getCurrentUserSkill().subscribe((user:any)=>{
-    //   console.log(user);    
+    //   console.log(user);
     //   this.userData =this.userInterFaceData(user);
-      // this.getWishColor(wish);
-    // });  
+    // this.getWishColor(wish);
+    // });
   }
 
   // getWishColor(wish:any) {
@@ -48,7 +49,7 @@ export class ProfileComponent  {
   // getClass(level:string) {
   //   return level && level.toLowerCase();
   // }
-  
+
   // user data fetch interface
   // userInterFaceData(users: any) {
   //   return users.map((userData: any) => {
@@ -91,22 +92,23 @@ export class ProfileComponent  {
   //     s_cat_id:userData.id
   //   }
   //   });
-    
-  // } 
+
+  // }
 
   // editSkill(){
   //   this.dialog.open(EditComponent);
   // }
-  
+
   // lazy render call
 
+  //   updatemsg() {
+  //     console.log('hi');
+  //   }
+  // }
 
+  // function wish(wish: any) {
+  //   throw new Error('Function not implemented.');
+  // updateMsg(datas) {
+  //   console.log('updated: ' + datas);
+  // }
 }
-
-
-// function wish(wish: any) {
-//   throw new Error('Function not implemented.');
-// }
-
-
-
