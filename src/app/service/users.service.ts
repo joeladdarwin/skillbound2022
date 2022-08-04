@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
   url = 'http://localhost:3000/';
-  userId = 701;
+  userId = 242;
   currentSkillCard: any;
   notificationData: any;
   // @Input() categoryId :any;
@@ -28,6 +28,10 @@ export class UsersService {
     // this.isAuthenticated = false;
   }
 
+  //get user details
+  userDetails() {
+    return this.http.get(`${this.url}userDetails/${this.userId}`);
+  }
   // get skills
   getCurrentUserSkill() {
     return this.http.get(`${this.url}skills/${this.userId}`);

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from './service/users.service';
+//import { NotificationsService } from 'angular2-notifications';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +10,10 @@ import { UsersService } from './service/users.service';
 export class AppComponent {
   title = 'skillbound';
   customer: any;
-  constructor(public service: UsersService) {
+  constructor(
+    public service: UsersService
+  ) //public notificationService: NotificationsService
+  {
     //this.service.getCurrentUserSkill().subscribe((data: any) =>{
     //  console.log(data);
     // })

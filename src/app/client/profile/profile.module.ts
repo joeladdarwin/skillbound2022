@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
@@ -27,6 +28,16 @@ import { WantSkillCardComponent } from './want-skill-card/want-skill-card.compon
     // TriangleAnimateComponent
   ],
   imports: [
+    // SimpleNotificationsModule.forRoot({
+    //   icons: {
+    //     success: '<i class="icon-check-sign icon-3x left"></i>',
+    //     alert: '<i class="icon-exclamation icon-3x left"></i>',
+    //     error: '<i class="icon-bug icon-3x left"></i>',
+    //     info: '<i class="icon-info icon-3x left"></i>',
+    //     warn: '<i class="icon-warning-sign icon-3x left"></i>',
+    //   },
+    //   rtl: true,
+    // }),
     CommonModule,
     ProfileRoutingModule,
     MatExpansionModule,

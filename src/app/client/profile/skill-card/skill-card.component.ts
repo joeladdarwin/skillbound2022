@@ -10,6 +10,8 @@ import { UsersService } from 'src/app/service/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SkillEditComponent } from './skill-edit/skill-edit.component';
 import { SkillAddComponent } from './skill-add/skill-add.component';
+//import { NotificationsService } from 'angular2-notifications';
+
 @Component({
   selector: 'app-skill-card',
   templateUrl: './skill-card.component.html',
@@ -29,7 +31,10 @@ export class SkillCardComponent implements OnInit {
   deletNotification: boolean = false;
   // @Input() userData='';
 
-  constructor(public userService: UsersService, public dialog: MatDialog) {
+  constructor(
+    public userService: UsersService,
+    public dialog: MatDialog //public notification: NotificationsService
+  ) {
     this.changeText = false;
   }
   //@Output() deleteId: EventEmitter <any>= new EventEmitter()
@@ -167,12 +172,19 @@ export class SkillCardComponent implements OnInit {
       this.userService
         .deleteSkill(skills.skillId)
         .subscribe((deleteMsg: any) => {
-          alert(deleteMsg);
+          //alert(deleteMsg);
           this.ngOnInit();
-          this.deletNotification = true;
-          setTimeout(() => {
-            this.deletNotification = false;
-          }, 3000);
+          // this.deletNotification = true;
+          // setTimeout(() => {
+          //   this.deletNotification = false;
+          // }, 3000);
+          // this.notification.success('ghhgkg', 'success', {
+          //   position: ['bottom', 'right'],
+          //   timeOut: 2000,
+          //   animation: 'fade',
+          //   showProgressBar: true,
+          //   clickToClose: false,
+          // });
         });
     }
     this.skillId = skills.skillId;

@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-// import { NotificationsService } from 'angular2-notifications';
 
 //import { SkillCardComponent } from 'src/app/client/profile/skill-card/skill-card.component';
 //import { ProfileComponent } from 'src/app/client/profile/profile.component';
@@ -48,11 +47,7 @@ export class SkillEditComponent implements OnInit {
     selectWishes: new FormControl([''], Validators.required),
   });
 
-  constructor(
-    public userService: UsersService,
-    private dialog: MatDialog
-  ) // public notificationService: NotificationsService
-  {}
+  constructor(public userService: UsersService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.userService.getCategory().subscribe((category: any) => {
@@ -135,12 +130,6 @@ export class SkillEditComponent implements OnInit {
       this.matDialogClose = true;
       updateMsgs(updateAlert);
 
-      // this.notificationService.success('Message', updateAlert, {
-      //   position: ['bottom', 'right'],
-      //   timeOut: 2000,
-      //   animate: 'fade',
-      //   showProgressBar: true,
-      // });
       //this.editMsg.emit('{ updateAlert}');
       // this.profileComponent.updatemsg();
       //this.ngOnInit();

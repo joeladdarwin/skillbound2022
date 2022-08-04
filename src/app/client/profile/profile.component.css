@@ -1,3 +1,6 @@
 .sub-mat-header {
   background-color: #a4e5fa !important;
 }
+.form-control.ng-touched.ng-invalid {
+  border: 1.5px solid #f00;
+}
