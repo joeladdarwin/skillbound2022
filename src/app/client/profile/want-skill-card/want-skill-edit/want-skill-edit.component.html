@@ -1,0 +1,72 @@
+<div class="container pt-4">
+  <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+
+  <div class="lh-1 justify-content-center">
+    <h5 class="text-center">Edit member with skills</h5>
+
+    <form
+      class="row justify-content-evenly justify-content-col-center flex-col-column"
+    >
+      <!-- <div class="row "> -->
+      <!-- category -->
+      <div class="form-group m-1 col-lg-4 col-md-4">
+        <mat-form-field appearance="fill">
+          <mat-label for="categoryId">Category</mat-label>
+          <mat-select
+            id="categoryId"
+            name="categoryId"
+            class="form-control"
+            required
+          >
+            <mat-option
+              *ngFor="let category of categoryData"
+              [value]="category.id"
+            >
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- sub Category -->
+      <div class="form-group m-1 col-lg-4 col-md-4">
+        <mat-form-field appearance="fill">
+          <mat-label for="subCategory">Sub Category:</mat-label>
+          <mat-select
+            id="subCategoryId"
+            name="subCategoryId"
+            class="form-control"
+            required
+          >
+            <!-- <mat-option disabled selected></mat-option> -->
+            <mat-option> </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- wishes -->
+      <div class="form-group m-1 col-lg-4 col-md-4">
+        <mat-form-field appearance="fill">
+          <mat-label for="skillWishes"></mat-label>
+          <mat-select
+            id="skillWishes"
+            name="selectWishes"
+            class="form-control"
+            multiple
+            required
+          >
+            <mat-option></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- button -->
+      <div class="form-group m-1 edit-btn-part col-lg-4 col-md-4">
+        <button class="btn btn-submit m-1 px-2 py-1" type="submit">
+          Submit
+          <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
+        </button>
+      </div>
+      <!-- </div> -->
+    </form>
+  </div>
+</div>

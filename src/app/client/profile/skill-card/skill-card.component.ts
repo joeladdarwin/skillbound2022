@@ -26,7 +26,7 @@ export class SkillCardComponent implements OnInit {
   lazyRender: IUser[] | undefined; //lazy render
   user: any; //get user data from service call
   changeText: boolean; //wishes background  color change
-  skillId: any;
+  // skillId: any;
   deleteMsg: any;
   deletNotification: boolean = false;
   // @Input() userData='';
@@ -69,7 +69,18 @@ export class SkillCardComponent implements OnInit {
       case 'swap and train':
         wishColorCode = '  #fffd86  ';
         break;
-
+      case 'Form a group':
+        wishColorCode = '  #0ffd86  ';
+        break;
+      case 'consoult in':
+        wishColorCode = '  #f11d86  ';
+        break;
+      case 'offer a good or service ':
+        wishColorCode = ' #0d71a4  ';
+        break;
+      case 'be hired by someone ':
+        wishColorCode = ' #0c60db  ';
+        break;
       case 'teach ':
         wishColorCode = ' #fd71a4  ';
         break;
@@ -82,12 +93,18 @@ export class SkillCardComponent implements OnInit {
       case 'be employed in ':
         wishColorCode = ' #255f40  ';
         break;
+      case 'perform ':
+        wishColorCode = ' #2ee1e0  ';
+        break;
+      case 'mentor ':
+        wishColorCode = ' #2a1f40  ';
+        break;
     }
 
     return wishColorCode;
   }
 
-  // user data fetch interface
+  // user have skilldata fetch interface
   userInterFaceData(users: any) {
     return users.map((userData: any) => {
       console.log(userData);
@@ -154,6 +171,7 @@ export class SkillCardComponent implements OnInit {
 
   // edit the skill
   editSkill(selectedId: string) {
+    
     this.userService.currentSkillCard = this.userData?.filter(
       (x) => x.skillId == selectedId
     );
@@ -187,12 +205,21 @@ export class SkillCardComponent implements OnInit {
           // });
         });
     }
-    this.skillId = skills.skillId;
+    //this.skillId = skills.skillId;
   }
 
   addSkill() {
     this.dialog.open(SkillAddComponent);
   }
-
+  // animation(value: any) {
+  //   if (value === 'show') {
+  //     console.log(value);
+  //     this.userData[0].skillWish = true;
+  //     // console.log(this.userData[0]);
+  //   } else {
+  //     skillWish: false;
+  //     console.log(value);
+  //   }
+  // }
   //console.log(newMusicianEvent: any);
 }

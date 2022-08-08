@@ -1,7 +1,13 @@
 <div class="container">
-  <h5 class="text-center">Please add the skills <br />you have</h5>
-  <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
-    <div>
+  <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+
+  <h5 class="text-center">Please add the skills you have</h5>
+  <form
+    #userlogin="ngForm"
+    (ngSubmit)="onClickSubmit(userlogin.value)"
+    class="row justify-content-evenly justify-content-col-center flex-col-column"
+  >
+    <div class="m-1 col-lg-3 col-md-4">
       <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
         <mat-select
@@ -18,7 +24,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
+    <div class="m-1 col-lg-3 col-md-4">
       <mat-form-field appearance="fill">
         <mat-label>Sub Category</mat-label>
         <mat-select name="subCategoryId" ngModel>
@@ -31,7 +37,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
+    <div class="m-1 col-lg-3 col-md-4">
       <mat-form-field appearance="fill">
         <mat-label>Level of Skill</mat-label>
         <mat-select name="skillLevel" ngModel required>
@@ -41,7 +47,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
+    <div class="m-1 col-lg-3 col-md-4">
       <mat-form-field appearance="fill">
         <mat-label>Level of Teaching Skill</mat-label>
         <mat-select name="teachLevel" ngModel required>
@@ -52,7 +58,7 @@
       </mat-form-field>
     </div>
 
-    <div>
+    <div class="m-1 col-lg-3 col-md-4">
       <mat-form-field appearance="fill">
         <mat-label>I wish to</mat-label>
         <mat-select name="wishes" ngModel multiple required>
@@ -62,7 +68,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div>
+    <div class="m-1 col-lg-3 col-md-4">
       <button
         class="btn btn-addSkill"
         type="submit"
@@ -70,6 +76,15 @@
       >
         Post the skill you have
       </button>
+    </div>
+    <div class="m-3">
+      <span>
+        <button class="btn" (click)="openDialog()" [mat-dialog-close]="true">
+          ** If you don't find the skill you are looking for, please submit the
+          skill here, and we will add the missing skill if appropriate
+        </button>
+        <!-- <a href="">Click here</a> -->
+      </span>
     </div>
   </form>
 </div>

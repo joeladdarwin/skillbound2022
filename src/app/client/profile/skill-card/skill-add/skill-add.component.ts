@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { SkillCardComponent } from '../skill-card.component';
+import { SuggestionSkillPopupComponent } from 'src/app/client/profile/suggestion-skill-popup/suggestion-skill-popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-skill-add',
@@ -14,7 +14,7 @@ export class SkillAddComponent implements OnInit {
   subCategoryData: any; //sub category list
   userId: any; //current user Id
   countryId: any;
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService, public dialog: MatDialog) {}
   @Input()
   user_Id!: string;
   ngOnInit(): void {
@@ -35,13 +35,18 @@ export class SkillAddComponent implements OnInit {
   levels = ['Basic', 'Good', 'Expert'];
   swapList: string[] = [
     'Swap',
+    'Swap and train',
     'Partner with',
     'Swap and train',
     'Teach',
     'Tutor',
     'Be employed in',
     'Consoult in',
-    'Offer a good service',
+    'Offer a good orservice',
+    'Be hired by someone',
+    'Form a group',
+    'Perform',
+    'Mentor ',
   ];
   selectSubCategory(selectedCategoryId: any) {
     this.selectedCategoryId = selectedCategoryId;
@@ -81,5 +86,9 @@ export class SkillAddComponent implements OnInit {
       .subscribe((addSkillnotification: any) => {
         console.log(addSkillnotification);
       });
+  }
+  openDialog() {
+    this.dialog.open(SuggestionSkillPopupComponent);
+    // this.dialog.close();
   }
 }

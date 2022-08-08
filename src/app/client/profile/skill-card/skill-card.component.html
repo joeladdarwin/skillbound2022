@@ -8,9 +8,8 @@
     >
       <div
         class="col-3 mx-1 my-3 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
-        style="width: 200px; height: 250px"
-        (mouseover)="skills.skillWish = true"
-        (mouseout)="skills.skillWish = false"
+        (mouseenter)="skills.skillWish = true"
+        (mouseleave)="skills.skillWish = false"
       >
         <mat-icon
           class="editIcon"

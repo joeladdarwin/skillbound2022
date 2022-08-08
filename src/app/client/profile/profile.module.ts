@@ -16,6 +16,8 @@ import { SkillCardComponent } from './skill-card/skill-card.component';
 import { SkillEditComponent } from './skill-card/skill-edit/skill-edit.component';
 import { SkillAddComponent } from './skill-card/skill-add/skill-add.component';
 import { WantSkillCardComponent } from './want-skill-card/want-skill-card.component';
+import { SuggestionSkillPopupComponent } from './suggestion-skill-popup/suggestion-skill-popup.component';
+import { WantSkillEditComponent } from './want-skill-card/want-skill-edit/want-skill-edit.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 @NgModule({
@@ -25,6 +27,8 @@ import { WantSkillCardComponent } from './want-skill-card/want-skill-card.compon
     SkillEditComponent,
     SkillAddComponent,
     WantSkillCardComponent,
+    SuggestionSkillPopupComponent,
+    WantSkillEditComponent,
     // TriangleAnimateComponent
   ],
   imports: [

@@ -77,13 +77,11 @@ export class SkillEditComponent implements OnInit {
   levels = [{ name: 'Basic' }, { name: 'Good' }, { name: 'Expert' }];
   swapList: string[] = [
     'Swap',
-    'Partner with',
     'Swap and train',
     'Teach',
     'Tutor',
     'Be employed in',
     'Consoult in',
-    'Offer a good service',
   ];
 
   selectSubCategory(selectedCategoryId: any) {

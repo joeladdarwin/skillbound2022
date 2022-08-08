@@ -1,9 +1,7 @@
-.sub-mat-header {
-  background-color: #a4e5fa !important;
+.container {
+  position: relative;
 }
-.form-control.ng-touched.ng-invalid {
-  border: 1.5px solid #f00;
-}
+
 .close-icon {
   position: absolute;
   top: -5px;
@@ -11,4 +9,8 @@
   font-size: 25px;
   font-weight: bolder;
   /* border: 5px solid transparent; */
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }

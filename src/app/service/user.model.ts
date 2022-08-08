@@ -40,6 +40,7 @@ export interface ISkills {
 
 //  User Data
 export interface IUser {
+  wantSkillId: any;
   id: string;
   skillId: string;
   user_id: string;

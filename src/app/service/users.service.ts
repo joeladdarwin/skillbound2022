@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
   url = 'http://localhost:3000/';
-  userId = 242;
+  userId = 7;
   currentSkillCard: any;
   notificationData: any;
+  currentWantSkillCard: any;
   // @Input() categoryId :any;
 
   constructor(private http: HttpClient) {}
@@ -74,6 +75,11 @@ export class UsersService {
 
   //get want skill data
   getCurrentUserWantSkill() {
-    return this.http.get(`${this.url}wantSkill${this.userId}`);
+    return this.http.get(`${this.url}wantSkill/${this.userId}`);
   }
+  //want skill data sent another component
+  currentSkilldata() {
+    return this.currentWantSkillCard;
+  }
+  //want skill data
 }

@@ -1,6 +1,5 @@
 /* triangle shape design */
 .cross-content {
- 
   line-height: 1.5;
   font-size: 13px;
   line-height: 1.5;
@@ -12,8 +11,6 @@
 .mat-header-subtitle {
   font-size: 16px;
 }
-
-
 
 mat-icon {
   font-size: 16px;
@@ -29,27 +26,24 @@ mat-icon {
   background: #d6d5d564;
   border-radius: 12px;
   overflow: hidden;
+  transition: 0.4s ease-in-out;
 }
 /* .card:hover {
   opacity:0.6;
 } */
-.card-container{
-    transition: .4s ease-in-out;
-}
-.card-container:hover .card-content-part{
-  opacity: 0.4;
-  
-}
-.card-container:hover .wishesPart{
-  animation: animate 3s ;
-}
-@keyframes animate{
-  0%{
-    transform: translateX(150px);
 
+.card-container:hover .card-content-part {
+  opacity: 0.4;
+}
+.card-container:hover .wishesPart {
+  animation: animate 3s;
+}
+@keyframes animate {
+  0% {
+    transform: translateX(150px);
   }
-  25%{
-    transform: translateX(0px)
+  25% {
+    transform: translateX(0px);
   }
 }
 
@@ -57,16 +51,16 @@ mat-icon {
   /* display: none; */
   z-index: 1;
   opacity: 1 !important;
-  width:120px;
-  height: 250px;  
-  transition: .4s ease-in-out ;  
+  width: 140px;
+  height: 250px;
+  transition: 0.4s ease-in-out;
   right: 0;
   top: 0;
   position: absolute;
   box-shadow: 1px 2px 10px #fff;
 }
-mat-icon{
-    font-size: 22px;
+mat-icon {
+  font-size: 22px;
 }
 
 .editIcon {
@@ -82,13 +76,13 @@ mat-icon{
   top: 15px;
   left: 40px;
 }
-.addIcon{
- /* float: right; */
- cursor: pointer;
- margin-left:98%;
+.addIcon {
+  /* float: right; */
+  cursor: pointer;
+  margin-left: 98%;
 }
 
-.skill-name{
+.skill-name {
   width: 120px;
   text-align: center;
 }
@@ -96,16 +90,14 @@ mat-icon{
 /* } */
 
 .skill-name:hover {
-
   color: #aaa;
   transition: #aaa 12s ease-in;
-
 }
 
 .sub-head {
   font-weight: 400;
   font-size: 11px;
-  text-align:center;
+  text-align: center;
 }
 
 div #skill-level {
@@ -120,13 +112,13 @@ div #skill-level {
 /* progress bar basic */
 .basic {
   background-color: #e07f10b3 !important;
-  width: 50%
+  width: 50%;
 }
 
 /* prgoress bar good */
 .good {
   background-color: #ffd900ae !important;
-  width: 75%
+  width: 75%;
 }
 
 /* progress bar expert */
@@ -134,7 +126,6 @@ div #skill-level {
   background-color: #079b2c97 !important;
   width: 100%;
 }
-
 
 .ellipses {
   position: absolute;
@@ -147,17 +138,17 @@ div #skill-level {
   font-size: 20px;
 }
 
-.swap {
+/* .swap {
   background-color: #1d8df7;
-}
+} */
 
-.delete-msg{
-  border:2px solid #fefe7f;
-  background-color:#fefe7f ;
+.delete-msg {
+  border: 2px solid #fefe7f;
+  background-color: #fefe7f;
   border-radius: 5px;
   box-shadow: 1px 5px 5px #807e7e51;
   padding: 5px 20px 5px 5px;
-  position:fixed;
+  position: fixed;
   right: 0%;
   bottom: 3%;
   z-index: 1;
