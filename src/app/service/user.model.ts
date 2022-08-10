@@ -86,4 +86,9 @@ export interface IUser {
   cat_id?: string;
   s_cat_id?: string;
   skillWish: boolean;
+  className: string;
+  conductedby: string;
+  currency: string;
+  payment: string;
+  saleSkills: string;
 }

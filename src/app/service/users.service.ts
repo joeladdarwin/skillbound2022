@@ -96,4 +96,9 @@ export class UsersService {
     return this.http.delete(`${this.url}WantSkilldelete/${wantSkillId}`);
 
   }
+
+  //get skill sale data
+  getSkillSaleData(){
+    return this.http.get(`${this.url}getSkillSale/${this.userId}`)
+  }
 }
