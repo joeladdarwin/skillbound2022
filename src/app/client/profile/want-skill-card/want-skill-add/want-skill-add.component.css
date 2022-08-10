@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+  }
+  .btn-addSkill {
+    background-color: #a4e5fa;
+  }
+  .btn-addSkill:hover {
+    background-color: #76d6f7;
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: bolder;
+    /* border: 5px solid transparent; */
+  }
+  

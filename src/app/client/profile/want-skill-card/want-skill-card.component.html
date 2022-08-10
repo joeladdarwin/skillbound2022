@@ -1,5 +1,5 @@
 <div class="container m-2" *ngIf="wantSkillDetails">
-  <mat-icon mat-button class="addIcon">add_circle</mat-icon>
+  <mat-icon mat-button class="addIcon" (click)="addWantSkill()">add_circle</mat-icon>
   <!-- Start Card -->
   <div class="row card">
     <div class="container row justify-content-center">
@@ -8,7 +8,7 @@
         *ngFor="let wantSkill of wantSkillDetails; let i = index"
       >
         <div
-          class="col-3 m-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
+          class="col-3 my-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
           (mouseover)="wantSkill.skillWish = true"
           (mouseout)="wantSkill.skillWish = false"
         >
@@ -18,7 +18,7 @@
             (click)="editSkill(wantSkill.wantSkillId)"
             >edit</mat-icon
           >
-          <mat-icon class="deleteIcon" mat-button>delete</mat-icon>
+          <mat-icon class="deleteIcon" mat-button (click)="deleteWantSkill(wantSkill.wantSkillId)">delete</mat-icon>
           <!-- skill wishes -->
           <div
             class="wishesPart justify-content-around align-items-center d-flex p-3"

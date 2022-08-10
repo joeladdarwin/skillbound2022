@@ -18,6 +18,8 @@ import { SkillAddComponent } from './skill-card/skill-add/skill-add.component';
 import { WantSkillCardComponent } from './want-skill-card/want-skill-card.component';
 import { SuggestionSkillPopupComponent } from './suggestion-skill-popup/suggestion-skill-popup.component';
 import { WantSkillEditComponent } from './want-skill-card/want-skill-edit/want-skill-edit.component';
+import { WantSkillAddComponent } from './want-skill-card/want-skill-add/want-skill-add.component';
+import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 @NgModule({
@@ -29,6 +31,8 @@ import { WantSkillEditComponent } from './want-skill-card/want-skill-edit/want-s
     WantSkillCardComponent,
     SuggestionSkillPopupComponent,
     WantSkillEditComponent,
+    WantSkillAddComponent,
+    SkillsSaleComponent,
     // TriangleAnimateComponent
   ],
   imports: [

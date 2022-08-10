@@ -4,6 +4,7 @@ import { UsersService } from 'src/app/service/users.service';
 import { MatDialog } from '@angular/material/dialog';
 
 import { WantSkillEditComponent } from './want-skill-edit/want-skill-edit.component';
+import { WantSkillAddComponent } from './want-skill-add/want-skill-add.component';
 
 @Component({
   selector: 'app-want-skill-card',
@@ -113,4 +114,22 @@ export class WantSkillCardComponent implements OnInit {
     );
     this.dialog.open(WantSkillEditComponent);
   }
+  addWantSkill(){
+    this.dialog.open(WantSkillAddComponent);
+  }
+
+  deleteWantSkill(wnatskillId: any) {
+    console.log(wnatskillId);
+    // this.dialog.open(DeleteComponent);
+    let confirmation = 'Do you want to delete?';
+    if (confirm(confirmation) == true) {
+      this.userService
+        .deleteWantSkills(wnatskillId)
+        .subscribe((deleteMsg: any) => {
+          this.ngOnInit();
+         
+        });
+    }
+  }
+
 }

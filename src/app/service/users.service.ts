@@ -81,5 +81,19 @@ export class UsersService {
   currentSkilldata() {
     return this.currentWantSkillCard;
   }
-  //want skill data
+  //want skill update data
+  wantSkillDataUpdate(data:any){
+    return this.http.put(`${this.url}wantSkillUpdate/`,data);
+  }
+  //want skill add data
+  userWantSkillAdd(addWantSkilldata:any){
+    return this.http.post(`${this.url}addWantSkill`, addWantSkilldata);
+
+  }
+
+  //want skill delete data
+  deleteWantSkills(wantSkillId:any){
+    return this.http.delete(`${this.url}WantSkilldelete/${wantSkillId}`);
+
+  }
 }
