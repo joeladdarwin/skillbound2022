@@ -1,0 +1,99 @@
+<div class="container p-2">
+    <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+  
+    <h5 class="text-center p-2">Monetize your skills
+    </h5>
+    <form
+      
+      class="row justify-content-evenly justify-content-col-center flex-col-column" #form="ngForm" enctype="multipart/form-data" (ngSubmit)="skillData(form.value)"
+    >
+    <div >
+        <div class="row" >
+            <!-- Skill name -->
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="fill" >
+                    <mat-label>What is the name of your skill</mat-label>
+                    <input matInput ngModel  name="saleSkillName">
+                </mat-form-field>
+            </div>
+
+            <!-- class Name -->
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="fill" >
+                    <mat-label>What is the name of your class </mat-label>
+                    <input matInput name="className" ngModel >
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <span>What do you think people will pay for a one hour class with you</span>
+        <div class="row">
+           
+            <div class="col-md-6 ">
+                <mat-form-field appearance="fill">
+                    <mat-label>Currency</mat-label>
+                    <mat-select matNativeControl  ngModel name="currencyType">
+                    <mat-option [value]="currency.values" *ngFor="let currency of currency">{{currency.name}}</mat-option>
+                    
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 ">
+                <mat-form-field class="example-full-width" appearance="fill" >
+                    <mat-label>Payment</mat-label>
+                    <input matInput  ngModel name="payment">
+                </mat-form-field>
+            </div>
+
+        </div>
+        <div class="row">
+            <div  class="col-md-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Do you have a promotional video</mat-label>
+                    <mat-select matNativeControl disableRipple (selectionChange)="fileUpload($event.value)">
+                      <mat-option value="yes">Yes</mat-option>
+                      <mat-option value="no">No</mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-6" *ngIf="fileData === 'yes'">
+                <input type="file" id="file" name="videoFile" ngModel>    
+
+            </div>
+            
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="fill" >
+                    <mat-label>Do you want to offer your service</mat-label>
+                    <mat-select matNativeControl  ngModel name="offerService">
+                        <mat-option [value]="serviceOffer.values" *ngFor="let serviceOffer of serviceOffer">{{serviceOffer.name}}</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="col-md-6 align-items-center">
+                <button type="submit">Submit</button>
+            </div>
+            
+        </div>
+   </div>
+         
+                <!-- <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>First name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Long Last Name That Will Be Truncated</mat-label>
+                    <input matInput>
+                </mat-form-field>
+           -->
+      
+      
+      
+     
+      
+    </form>
+  </div>
+  

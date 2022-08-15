@@ -1,0 +1,11 @@
+.container{
+    position: relative;
+}
+.close-icon {
+    position: absolute;
+    top: -5px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: bolder;
+    /* border: 5px solid transparent; */
+  }

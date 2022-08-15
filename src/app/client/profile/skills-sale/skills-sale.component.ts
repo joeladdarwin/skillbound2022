@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-
+import { AddSaleSkillsComponent } from './add-sale-skills/add-sale-skills.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-skills-sale',
   templateUrl: './skills-sale.component.html',
@@ -8,21 +9,14 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class SkillsSaleComponent implements OnInit {
   skillSaleDetails:any;
-  constructor(public usersService:UsersService) { }
+  constructor(public usersService:UsersService,private dialog:MatDialog ) { }
 
   ngOnInit(): void {
     this.usersService.getSkillSaleData().subscribe((skillsSaleData:any)=>{
-      console.log(skillsSaleData);
       this.skillSaleDetails = this.UserDetails(skillsSaleData);
-      console.log(this.skillSaleDetails)
     });
   }
-    // titleList=[
-    //   {className:'Class Name'},
-    //   {conducted: 'Conducted'},
-    //   {skills:'Skills'}
-      
-    // ]
+    
 
   UserDetails(skillsSaleData:any){
     return skillsSaleData.map((data:any)=>{
@@ -32,6 +26,12 @@ export class SkillsSaleComponent implements OnInit {
         saleSkills: data.skills
       }
     })
+  }
+  addSkill(){
+    this.dialog.open(AddSaleSkillsComponent);
+    // alert();
+
+
   }
 
 

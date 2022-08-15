@@ -101,4 +101,9 @@ export class UsersService {
   getSkillSaleData(){
     return this.http.get(`${this.url}getSkillSale/${this.userId}`)
   }
+
+  //add skill sale data
+  saleSkillData(saleData:any){
+    return this.http.post(`${this.url}addSaleSkill/`,saleData);
+  }
 }

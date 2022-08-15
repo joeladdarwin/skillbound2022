@@ -9,6 +9,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { SimpleNotificationsModule } from 'angular2-notifications';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
@@ -20,6 +23,7 @@ import { SuggestionSkillPopupComponent } from './suggestion-skill-popup/suggesti
 import { WantSkillEditComponent } from './want-skill-card/want-skill-edit/want-skill-edit.component';
 import { WantSkillAddComponent } from './want-skill-card/want-skill-add/want-skill-add.component';
 import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
+import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-skills.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 @NgModule({
@@ -33,6 +37,7 @@ import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
     WantSkillEditComponent,
     WantSkillAddComponent,
     SkillsSaleComponent,
+    AddSaleSkillsComponent,
     // TriangleAnimateComponent
   ],
   imports: [
@@ -57,6 +62,8 @@ import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
+    MatInputModule,
+    MatRadioModule
   ],
 })
 export class ProfileModule {}
