@@ -3,8 +3,8 @@
   
     <h5 class="text-center">Please add the skills you have</h5>
     <form
-      #userlogin="ngForm"
-      (ngSubmit)="onClickSubmit(userlogin.value)"
+      #addWantSkill="ngForm"
+      (ngSubmit)="onClickSubmit(addWantSkill.value)"
       class="row justify-content-evenly justify-content-col-center flex-col-column"
     >
       <div class="m-1 col-lg-4 col-md-4">
@@ -48,11 +48,12 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="m-1 col-lg-4 col-md-4">
+      <div class="m-1 col-lg-4 col-md-4" >
         <button
-          class="btn btn-addSkill"
-          type="submit" [disabled]="!userlogin.valid">
-          Please post the skills you want
+          class="btn btn-submit"[ngClass]="{'disable':!addWantSkill.valid}"
+          type="submit" >
+          <span>          Please post the skills you want
+          </span>
         </button>
       </div>
       <div class="m-3">

@@ -78,10 +78,11 @@
       </div>
 
       <!-- button -->
-      <div class="form-group m-1 edit-btn-part col-lg-4 col-md-4">
-        <button class="btn btn-submit m-1 px-2 py-1" type="submit"  [mat-dialog-close]="matDialogClose"
+      <div class="form-group m-1  col-lg-4 col-md-4">
+        <button class="btn btn-submit" type="submit"  [mat-dialog-close]="matDialogClose"
         [disabled]="!WantEditedData.valid">
-          Submit
+        <span>          Submit
+        </span>
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
       </div>

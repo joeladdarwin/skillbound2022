@@ -22,16 +22,85 @@
     margin: auto;
   }
 }
-
+ /* start button  */
 .btn-submit {
-  background-color: #a4e5fa;
+  /* background-color: #a4e5fa; */
+  position: relative;
+  /* background: #1b90c6; */
+  background: linear-gradient(0deg, #43b9f0 0%, #97cfe9 100%);
+  
+    width: 140px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+.btn-submit span{
+  position: relative;
+  display: block;
+  width: 99%;
+  height: 100%;
+  color:#eee;
 }
 
-.btn-submit:hover {
+/* .btn-submit:hover {
   /* background-color: #76d6f7; */
-  box-shadow: 2px 5px 5px #757575;
+  /* box-shadow: 2px 5px 5px #757575; 
+} */
+.btn-submit:before,
+.btn-submit:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: #43b9f0;
+  transition: all 0.3s ease;
 }
-
+.btn-submit:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-submit:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-submit:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.btn-submit:hover:before {
+  height: 100%;
+}
+.btn-submit:hover:after {
+  width: 100%;
+}
+.btn-submit span:hover{
+   color: #43b9f0;
+}
+.btn-submit span:before,
+.btn-submit span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #43b9f0;
+  transition: all 0.3s ease;
+}
+.btn-submit span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-submit span:after {
+  width: 1%;
+  height: 2px;
+}
+.btn-submit span:hover:before {
+  height: 100%;
+}
+.btn-submit span:hover:after {
+  width: 100%;
+}
+/* End button  */
 .btn-delete {
   background-color: #f4f4f4;
 }

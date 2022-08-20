@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { SimpleNotificationsModule } from 'angular2-notifications';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 
 import { ProfileComponent } from './profile.component';
@@ -63,7 +65,8 @@ import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-s
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule
   ],
 })
 export class ProfileModule {}

@@ -68,18 +68,17 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="m-1 col-lg-3 col-md-4">
+    <div class="m-1 col-lg-3 col-md-4"  >
       <button
-        class="btn btn-addSkill"
+        class=" btn btn-submit" [ngClass]="{'disable':!userlogin.valid}"
         type="submit"
         [disabled]="!userlogin.valid"
-      >
-        Post the skill you have
+      ><span>Post the skill you have</span>      
       </button>
     </div>
     <div class="m-3">
       <span>
-        <button class="btn" (click)="openDialog()" [mat-dialog-close]="true">
+        <button class="btn" (click)="openDialog()" [mat-dialog-close]="true" >
           ** If you don't find the skill you are looking for, please submit the
           skill here, and we will add the missing skill if appropriate
         </button>
