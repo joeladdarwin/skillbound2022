@@ -5,7 +5,7 @@
     </h5>
     <form
       
-      class="row justify-content-evenly justify-content-center " #form="ngForm" enctype="multipart/form-data" (ngSubmit)="skillData(form.value)" ng2FileSelect >
+      class="row justify-content-evenly justify-content-center " #form="ngForm" enctype="multipart/form-data" (ngSubmit)="skillData()" ng2FileSelect >
     <!-- <div class="row justify-content-evenly justify-content-center flex-col-column"> -->
         <div class="row " >
             <!-- Skill name -->
@@ -62,7 +62,7 @@
                   </mat-form-field>
             </div>
             <div class="col-lg-6 mb-3" *ngIf="fileData === 'yes'">
-                <input type="file" id="file" name="videoFile" style="font-size: 14px;" ngModel>    
+                <input type="file" id="file" name="videoFile" style="font-size: 14px;" (change)="fileDetails($event)"ngModel>    
 
             </div>
             

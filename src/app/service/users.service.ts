@@ -103,7 +103,9 @@ export class UsersService {
   }
 
   //add skill sale data
-  saleSkillData(saleData:any){
-    return this.http.post(`${this.url}addSaleSkill/`,saleData);
+  saleSkillData(file:any):Observable<any>{
+    const formData = new FormData(); 
+    formData.append("file", file, file.name);
+    return this.http.post(`${this.url}addSaleSkill/`,formData);
   }
 }

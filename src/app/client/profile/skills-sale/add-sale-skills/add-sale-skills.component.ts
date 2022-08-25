@@ -23,7 +23,7 @@ export class AddSaleSkillsComponent implements OnInit {
   myControl = new FormControl('');
   options: User[] = [];
   filteredOptions: Observable<User[]> | undefined;
-
+  fileUrl:any;
   fileData:any;
   currency:any;
   serviceOffer:any;
@@ -39,8 +39,8 @@ export class AddSaleSkillsComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.getCategory().subscribe((category: any) => {
-      this.categoryData = category;
 
+      this.categoryData = category;
       this.options = this.categoryData;
       // this.skilldata =this.categoryData.cat_name;
       // console.log(this.skilldata)
@@ -84,22 +84,24 @@ export class AddSaleSkillsComponent implements OnInit {
   
   fileUpload(value:any){
      this.fileData=value;
+     console.log(this.fileData);
   }
-  skillData(saleSkillData:any){
+  skillData(){
     // alert();
-    console.log(saleSkillData);
-    const addSaleSkill ={
-    userId:this.userId,
-    className:saleSkillData.className ,
-    skillName:saleSkillData.saleSkillName,
-    currency:saleSkillData.currencyType,
-    payment:saleSkillData.payment,
-    videoFile:saleSkillData.videoFile,
-    serviceOffer:saleSkillData.offerService
-  };
+    console.log();
+  //   const addSaleSkill ={
+  //   userId:this.userId,
+  //   className:saleSkillData.className ,
+  //   skillName:saleSkillData.saleSkillName,
+  //   currency:saleSkillData.currencyType,
+  //   payment:saleSkillData.payment,
+  //   videoFile:saleSkillData.videoFile,
+  //   serviceOffer:saleSkillData.offerService
+  // };
   
-  console.log(addSaleSkill);
-    this.usersService.saleSkillData(addSaleSkill).subscribe((data:any)=>{
+  // console.log(addSaleSkill);
+
+    this.usersService.saleSkillData(this.fileUrl).subscribe((data:any)=>{
 
     });
   }
@@ -113,6 +115,10 @@ export class AddSaleSkillsComponent implements OnInit {
       return option.cat_name.toLowerCase().includes(filterValue)
     });
 
+  }
+  fileDetails(event:any){
+    this.fileUrl =event.target.files[0];
+    console.log(this.fileUrl);
   }
   
 }
