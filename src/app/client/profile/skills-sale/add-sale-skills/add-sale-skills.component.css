@@ -88,3 +88,6 @@
     width: 100%;
   }
   /* End button  */
+  .form-control.ng-touched.ng-invalid {
+    border: 1.5px solid #f00
+  }

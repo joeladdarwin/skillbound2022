@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 
 export interface User {
@@ -35,7 +35,14 @@ export class AddSaleSkillsComponent implements OnInit {
   //filteredOptions: Observable<SkillList[]> | undefined;
 
   constructor(private usersService:UsersService) { }
-  
+  addSaleDataData = new FormGroup({
+    saleSkillName:new FormControl('',[Validators.required]),
+    offerService: new FormControl(''),
+    payment: new FormControl(''),
+    currencyType: new FormControl(''),
+    className: new FormControl(''),
+    fileUploadCofirmation: new FormControl('')
+  })
 
   ngOnInit() {
     this.usersService.getCategory().subscribe((category: any) => {
@@ -77,7 +84,7 @@ export class AddSaleSkillsComponent implements OnInit {
       {values:'On Skype',name:'On Skype'},
       {values:'On skillbound chat',name:'On skillbound chat'}
     ]
-
+    
 
   }
   
@@ -87,27 +94,36 @@ export class AddSaleSkillsComponent implements OnInit {
      console.log(this.fileData);
   }
   skillData(){
-    // alert();
-    console.log();
-  //   const addSaleSkill ={
-  //   userId:this.userId,
-  //   className:saleSkillData.className ,
-  //   skillName:saleSkillData.saleSkillName,
-  //   currency:saleSkillData.currencyType,
-  //   payment:saleSkillData.payment,
-  //   videoFile:saleSkillData.videoFile,
-  //   serviceOffer:saleSkillData.offerService
-  // };
+    alert();
+    console.log(this.myControl);
+    console.log(this.addSaleDataData);
+    const formValue = this.addSaleDataData.value;
+    // let formData = new FormData(); 
+    // formData.append("file", this.fileUrl, this.fileUrl.name);
+    // console.log(formData);
+    const addSaleSkill ={
+    userId:this.userId,
+    className:formValue.className,
+    skillName:this.myControl.value.cat_name ,
+    currency:formValue.currencyType,
+    payment:formValue.payment,
+    videoFile:this.fileUrl,
+    serviceOffer:formValue.offerService
+  };
   
-  // console.log(addSaleSkill);
+  console.log(addSaleSkill);
+  // console.log(addSaleSkill.videoFile.name);
 
-    this.usersService.saleSkillData(this.fileUrl).subscribe((data:any)=>{
+
+    this.usersService.saleSkillData(addSaleSkill).subscribe((data:any)=>{
 
     });
   }
 
   displayFn(categoryData:any) {
-    return categoryData && categoryData.cat_name ? categoryData.cat_name : undefined;
+
+    return categoryData && categoryData.cat_name ? categoryData.cat_name : "";
+
   }
   private _filter(cat_name: string): User[] {
     const filterValue = cat_name?.toLowerCase();
@@ -118,7 +134,10 @@ export class AddSaleSkillsComponent implements OnInit {
   }
   fileDetails(event:any){
     this.fileUrl =event.target.files[0];
+    
     console.log(this.fileUrl);
+    console.log(this.fileUrl.name);
   }
+
   
 }
