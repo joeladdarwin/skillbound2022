@@ -20,13 +20,13 @@ export class SkillAddComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCategory().subscribe((category: any) => {
       this.categoryData = category;
-      console.log(this.categoryData);
+      // console.log(this.categoryData);
     });
     this.userId = this.userService.getCurrentUserId();
-    console.log(this.userId);
+    // console.log(this.userId);
     this.userService.userDetails().subscribe((userDetails: any) => {
       return userDetails.map((userDetails: any) => {
-        console.log(userDetails.country);
+        // console.log(userDetails.country);
         this.countryId = userDetails.country;
       });
     });
@@ -65,8 +65,8 @@ export class SkillAddComponent implements OnInit {
     return val.map((e: any) => e + ' this skill');
   }
   onClickSubmit(userlogin: any) {
-    console.log(this.userId);
-    console.log(userlogin);
+    // console.log(this.userId);
+    // console.log(userlogin);
     const addSkilldata = {
       userId: this.userId,
       countryId: this.countryId,
@@ -76,15 +76,14 @@ export class SkillAddComponent implements OnInit {
       teachLevel: userlogin.teachLevel,
       //wishes:userlogin.wishes,
       wishes:
-        userlogin.wishes == ['']
-          ? ''
+        userlogin.wishes == [''] ? ''
           : this.addStringtoWishes(userlogin.wishes),
     };
-    console.log(addSkilldata);
+    // console.log(addSkilldata);
     this.userService
       .userSkillAdd(addSkilldata)
       .subscribe((addSkillnotification: any) => {
-        console.log(addSkillnotification);
+        // console.log(addSkillnotification);
       });
   }
   openDialog() {

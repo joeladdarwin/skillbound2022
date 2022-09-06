@@ -71,6 +71,8 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     PrivacyComponent,
     GuidelinesComponent,
     NotificationComponent,
+  
+
     // SkillCardComponent
   ],
   imports: [

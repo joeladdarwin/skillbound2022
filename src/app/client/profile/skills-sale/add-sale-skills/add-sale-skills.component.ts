@@ -3,6 +3,7 @@ import { UsersService } from 'src/app/service/users.service';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface User {
   cat_name: string;
@@ -23,27 +24,28 @@ export class AddSaleSkillsComponent implements OnInit {
   myControl = new FormControl('');
   options: User[] = [];
   filteredOptions: Observable<User[]> | undefined;
-  fileUrl:any;
+  fileUrl:any = '';
   fileData:any;
   currency:any;
   serviceOffer:any;
   userId:any;
   categoryData:any;
+  matDialogClose: boolean = false;
 
   // skilllist= Observable<categoryData[]>;
   // myControl = new FormControl();
   //filteredOptions: Observable<SkillList[]> | undefined;
 
   constructor(private usersService:UsersService) { }
+  // file Validation
   addSaleDataData = new FormGroup({
     saleSkillName:new FormControl('',[Validators.required]),
-    offerService: new FormControl(''),
-    payment: new FormControl(''),
-    currencyType: new FormControl(''),
-    className: new FormControl(''),
-    fileUploadCofirmation: new FormControl('')
-  })
-
+    offerService: new FormControl('',Validators.required ),
+    payment: new FormControl('',Validators.required),
+    currencyType: new FormControl('',Validators.required),
+    className: new FormControl('',Validators.required),
+    fileUploadCofirmation: new FormControl('',Validators.required)
+  });
   ngOnInit() {
     this.usersService.getCategory().subscribe((category: any) => {
 
@@ -94,7 +96,6 @@ export class AddSaleSkillsComponent implements OnInit {
      console.log(this.fileData);
   }
   skillData(){
-    alert();
     console.log(this.myControl);
     console.log(this.addSaleDataData);
     const formValue = this.addSaleDataData.value;
@@ -107,7 +108,7 @@ export class AddSaleSkillsComponent implements OnInit {
     skillName:this.myControl.value.cat_name ,
     currency:formValue.currencyType,
     payment:formValue.payment,
-    videoFile:this.fileUrl,
+    videoFile:this.fileUrl ? this.fileUrl :"",
     serviceOffer:formValue.offerService
   };
   
@@ -133,11 +134,19 @@ export class AddSaleSkillsComponent implements OnInit {
 
   }
   fileDetails(event:any){
-    this.fileUrl =event.target.files[0];
-    
-    console.log(this.fileUrl);
-    console.log(this.fileUrl.name);
-  }
+      if(event.target.files[0] && event.target.files ){
+        console.log(event.target.files[0]);
+        if(event.target.files[0].type == 'video/mp4' ||event.target.files[0].type == 'video/mov'){
+          console.log("correct");
+          this.fileUrl =event.target.files[0];
 
+        }else{
+          
+          this.fileUrl = "";
+        }
+      
+      console.log(this.fileUrl);
+    }
+  }
   
 }

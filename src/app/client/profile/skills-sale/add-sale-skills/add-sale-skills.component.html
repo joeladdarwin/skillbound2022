@@ -63,7 +63,7 @@
                   </mat-form-field>
             </div>
             <div class="col-lg-6 mb-3" *ngIf="fileData === 'yes'">
-                <input type="file" id="file" name="videoFile" style="font-size: 14px;" (change)="fileDetails($event)">    
+                <input type="file" id="file" name="videoFile" style="font-size: 14px;" allowedExtensions = '.MP4' (change)="fileDetails($event)" >    
 
             </div>
             
@@ -78,7 +78,7 @@
                     </mat-form-field>
             </div>
             <div class="col-lg-6 align-items-center">
-                <button type="submit" class="btn btn-submit"><span>Submit</span>
+                <button type="submit" class="btn btn-submit" ><span>Submit</span>
                     </button>
             </div>
             

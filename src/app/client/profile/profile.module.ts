@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -26,6 +28,7 @@ import { WantSkillEditComponent } from './want-skill-card/want-skill-edit/want-s
 import { WantSkillAddComponent } from './want-skill-card/want-skill-add/want-skill-add.component';
 import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
 import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-skills.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 @NgModule({
@@ -40,6 +43,7 @@ import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-s
     WantSkillAddComponent,
     SkillsSaleComponent,
     AddSaleSkillsComponent,
+    UserDetailsComponent,
     // TriangleAnimateComponent
   ],
   imports: [
@@ -53,6 +57,8 @@ import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-s
     //   },
     //   rtl: true,
     // }),
+    MatTabsModule,
+    MatCardModule,
     CommonModule,
     ProfileRoutingModule,
     MatExpansionModule,

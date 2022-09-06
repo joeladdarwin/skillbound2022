@@ -105,14 +105,21 @@ export class UsersService {
   //add skill sale data
   saleSkillData(saleData:any):Observable<any>{
     const formData = new FormData(); 
-    formData.append("file", saleData.videoFile, saleData.videoFile.name);
-    formData.set("userId", saleData.userId);
-    formData.set("className", saleData.className);
-    formData.set("skillName", saleData.skillName);
-    formData.set("currency", saleData.currency);
-    formData.set("payment", saleData.payment);
-    formData.set("serviceOffer", saleData.serviceOffer);
+      formData.set("file", saleData.videoFile);
+      formData.set("userId", saleData.userId);
+      formData.set("className", saleData.className);
+      formData.set("skillName", saleData.skillName);
+      formData.set("currency", saleData.currency);
+      formData.set("payment", saleData.payment);
+      formData.set("serviceOffer", saleData.serviceOffer);
     return this.http.post(`${this.url}addSaleSkill/`, formData,);
   }
+
+  //Start user Details
+  getUserDetails(){
+    return this.http.get(`${this.url}userdetails/${this.userId}`)
+
+  }
+  //End user Details
 }
     

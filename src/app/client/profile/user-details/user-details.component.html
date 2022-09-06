@@ -1,0 +1,47 @@
+<div class="container">
+  <mat-icon class="edit-icon">edit</mat-icon>
+  <mat-tab-group  *ngFor="let userDetails of userDetail; let i=index">
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">info</mat-icon>
+      </ng-template>
+      <div class="template-body p-3">
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">Joined </h6>
+          <span class="col-6"> {{userDetails.joiningDate}}</span>
+        </div>
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">Job </h6>
+          <span class="col-6"> {{userDetails.jobName}}</span>
+        </div>
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">Gender </h6>
+          <span class="col-6"> {{userDetails.gender}}</span>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">location_on</mat-icon>
+      </ng-template>
+      <div class="template-body p-3">
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">City </h6>
+          <span class="col-6"> </span>
+        </div>
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">State </h6>
+          <span class="col-6"> </span>
+        </div>
+        <div class="row lh-lg">
+          <h6 class="text-secondary col-6">Country </h6>
+          <span class="col-6"> </span>
+        </div>
+      </div>
+    </mat-tab>
+  
+   
+  </mat-tab-group>
+</div>
+

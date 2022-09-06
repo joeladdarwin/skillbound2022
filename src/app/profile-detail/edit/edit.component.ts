@@ -57,12 +57,10 @@ export class EditComponent implements OnInit {
 
     this.callService(this.categoryId);
     this.subCategoryId = this.data[0].s_cat_id;
-    console.log(this.subCategoryId);
     this.skillLevel = this.data[0].skillLevel;
     this.teachLevel = this.data[0].teachLevel;
     this.wishesTo = this.data[0].wishesTo.toString().replace(/this skill/g, '');
 
-    console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory);
   }
 
   levels = [{ name: 'Basic' }, { name: 'Good' }, { name: 'Expert' }];
@@ -81,7 +79,6 @@ export class EditComponent implements OnInit {
     this.selectedCategoryId = selectedCategoryId;
     // alert(selectedCategoryId);
 
-    console.log(this.selectedCategoryId);
     this.callService(this.selectedCategoryId);
   }
 
@@ -91,7 +88,6 @@ export class EditComponent implements OnInit {
       .subscribe((subCategory: any) => {
         //console.log("asfsfd" + subCategory);
         this.subCategoryData = subCategory;
-        console.log(this.subCategoryData);
       });
   }
 
@@ -101,7 +97,6 @@ export class EditComponent implements OnInit {
 
   editSkillData() {
     const formValue = this.editedData.value;
-    console.log(formValue.selectWishes);
     const payload = {
       skillId: this.skillId,
       categoryId: formValue.categoryId,
@@ -114,11 +109,9 @@ export class EditComponent implements OnInit {
           : this.addStringtoWishes(formValue.selectWishes),
     };
     this.userService.skillDataUpdate(payload).subscribe((updateAlert: any) => {
-      console.log(updateAlert);
       this.ngOnInit();
       //  this.skillCard.
     });
-    console.log(this.editedData.value);
   }
 }
 

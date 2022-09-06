@@ -22,7 +22,6 @@ export class WantSkillCardComponent implements OnInit {
       .getCurrentUserWantSkill()
       .subscribe((userWantSkills: any) => {
         this.wantSkillDetails = this.userDetails(userWantSkills);
-        console.log(this.wantSkillDetails);
       });
   }
 
@@ -31,12 +30,10 @@ export class WantSkillCardComponent implements OnInit {
       // console.log(wantSkillDetails);
       // wishes skill split the data
       let wishesSplitData = wantSkillDetails.wishesTo.split(',');
-      console.log(wishesSplitData);
       let wishesData = wishesSplitData.map(
         (data: any) =>
           data.charAt(0).toUpperCase() + data.slice(1).toLowerCase()
       );
-      console.log(wishesData);
 
       return {
         user_id: wantSkillDetails.user_id,
@@ -59,12 +56,10 @@ export class WantSkillCardComponent implements OnInit {
   //set whishes slide color
   getWishesData(wish: any) {
     var wishes = wish.toLowerCase().replace(/ , /g, ',').split(',');
-    console.log(wishes);
 
     var wishValue = wishes[wishes.length];
 
     let wishColorCode = '#f7f ';
-    console.log(wishValue);
     switch (wishValue) {
       case 'swap':
         wishColorCode = '  #8ec4f7  ';
@@ -108,7 +103,6 @@ export class WantSkillCardComponent implements OnInit {
     return wishColorCode;
   }
   editSkill(id: any) {
-    console.log(id);
     this.userService.currentWantSkillCard = this.wantSkillDetails?.filter(
       (x) => x.wantSkillId == id
     );
@@ -119,7 +113,6 @@ export class WantSkillCardComponent implements OnInit {
   }
 
   deleteWantSkill(wnatskillId: any) {
-    console.log(wnatskillId);
     // this.dialog.open(DeleteComponent);
     let confirmation = 'Do you want to delete?';
     if (confirm(confirmation) == true) {

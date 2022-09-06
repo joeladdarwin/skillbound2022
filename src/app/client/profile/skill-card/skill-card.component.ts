@@ -42,7 +42,7 @@ export class SkillCardComponent implements OnInit {
   ngOnInit(): void {
     // get skill value
     this.userService.getCurrentUserSkill().subscribe((user: any) => {
-      console.log(user);
+      // console.log(user);
       this.userData = this.userInterFaceData(user);
     });
   }
@@ -55,12 +55,11 @@ export class SkillCardComponent implements OnInit {
       .split(',')
       .filter(Boolean);
     var wishValue = wishes[wishes.length - 1];
-    console.log(wish);
-    console.log(wishes);
-    console.log(wishValue + typeof wishValue);
+    // console.log(wish);
+    // console.log(wishes);
+    // console.log(wishValue + typeof wishValue);
 
     let wishColorCode = '#f7f ';
-    console.log(wishValue);
     switch (wishValue) {
       case 'swap':
         wishColorCode = '  #8ec4f7  ';
@@ -107,7 +106,6 @@ export class SkillCardComponent implements OnInit {
   // user have skilldata fetch interface
   userInterFaceData(users: any) {
     return users.map((userData: any) => {
-      console.log(userData);
       let splitedData = userData.level3.split(',');
       let wishedsData = splitedData.map(
         (data: any) =>
@@ -117,7 +115,7 @@ export class SkillCardComponent implements OnInit {
       return {
         user_id: userData.user_id,
         skillId: userData.skillId,
-        username: userData.username,
+        userName: userData.username,
         category: userData.cat_name,
         subCategory: userData.s_cat_name,
         emailid: userData.emailid,

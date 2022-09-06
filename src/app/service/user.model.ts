@@ -48,7 +48,7 @@ export interface IUser {
   teachingLevel?: Level;
   emailid?: string;
   name?: string;
-  username: string;
+  userName: string;
   gender?: Gender;
   company?: string;
   qualifications?: string;
@@ -67,8 +67,8 @@ export interface IUser {
   desiredskills?: string;
   keywords?: string;
   skillOffer?: string;
-  fname?: string;
-  lname?: string;
+  firstName?: string;
+  lastName?: string;
   work?: string;
   skillkeywords?: string;
   business?: string;
@@ -91,4 +91,6 @@ export interface IUser {
   currency: string;
   payment: string;
   saleSkills: string;
+  joiningDate:string;
+  jobName:string;
 }

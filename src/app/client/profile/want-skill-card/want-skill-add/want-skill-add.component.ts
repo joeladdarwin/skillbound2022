@@ -18,14 +18,12 @@ export class WantSkillAddComponent implements OnInit {
 
     this.userService.getCategory().subscribe((category: any) => {
       this.categoryData = category;
-      console.log(this.categoryData);
     });
     this.userId = this.userService.getCurrentUserId();//get current user id
 
     //get current user country 
     this.userService.userDetails().subscribe((userDetails: any) => {
       return userDetails.map((userDetails: any) => {
-        console.log(userDetails.country);
         this.countryId = userDetails.country;
       });
     });
@@ -60,7 +58,6 @@ export class WantSkillAddComponent implements OnInit {
     return val.map((e: any) => e + ' this skill');
   }
   onClickSubmit(data:any){
-    console.log(data);
     const addWantSkilldata = {
       userId: this.userId,
       countryId: this.countryId,
@@ -77,7 +74,6 @@ export class WantSkillAddComponent implements OnInit {
     this.userService
       .userWantSkillAdd(addWantSkilldata)
       .subscribe((addWantSkillnotification: any) => {
-        console.log(addWantSkillnotification);
       });
 
   }

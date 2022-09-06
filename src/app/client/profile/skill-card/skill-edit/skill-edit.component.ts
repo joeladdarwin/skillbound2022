@@ -51,20 +51,16 @@ export class SkillEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getCategory().subscribe((category: any) => {
-      // console.log(category);
       this.categoryData = category;
     });
 
     this.data = this.userService.getCurrentCardSkill(); //get data from service call
-    console.log(this.data);
     this.skillId = this.data[0].skillId;
 
     this.categoryId = this.data[0].cat_id;
-    // console.log(this.categoryId);
 
     this.callService(this.categoryId);
     this.subCategoryId = this.data[0].s_cat_id;
-    console.log(this.subCategoryId);
     this.skillLevel = this.data[0].skillLevel;
     this.teachLevel = this.data[0].teachLevel;
     this.wishesTo = this.data[0].wishesTo
@@ -72,7 +68,6 @@ export class SkillEditComponent implements OnInit {
       .replace(/this skill/g, '')
       .split(',');
 
-    console.log(this.wishesTo, this.data[0].category, this.data[0].subCategory);
   }
   levels = [{ name: 'Basic' }, { name: 'Good' }, { name: 'Expert' }];
   swapList: string[] = [
@@ -88,7 +83,6 @@ export class SkillEditComponent implements OnInit {
     this.selectedCategoryId = selectedCategoryId;
     // alert(selectedCategoryId);
 
-    console.log(this.selectedCategoryId);
     this.callService(this.selectedCategoryId);
   }
 
@@ -98,7 +92,6 @@ export class SkillEditComponent implements OnInit {
       .subscribe((subCategory: any) => {
         //console.log("asfsfd" + subCategory);
         this.subCategoryData = subCategory;
-        console.log(this.subCategoryData);
       });
   }
 
@@ -107,10 +100,8 @@ export class SkillEditComponent implements OnInit {
   }
 
   editSkillData() {
-    console.log(this.editedData);
 
     const formValue = this.editedData.value;
-    console.log(formValue.selectWishes);
     const payload = {
       skillId: this.skillId,
       categoryId: formValue.categoryId,
@@ -124,7 +115,6 @@ export class SkillEditComponent implements OnInit {
     };
     this.userService.skillDataUpdate(payload).subscribe((updateAlert: any) => {
       // this.updateAlert = updateAlert;
-      console.log(updateAlert);
       this.matDialogClose = true;
       updateMsgs(updateAlert);
 
@@ -141,7 +131,6 @@ export class SkillEditComponent implements OnInit {
     //this.userService.updateMsgs = updateAlert;
     //};
 
-    console.log(this.editedData.value);
   }
 }
 

@@ -29,12 +29,10 @@ export class WantSkillEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getCategory().subscribe((category: any) => {
-      // console.log(category);
       this.categoryData = category;
     });
 
     this.data = this.userService.currentSkilldata();
-    console.log(this.data);
     this.wantSkillId = this.data[0].wantSkillId;
 
     this.categoryId = this.data[0].cat_id;
@@ -42,14 +40,12 @@ export class WantSkillEditComponent implements OnInit {
 
     this.callService(this.categoryId);//call sub category list
     this.subCategoryId = this.data[0].s_cat_id;
-    console.log(this.subCategoryId);
 
     this.wishesTo = this.data[0].wishesTo
       .toString()
       .replace(/this skill/g, '')
       .split(',');
 
-    console.log(this.wishesTo, this.categoryId, this.data[0].subCategory);
   }
   // wishes list
   swapList: string[] = [
@@ -74,7 +70,6 @@ export class WantSkillEditComponent implements OnInit {
     this.userService.getSubCategory(selectedCategoryId)
     .subscribe((subCategory: any) => {
       this.subCategoryData = subCategory;
-      console.log(this.subCategoryData);
     });
   }
   addStringtoWishes(val: any) {
@@ -82,7 +77,6 @@ export class WantSkillEditComponent implements OnInit {
   }
   wnatEditSkillData(){
     const formValue = this.WantEditedData.value;
-    console.log(formValue.selectWishes);
     const payload = {
       wantSkillId: this.wantSkillId,
       categoryId: formValue.categoryId,
@@ -94,11 +88,8 @@ export class WantSkillEditComponent implements OnInit {
           ? ''
           : this.addStringtoWishes(formValue.selectWishes),
     };
-    console.log(  this.WantEditedData.value
-      );
 
     this.userService.wantSkillDataUpdate(payload).subscribe((updateAlert: any) => {
-    console.log(updateAlert);
         this.matDialogClose = true;
 
   
