@@ -47,6 +47,11 @@ export class UsersService {
   getSubCategory(categoryId: any) {
     return this.http.get(`${this.url}subCategory/${categoryId}`);
   }
+
+  //get Country list
+  getCuntryList(){
+    return this.http.get(`${this.url}country`);
+  }
   //skill data update
   skillDataUpdate(data: any) {
     return this.http.put(`${this.url}skillUpdate/`, data);

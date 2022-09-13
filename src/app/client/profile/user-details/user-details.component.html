@@ -1,6 +1,9 @@
 <div class="container">
-  <mat-icon class="edit-icon">edit</mat-icon>
-  <mat-tab-group  *ngFor="let userDetails of userDetail; let i=index">
+  <div>
+    <mat-icon class="edit-icon" mat-button (click)="userDetailsEdit()">edit</mat-icon>
+  </div>
+
+  <mat-tab-group  *ngFor="let userDetails of userDetail; ">
     <mat-tab >
       <ng-template mat-tab-label>
         <mat-icon class="example-tab-icon">info</mat-icon>

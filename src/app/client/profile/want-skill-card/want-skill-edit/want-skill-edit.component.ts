@@ -84,8 +84,7 @@ export class WantSkillEditComponent implements OnInit {
       skillLevel: formValue.skillLevel,
       teachLevel: formValue.teachLevel,
       selectWishes:
-        formValue.selectWishes == ['']
-          ? ''
+        formValue.selectWishes == [''] ? ''
           : this.addStringtoWishes(formValue.selectWishes),
     };
 

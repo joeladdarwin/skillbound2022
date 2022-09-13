@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 // import { SimpleNotificationsModule } from 'angular2-notifications';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
@@ -29,6 +31,7 @@ import { WantSkillAddComponent } from './want-skill-card/want-skill-add/want-ski
 import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
 import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-skills.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserDetailEditComponent } from './user-details/user-detail-edit/user-detail-edit.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
 
 @NgModule({
@@ -44,6 +47,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     SkillsSaleComponent,
     AddSaleSkillsComponent,
     UserDetailsComponent,
+    UserDetailEditComponent,
+    
     // TriangleAnimateComponent
   ],
   imports: [
@@ -58,6 +63,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     //   rtl: true,
     // }),
     MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatCardModule,
     CommonModule,
     ProfileRoutingModule,

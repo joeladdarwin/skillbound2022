@@ -7,9 +7,9 @@ export enum Level {
 
 // Type of Gender
 export enum Gender {
-  male = 0,
-  female = 1,
-  Others = 2,
+  Male ,
+  Female ,
+  Others,
 }
 
 // Whishes color
@@ -41,12 +41,13 @@ export interface ISkills {
 //  User Data
 export interface IUser {
   wantSkillId: any;
+  password:any;
   id: string;
   skillId: string;
   user_id: string;
   levelSkill?: Level;
   teachingLevel?: Level;
-  emailid?: string;
+  emailId?: string;
   name?: string;
   userName: string;
   gender?: Gender;
@@ -56,7 +57,7 @@ export interface IUser {
   licenses?: string;
   experiences?: string;
   rates?: string;
-  bod?: Date;
+  dob?: Date;
   country?: string;
   state?: string;
   city?: string;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/service/user.model';
 import { UsersService } from 'src/app/service/users.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserDetailEditComponent } from './user-detail-edit/user-detail-edit.component';
 
 @Component({
   selector: 'app-user-details',
@@ -11,21 +13,13 @@ export class UserDetailsComponent implements OnInit {
   userDetail ?: IUser[];
   joinedDate:any;
   // date:any;
-  constructor(public userService:UsersService ) { }
+  constructor(public userService:UsersService, public dialog:MatDialog ) { }
 
   ngOnInit(): void {
     this.userService.getUserDetails().subscribe((data: any) => {
-    console.log(data);
-
-    //   this.jonedDate = data.joinedDate;
-    //   console.log(this.jonedDate);
-    //  this.date = new Date(this.jonedDate *1000);
-    //  console.log(this.date);
-    //  this.jonedDate = (this.date.getDate()) + "-" + (this.date.getMonth()+1) + "-" + this.date.getFullYear();
-    //   console.log(this.jonedDate);
+ 
      this.userDetail = this.userDetails(data);
-     console.log(this.userDetail);
-     console.log(this.userDetail);
+     
       // this.date = new Date(this.userDetail.joinedDate *1000)
      
     });
@@ -45,9 +39,9 @@ export class UserDetailsComponent implements OnInit {
         joiningDate:this.dateConvert(userData.regtime),
         jobName:userData.work,
         gender : userData.gender,
-        city : userData.city,
-        state : userData.state,
-        country : userData.country
+        city : userData.citiesName,
+        state : userData.statesName,
+        country : userData.countryName
       }
     });
 
@@ -60,5 +54,7 @@ export class UserDetailsComponent implements OnInit {
     {name: 'State'},
     {name: 'Country'}
   ]
-
+  userDetailsEdit(){
+    this.dialog.open(UserDetailEditComponent);
+  }
 }
