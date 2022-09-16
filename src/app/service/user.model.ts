@@ -94,4 +94,7 @@ export interface IUser {
   saleSkills: string;
   joiningDate:string;
   jobName:string;
+  countryId:string;
+  stateId:string;
+  cityId:string;
 }

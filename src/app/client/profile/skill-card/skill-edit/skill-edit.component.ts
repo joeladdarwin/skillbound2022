@@ -16,7 +16,6 @@ interface Food {
 })
 export class SkillEditComponent implements OnInit {
   matDialogClose: boolean = false;
-  title = 'hi';
 
   [x: string]: any;
   selectWishes = new FormControl('');

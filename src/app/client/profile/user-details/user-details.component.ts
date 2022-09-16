@@ -21,7 +21,7 @@ export class UserDetailsComponent implements OnInit {
      this.userDetail = this.userDetails(data);
      
       // this.date = new Date(this.userDetail.joinedDate *1000)
-     
+     console.log(this.userDetail);
     });
   }
   dateConvert(date:any){

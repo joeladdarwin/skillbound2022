@@ -99,31 +99,31 @@
   }
   /* start date input alignment */
   
-    @media only screen and (min-width: 1000px) {
-      .date{
-        width:68%
-      }
-    }
-    @media only screen and (min-width: 950px) {
-      .date{
-        width:67%
-      }
-    }
+    
     @media only screen and (min-width: 700px) { 
       .date{
-        width:67%
+        width:60%
       }
     }
-    
-    @media only screen and (max-width: 700px) {
+    @media only screen and (min-width: 650px) { 
+      .date{
+        width:66%
+      }
+    }
+    /* @media only screen and (min-width: 700px) {  
+      .date{
+        width:75%
+      }
+    }*/
+    @media only screen and (max-width: 450px) {
       .date{
         width:100%
       }
     }
 
-    @media only screen and (max-width: 400px) {
+    /* @media only screen and (max-width: 400px) {
       .date{
         width:102%
       }
-    }
+    } */
   /* End date input alignment */

@@ -14,6 +14,7 @@ ul li{
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
  
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 *{
   margin: 0;

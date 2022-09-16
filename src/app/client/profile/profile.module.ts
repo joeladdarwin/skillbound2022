@@ -10,6 +10,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {  MAT_DATE_FORMATS,  DateAdapter,  MAT_DATE_LOCALE } from '@angular/material/core';
+// import { MomentDateAdapter } from '@angular/material-moment-adapter';
+
+
+
 // import { SimpleNotificationsModule } from 'angular2-notifications';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
@@ -33,7 +38,17 @@ import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-s
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserDetailEditComponent } from './user-details/user-detail-edit/user-detail-edit.component';
 // import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
-
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY'
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  }
+};
 @NgModule({
   declarations: [
     ProfileComponent,
@@ -48,7 +63,6 @@ import { UserDetailEditComponent } from './user-details/user-detail-edit/user-de
     AddSaleSkillsComponent,
     UserDetailsComponent,
     UserDetailEditComponent,
-    
     // TriangleAnimateComponent
   ],
   imports: [
@@ -81,5 +95,8 @@ import { UserDetailEditComponent } from './user-details/user-detail-edit/user-de
     MatRadioModule,
     MatAutocompleteModule
   ],
+  providers: [   ],
 })
-export class ProfileModule {}
+export class ProfileModule {
+  
+}

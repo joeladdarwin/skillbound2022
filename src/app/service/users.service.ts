@@ -49,8 +49,20 @@ export class UsersService {
   }
 
   //get Country list
-  getCuntryList(){
+  getCountryList(){
     return this.http.get(`${this.url}country`);
+  }
+
+  //get State List
+  getStateList(countryNameId:any){
+    return this.http.get(`${this.url}state/${countryNameId}`);
+
+  }
+
+  //get city List
+
+  getCityList(stateNameId:any){
+    return this.http.get(`${this.url}city/${stateNameId} `)
   }
   //skill data update
   skillDataUpdate(data: any) {
