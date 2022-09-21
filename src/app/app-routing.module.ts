@@ -13,7 +13,7 @@ const routes: Routes = [{ path: 'clients', loadChildren: () => import('./client/
 { path: 'postFiles', loadChildren: () => import('./client/post-files/post-files.module').then(m => m.PostFilesModule) }, 
 { path: 'classes', loadChildren: () => import('./client/classes/classes.module').then(m => m.ClassesModule) },
 { path: 'dashboard', loadChildren: () => import('./client/profile/profile.module').then(m => m.ProfileModule) },
-
+{ path: 'friends', loadChildren: () => import('./client/friends/friends.module').then(m => m.FriendsModule)},
 {path:'terms', component:TermsComponent},
 {path:'faq', component:FaqComponent},
 {path:'aboutus', component:AboutusComponent},

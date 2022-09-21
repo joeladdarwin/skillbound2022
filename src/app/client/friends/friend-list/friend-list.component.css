@@ -1,0 +1,13 @@
+.profileImage{
+    border-radius: 50%;
+    width:35px;
+    height: 44px;
+}
+.containers{
+    font-size: 12px;
+}
+.elipseVertical button{
+    background-color: transparent;
+    position: absolute;
+    right:2%;
+}

@@ -119,6 +119,7 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+    
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],
