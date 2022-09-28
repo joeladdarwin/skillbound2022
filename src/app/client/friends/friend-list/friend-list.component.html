@@ -1,14 +1,14 @@
 <div class="containers ">
-    <div class="">
-        <mat-card class="example-card m-2">
+    <div class="row justify-content-around">
+        <mat-card class="example-card m-2 col-sm-5" *ngFor="let friendList of friendList">
             <div class="d-flex">
-                <div class="">
-                    <img src="../assets/img/male.jpg" alt="" class="profileImage">
+                <div >
+                    <img [src]="friendList.gender" alt="male" class="profileImage" >                    
         
                 </div>
                 <div class="userDetails mx-3 ">
-                    <h6 class="m-0">Name</h6>
-                    <span>Work</span>
+                    <h6 class="m-0">{{friendList.userName}}</h6>
+                    <span>{{friendList.work}}</span>
         
                 </div>
                 <div class="elipseVertical">
@@ -17,55 +17,23 @@
                 </button>
                   <mat-menu #menu="matMenu">
                     <button mat-menu-item>
-                      <mat-icon>dialpad</mat-icon>
-                      <span>Redial</span>
+                      <span class="m-1"><i class="fa-solid fa-comment"></i></span>
+                      <span class="m-1">Message</span>
                     </button>
-                    <button mat-menu-item disabled>
-                      <mat-icon>voicemail</mat-icon>
-                      <span>Check voice mail</span>
+                    <button mat-menu-item >
+                      <span class="m-1"><i class="fa-solid fa-user-slash"></i></span>
+                      <span class="m-1">UnFriend</span>
                     </button>
                     <button mat-menu-item>
-                      <mat-icon>notifications_off</mat-icon>
-                      <span>Disable alerts</span>
+                      <span class="m-1"><i class="fa-solid fa-ban"></i></span>
+                      <span class="m-1">block</span>
                     </button>
                 </mat-menu>
                 </div>
             </div>
             
         </mat-card>
-        <mat-card class="example-card m-2">
-            <div class="d-flex">
-                <div class="">
-                    <img src="../assets/img/female.png" alt="" class="profileImage">
         
-                </div>
-                <div class="userDetails mx-3 ">
-                    <h6 class="m-0">Name</h6>
-                    <span>Work</span>
-        
-                </div>
-                <div class="elipseVertical">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="border-0  ">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                      <mat-icon>dialpad</mat-icon>
-                      <span>Redial</span>
-                    </button>
-                    <button mat-menu-item disabled>
-                      <mat-icon>voicemail</mat-icon>
-                      <span>Check voice mail</span>
-                    </button>
-                    <button mat-menu-item>
-                      <mat-icon>notifications_off</mat-icon>
-                      <span>Disable alerts</span>
-                    </button>
-                </mat-menu>
-                </div>
-            </div>
-            
-        </mat-card>
     </div>
     
 </div>
