@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
   url = 'http://localhost:3000/';
-  userId = 34;
+  userId = 7;
   currentSkillCard: any;
   notificationData: any;
   currentWantSkillCard: any;
@@ -144,6 +144,21 @@ export class UsersService {
   // get friends list
   getFriendlist(){
     return this.http.get(`${this.url}friends/${this.userId}`);
+  }
+
+  // get friends request list
+  getFriendRequestList(){
+    return this.http.get(`${this.url}friendRequest/${this.userId}`);
+  }
+
+//get user user name list
+  userNamelist(){
+    return this.http.get(`${this.url}userNameList`)
+  }
+
+//get specific user details
+  getEnteredUser(user:any){
+    return this.http.get(`${this.url}user/${user}`)
   }
 }
     

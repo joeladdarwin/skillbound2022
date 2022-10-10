@@ -35,10 +35,19 @@
       <div class="col-md-4 py-1 d-flex justify-content-center icon-navbar-2">
         <div class="search-box">
           <div class="input-group">
-            <form class="form-inline my-2 my-lg-0 d-flex">
-              <input class="form-control mr-sm-2 input-responsive" type="search" placeholder="Search"
-                aria-label="Search">
-              <button class="btn btn-light person-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+            <form class="form-inline my-2 my-lg-0 d-flex" [formGroup]="formGroup" (ngSubmit)="searchUser(formGroup)">
+              
+                <div class="">
+                  <input type="text" formControlName="userNames" placeholder="Find a friend"  matInput [matAutocomplete]="auto"  autocomplete="off"/>
+                  <mat-autocomplete  #auto="matAutocomplete"  >
+                    <mat-option *ngFor="let list of filteredOptions" [value]="list">
+                      {{list}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </div>
+               
+               
+              <button class="btn btn-light person-btn" type="submit"  ><i class="fa fa-search" aria-hidden="true"></i>
               </button>
             </form>
           </div><!-- /.input-group -->

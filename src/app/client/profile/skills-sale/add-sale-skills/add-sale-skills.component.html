@@ -13,7 +13,7 @@
             <div class="col-lg-6">
                 <mat-form-field class="example-full-width" appearance="fill" >
                     <mat-label>What is the name of your skill</mat-label>
-                    <input matInput  name="saleSkillName" [formControl]="myControl" [matAutocomplete]="auto" aria-label="skilldata"   value="saleSkillName" required>
+                    <input matInput  name="saleSkillName" [formControl]="myControl" [matAutocomplete]="auto" aria-label="skilldata" value="saleSkillName" required>
                     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"  >
                         <mat-option *ngFor="let categoryDatas of filteredOptions |async" [value]="categoryDatas"  >
                           {{categoryDatas.cat_name}}

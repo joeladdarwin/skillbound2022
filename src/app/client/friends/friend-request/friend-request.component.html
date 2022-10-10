@@ -1,0 +1,28 @@
+<div class="containers ">
+    <div class="row justify-content-around">
+        <mat-card class="example-card m-2 col-sm-5" *ngFor="let friendRequestList of friendRequestList">
+            <div class="d-flex">
+                <div >
+                    <img [src]="friendRequestList.gender" alt="male" class="profileImage" >       
+                </div>
+                <div class="userDetails mx-3 ">
+                    <h6 class="m-0">
+                        {{friendRequestList.userName}}
+                    </h6>
+                    <span>
+                        {{friendRequestList.work}}
+                    </span>
+        
+                </div>
+                
+            </div>
+            <mat-card-actions>
+                <button mat-button class="accept-btn">Confirm</button>
+                <button mat-button class="delete-btn">Delete</button>
+            </mat-card-actions>
+            
+        </mat-card>
+        
+    </div>
+    
+</div>

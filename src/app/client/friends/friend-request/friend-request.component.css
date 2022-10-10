@@ -1,0 +1,24 @@
+.profileImage{
+    border-radius: 50%;
+    width:35px;
+    height: 40px;
+}
+.containers{
+    font-size: 12px;
+}
+mat-card-actions{
+   float: right;
+   margin-top: -20px;
+   margin-right: 10px;
+}
+
+mat-card-actions button{
+    padding: 5px 8px ;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+
+}
+.accept-btn{
+    background-color:#5ae6ff;
+}
