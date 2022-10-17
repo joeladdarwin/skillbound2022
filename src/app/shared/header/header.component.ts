@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { from, Observable } from 'rxjs';
@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
   options:any;
   filteredOptions:any;
   searchUserName:any;
+  result:any
   // myControl = new FormControl('');
+  @Output('user') filterUser = new EventEmitter<{name:string}>();
 
   formGroup:any = FormGroup;
   constructor(private service:UsersService, private fb : FormBuilder) { }
@@ -86,12 +88,24 @@ onLogout(){
     let name;
     this.searchUserName = user.value.userNames.toLowerCase();    
     console.log(this.searchUserName);
+    this.filterUser.emit({
+      name:this.searchUserName
+    });
 
-    this.service.getEnteredUser(this.searchUserName).subscribe((details:any) =>{
 
-    })
+
+    // this.service.searchUser = this.searchUserName;
+    // this.service.getEnteredUser(this.searchUserName).subscribe((details:any) =>{
+    //   console.log(details);
+    //   this.result = details; 
+
+    // });
   }
 
 
+}
+
+function output() {
+  throw new Error('Function not implemented.');
 }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UsersService } from './service/users.service';
 //import { NotificationsService } from 'angular2-notifications';
 
@@ -10,10 +10,13 @@ import { UsersService } from './service/users.service';
 export class AppComponent {
   title = 'skillbound';
   customer: any;
+  @Input('user') filterUsers!:{name:string};
+
   constructor(
     public service: UsersService
   ) //public notificationService: NotificationsService
   {
+    console.log(this.filterUsers)
     //this.service.getCurrentUserSkill().subscribe((data: any) =>{
     //  console.log(data);
     // })

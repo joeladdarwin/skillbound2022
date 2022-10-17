@@ -11,6 +11,9 @@ export class UsersService {
   currentSkillCard: any;
   notificationData: any;
   currentWantSkillCard: any;
+  userDetail:any;
+  searchUser: any;
+  // searchUser: any;
   // @Input() categoryId :any;
 
   constructor(private http: HttpClient) {}
@@ -157,8 +160,14 @@ export class UsersService {
   }
 
 //get specific user details
-  getEnteredUser(user:any){
-    return this.http.get(`${this.url}user/${user}`)
+  // getEnteredUser(user:any){
+  //   return this.http.get(`${this.url}user/${user}`)
+  // }
+
+  //username pass another component
+  searchedUserName(){
+    console.log("h")
+    return this.searchUser;
   }
 }
     

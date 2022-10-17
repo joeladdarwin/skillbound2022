@@ -14,7 +14,7 @@ const routes: Routes = [{ path: 'clients', loadChildren: () => import('./client/
 { path: 'classes', loadChildren: () => import('./client/classes/classes.module').then(m => m.ClassesModule) },
 { path: 'dashboard', loadChildren: () => import('./client/profile/profile.module').then(m => m.ProfileModule) },
 { path: 'friends', loadChildren: () => import('./client/friends/friends.module').then(m => m.FriendsModule)},
-{ path: 'searchResult', loadChildren: () => import('./client/search-result/search-result.module').then(m=>m.SearchResultModule)},
+{ path: 'nameSearch', loadChildren: () => import('./client/search-result/search-result.module').then(m=>m.SearchResultModule)},
 {path:'terms', component:TermsComponent},
 {path:'faq', component:FaqComponent},
 {path:'aboutus', component:AboutusComponent},
