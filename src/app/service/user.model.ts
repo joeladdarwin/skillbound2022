@@ -97,4 +97,5 @@ export interface IUser {
   countryId:string;
   stateId:string;
   cityId:string;
+  friendId:number;
 }

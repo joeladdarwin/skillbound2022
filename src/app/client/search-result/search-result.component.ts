@@ -13,7 +13,7 @@ data:any;
   constructor(private service:UsersService) { }
 
   ngOnInit(): void {
-    console.log(this.filterUsers);
+    // console.log(this.filterUsers);
     // this.data = this.service.getEnteredUser();
     // console.log(this.data);
   }

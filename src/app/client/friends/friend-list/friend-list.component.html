@@ -16,15 +16,15 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item >
                       <span class="m-1"><i class="fa-solid fa-comment"></i></span>
                       <span class="m-1">Message</span>
                     </button>
-                    <button mat-menu-item >
+                    <button mat-menu-item (click)="unfriendRequest(friendList.friendId)">
                       <span class="m-1"><i class="fa-solid fa-user-slash"></i></span>
                       <span class="m-1">UnFriend</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="blockRequest(friendList.friendId)">
                       <span class="m-1"><i class="fa-solid fa-ban"></i></span>
                       <span class="m-1">block</span>
                     </button>

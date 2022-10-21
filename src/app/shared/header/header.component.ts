@@ -87,7 +87,7 @@ onLogout(){
   searchUser(user:NgForm){
     let name;
     this.searchUserName = user.value.userNames.toLowerCase();    
-    console.log(this.searchUserName);
+    // console.log(this.searchUserName);
     this.filterUser.emit({
       name:this.searchUserName
     });

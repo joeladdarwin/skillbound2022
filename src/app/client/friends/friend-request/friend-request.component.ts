@@ -45,4 +45,7 @@ export class FriendRequestComponent implements OnInit {
     }
   }
 
+  requestAccept(){
+    
+  }
 }

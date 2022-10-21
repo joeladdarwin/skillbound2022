@@ -159,6 +159,18 @@ export class UsersService {
     return this.http.get(`${this.url}userNameList`)
   }
 
+//un friend reques
+  unfriend(id:any){
+    console.log(id);
+    return this.http.delete(`${this.url}unfriend/${id}`);
+  }
+
+  blockedUser(id:any){
+    console.log(id);
+    return this.http.put(`${this.url}userBlock/`, id);
+  }
+
+
 //get specific user details
   // getEnteredUser(user:any){
   //   return this.http.get(`${this.url}user/${user}`)

@@ -16,15 +16,20 @@ export class FriendListComponent implements OnInit {
   constructor(public userService:UsersService) { }
 
   ngOnInit(): void {
+    this.userFriendlist();
+  }
+  userFriendlist(){
     this.userService.getFriendlist().subscribe((list)=>{
       console.log(list);
       this.friendList = this.FriendsDetails(list);
       console.log(this.friendList);
     })
   }
+
   FriendsDetails(list:any){
     return list.map((data:any) =>{
       return{
+        friendId: data.id,
         userName : data.username,
         gender : this.findGender(data.gender),
         gendera : data.gender.toUpperCase(),
@@ -44,6 +49,27 @@ export class FriendListComponent implements OnInit {
       return this.imageLink = "../assets/img/profiles.png";
 
     }
+  }
+
+  unfriendRequest(id:any){
+    this.userService.unfriend(id).subscribe((result)=>{
+      console.log(result);
+      this.userFriendlist()
+    })
+
+  }
+
+  blockRequest(friendId:any){
+    
+    let blockUser={
+      id : friendId,
+      blocknumber: 1
+
+    }
+    this.userService.blockedUser(blockUser).subscribe((result)=>{
+      console.log(result);
+      this.userFriendlist();
+    })
   }
 
 }
