@@ -40,6 +40,7 @@ export interface ISkills {
 
 //  User Data
 export interface IUser {
+  requestId: any;
   wantSkillId: any;
   password:any;
   id: string;

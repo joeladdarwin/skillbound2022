@@ -166,8 +166,19 @@ export class UsersService {
   }
 
   blockedUser(id:any){
-    console.log(id);
     return this.http.put(`${this.url}userBlock/`, id);
+  }
+
+  requestAcceptCall(details:any){
+    return this.http.put(`${this.url}requestAccept/`, details);
+  }
+
+  getBlockedList(){
+    return this.http.get(`${this.url}blockedList/${this.userId}`);
+  }
+
+  unBlockService(details:any){
+    return this.http.put(`${this.url}unBlock`, details);
   }
 
 

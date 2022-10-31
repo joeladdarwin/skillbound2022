@@ -15,18 +15,23 @@ export class FriendRequestComponent implements OnInit {
   constructor(public userService : UsersService) { }
 
   ngOnInit(): void {
+    this.getrequestList();
+  }
+
+  getrequestList(){
     this.userService.getFriendRequestList().subscribe((list)=>{
       console.log(list);
       this.friendRequestList = this.FriendsDetails(list);
       console.log(this.friendRequestList);
     })
   }
+
   FriendsDetails(list:any){
     return list.map((data:any) =>{
       return{
+        requestId: data.requestId,
         userName : data.username,
         gender : this.findGender(data.gender),
-        gendera : data.gender.toUpperCase(),
         work : data.work
       }
     });
@@ -45,7 +50,23 @@ export class FriendRequestComponent implements OnInit {
     }
   }
 
-  requestAccept(){
-    
+  requestAccept(requestId:any){
+    let details={
+      id:requestId,
+      accept:'yes'
+    }
+    this.userService.requestAcceptCall(details).subscribe((result:any)=>{
+      console.log(result);
+      this.getrequestList();
+
+    })
+  }
+
+  requestReject(requestId:any){
+    this.userService.unfriend(requestId).subscribe((result)=>{
+      console.log(result);
+      this.getrequestList();
+
+    })
   }
 }

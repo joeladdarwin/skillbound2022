@@ -11,10 +11,11 @@
                 <span class="d-sm-none d-md-block d-none">Friends list</span>
                 <i class="fa-solid fa-user-group mx-2 d-md-none"></i>
             </button>
-            <button type="button" class="nav-link py-1 px-4" data-bs-toggle="tab" title="Friends Suggestions" data-bs-target="#friendSuggestion">
-                <span class="d-sm-none d-md-block d-none">Friends Suggestions</span>
-                <i class="fa-solid fa-user-plus mx-2 d-md-none"></i>
-            </button>            
+            <button type="button" class="nav-link py-1 px-4" data-bs-toggle="tab" title="block list" data-bs-target="#blockedList">
+                <span class="d-sm-none d-md-block d-none">Blocked List</span>
+                <i class="fa-solid fa-user-large-slash mx-2 d-md-none"></i>           
+            </button> 
+                        
         </nav>
         <!-- End nav bar -->
 
@@ -22,14 +23,15 @@
         <div class="tab-content">
             <div class="m-2 tab-pane active show fade" id="friendRequest">           
                 <app-friend-request></app-friend-request>
-
             </div>
             <div class="m-2 tab-pane fade" id="friendList">
                 <app-friend-list></app-friend-list>
             </div>
-            <div class="m-2 tab-pane fade" id="friendSuggestion">
-                <app-friend-suggestion></app-friend-suggestion>
+            <div class="m-2 tab-pane fade" id="blockedList">
+                <app-block-list></app-block-list>
             </div>
+            
+
         </div>
         <!-- End tab Content -->
 

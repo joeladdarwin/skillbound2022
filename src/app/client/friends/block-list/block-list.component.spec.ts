@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FriendSuggestionComponent } from './friend-suggestion.component';
+import { BlockListComponent } from './block-list.component';
 
-describe('FriendSuggestionComponent', () => {
-  let component: FriendSuggestionComponent;
-  let fixture: ComponentFixture<FriendSuggestionComponent>;
+describe('BlockListComponent', () => {
+  let component: BlockListComponent;
+  let fixture: ComponentFixture<BlockListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FriendSuggestionComponent ]
+      declarations: [ BlockListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FriendSuggestionComponent);
+    fixture = TestBed.createComponent(BlockListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
