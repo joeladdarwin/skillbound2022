@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/service/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SkillEditComponent } from './skill-edit/skill-edit.component';
 import { SkillAddComponent } from './skill-add/skill-add.component';
+import { SkillDeleteComponent } from './skill-delete/skill-delete.component';
 //import { NotificationsService } from 'angular2-notifications';
 
 @Component({
@@ -21,15 +22,14 @@ export class SkillCardComponent implements OnInit {
   @Input() newMusicianEvent: any;
   upadateMsg: any;
   userData?: IUser[]; //inter face assian
-  //  skill?:ISkills[];
   msg: any;
   lazyRender: IUser[] | undefined; //lazy render
   user: any; //get user data from service call
   changeText: boolean; //wishes background  color change
-  // skillId: any;
   deleteMsg: any;
   deletNotification: boolean = false;
-  // @Input() userData='';
+  userId: any;
+  countryId: any;
 
   constructor(
     public userService: UsersService,
@@ -37,13 +37,19 @@ export class SkillCardComponent implements OnInit {
   ) {
     this.changeText = false;
   }
-  //@Output() deleteId: EventEmitter <any>= new EventEmitter()
 
   ngOnInit(): void {
+    this.getSkills();
+  }
+  getSkills() {
     // get skill value
     this.userService.getCurrentUserSkill().subscribe((user: any) => {
-      // console.log(user);
       this.userData = this.userInterFaceData(user);
+      console.log(user);
+      this.userId = user[0].user_id;
+      this.countryId = user[0].country;
+
+      console.log(this.userId);
     });
   }
 
@@ -55,48 +61,54 @@ export class SkillCardComponent implements OnInit {
       .split(',')
       .filter(Boolean);
     var wishValue = wishes[wishes.length - 1];
-    // console.log(wish);
-    // console.log(wishes);
-    // console.log(wishValue + typeof wishValue);
 
-    let wishColorCode = '#f7f ';
+    let wishColorCode = '#8af2d6';
     switch (wishValue) {
-      case 'swap':
-        wishColorCode = '  #8ec4f7  ';
+      case 'swap ':
+        wishColorCode = '#DBF227';
         break;
 
-      case 'swap and train':
-        wishColorCode = '  #fffd86  ';
+      case 'swap and train ':
+        wishColorCode = '#D6D58E';
         break;
-      case 'Form a group':
-        wishColorCode = '  #0ffd86  ';
+      case 'form a group ':
+        wishColorCode = '#64b4cc';
         break;
-      case 'consoult in':
-        wishColorCode = '  #f11d86  ';
+      case 'consoult in ':
+        wishColorCode = '#A69BBF';
         break;
       case 'offer a good or service ':
-        wishColorCode = ' #0d71a4  ';
+        wishColorCode = '#F2A71B';
         break;
       case 'be hired by someone ':
-        wishColorCode = ' #0c60db  ';
+        wishColorCode = '#A5A692';
         break;
       case 'teach ':
-        wishColorCode = ' #fd71a4  ';
+        wishColorCode = '#fd71a4';
         break;
       case 'tutor ':
-        wishColorCode = ' #ac60db  ';
+        wishColorCode = '#ac60db';
         break;
-      case 'consult in':
-        wishColorCode = ' #fb8cff  ';
+      case 'consult in ':
+        wishColorCode = '#fb8cff';
         break;
       case 'be employed in ':
-        wishColorCode = ' #255f40  ';
+        wishColorCode = '#F2DCDE';
         break;
       case 'perform ':
-        wishColorCode = ' #2ee1e0  ';
+        wishColorCode = '#2ee1e0';
         break;
       case 'mentor ':
-        wishColorCode = ' #2a1f40  ';
+        wishColorCode = '#FFEC5C';
+        break;
+      case 'partners with ':
+        wishColorCode = '#D97652';
+        break;
+      case 'hire a tutor ':
+        wishColorCode = '#f54745';
+        break;
+      case 'employ ':
+        wishColorCode = '#49D907';
         break;
     }
 
@@ -131,10 +143,7 @@ export class SkillCardComponent implements OnInit {
         ),
         teachLevel: userData.level2,
         teachingLevel: userData.level2.toLowerCase(),
-        //fname:userData.fname,
-        //lname:userData.lname,
-        //work:userData.work,
-        //company:userData.Company,
+
         desiredskills: userData.desiredskills,
         business: userData.business,
         qualifications: userData.qualifications,
@@ -159,21 +168,44 @@ export class SkillCardComponent implements OnInit {
     });
   }
 
-  // onTriangleAnimation(){
-  //    document.getElementsByClassName('wishesPart').style.display = 'block';
-
-  // }
   getClass(level: string) {
     return level && level.toLowerCase();
   }
 
   // edit the skill
   editSkill(selectedId: string) {
-    
     this.userService.currentSkillCard = this.userData?.filter(
       (x) => x.skillId == selectedId
     );
-    this.dialog.open(SkillEditComponent);
+    const dialogRef = this.dialog.open(SkillEditComponent);
+    dialogRef.afterClosed().subscribe((editedData) => {
+      const formValue = editedData[0].value;
+      const skillId = editedData[1];
+      // console.log(formValue);
+      // console.log(skillId);
+
+      const payload = {
+        skillId: skillId,
+        categoryId: formValue.categoryId,
+        subCategoryId: formValue.subCategoryId,
+        skillLevel: formValue.skillLevel,
+        teachLevel: formValue.teachLevel,
+        selectWishes:
+          formValue.selectWishes == ['']
+            ? ''
+            : this.addStringtoWishes(formValue.selectWishes),
+      };
+      console.log(payload);
+      this.userService
+        .skillDataUpdate(payload)
+        .subscribe((updateAlert: any) => {
+          console.log(updateAlert);
+          this.getSkills();
+        });
+    });
+  }
+  addStringtoWishes(val: any) {
+    return val.map((e: any) => e + ' this skill');
   }
 
   // lazy render call
@@ -181,43 +213,41 @@ export class SkillCardComponent implements OnInit {
     // console.log(this.userData);
     // this.lazyRender = this.userData;
   }
+
+  // delet the skill
   deleteSkill(skills: any) {
-    // this.dialog.open(DeleteComponent);
-    let confirmation = 'Do you want to delete?';
-    if (confirm(confirmation) == true) {
+    const dialogRef = this.dialog.open(SkillDeleteComponent);
+    dialogRef.afterClosed().subscribe((deleteCofirmation) => {
+      console.log(deleteCofirmation);
       this.userService
         .deleteSkill(skills.skillId)
         .subscribe((deleteMsg: any) => {
-          //alert(deleteMsg);
-          this.ngOnInit();
-          // this.deletNotification = true;
-          // setTimeout(() => {
-          //   this.deletNotification = false;
-          // }, 3000);
-          // this.notification.success('ghhgkg', 'success', {
-          //   position: ['bottom', 'right'],
-          //   timeOut: 2000,
-          //   animation: 'fade',
-          //   showProgressBar: true,
-          //   clickToClose: false,
-          // });
+          this.getSkills();
         });
-    }
-    //this.skillId = skills.skillId;
+    });
   }
 
   addSkill() {
-    this.dialog.open(SkillAddComponent);
+    const dialogRef = this.dialog.open(SkillAddComponent);
+    dialogRef.afterClosed().subscribe((addData) => {
+      console.log(addData);
+      const addSkilldata = {
+        userId: this.userId,
+        countryId: this.countryId,
+        categoryId: addData.categoryId,
+        subCategoryId: addData.subCategoryId,
+        skillLevel: addData.skillLevel,
+        teachLevel: addData.teachLevel,
+        //wishes:userlogin.wishes,
+        wishes:
+          addData.wishes == [''] ? '' : this.addStringtoWishes(addData.wishes),
+      };
+      this.userService
+        .userSkillAdd(addSkilldata)
+        .subscribe((addSkillnotification: any) => {
+          console.log(addSkillnotification);
+          this.getSkills();
+        });
+    });
   }
-  // animation(value: any) {
-  //   if (value === 'show') {
-  //     console.log(value);
-  //     this.userData[0].skillWish = true;
-  //     // console.log(this.userData[0]);
-  //   } else {
-  //     skillWish: false;
-  //     console.log(value);
-  //   }
-  // }
-  //console.log(newMusicianEvent: any);
 }

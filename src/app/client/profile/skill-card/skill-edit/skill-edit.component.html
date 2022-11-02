@@ -127,14 +127,19 @@
       </div>
 
       <!-- button -->
-      <div class="form-group m-1 edit-btn-part button-part col-lg-3 col-md-4" [ngClass]="{'disable':!editedData.valid}">
+      <div
+        class="form-group m-1 edit-btn-part button-part col-lg-3 col-md-4"
+        [ngClass]="{ disable: !editedData.valid }"
+      >
         <button
-          class="btn btn-submit m-1 px-2 "
+          class="btn btn-submit m-1 px-2"
           type="submit"
-          [mat-dialog-close]="matDialogClose"
+          [mat-dialog-close]="[editedData, skillId]"
           [disabled]="!editedData.valid"
-        ><span>Submit</span>
-          
+          cdkFocusInitial
+        >
+          <span>Submit</span>
+
           <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
         </button>
       </div>

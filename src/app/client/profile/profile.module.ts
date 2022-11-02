@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -7,22 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {  MAT_DATE_FORMATS,  DateAdapter,  MAT_DATE_LOCALE } from '@angular/material/core';
-// import { MomentDateAdapter } from '@angular/material-moment-adapter';
-
-
-
-// import { SimpleNotificationsModule } from 'angular2-notifications';
-import {MatInputModule} from '@angular/material/input';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatCardModule} from '@angular/material/card';
-import {MatTabsModule} from '@angular/material/tabs';
-
-
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
@@ -37,17 +30,17 @@ import { SkillsSaleComponent } from './skills-sale/skills-sale.component';
 import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-skills.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserDetailEditComponent } from './user-details/user-detail-edit/user-detail-edit.component';
-// import { TriangleAnimateComponent } from './skillCard/triangle-animate/triangle-animate.component';
+import { SkillDeleteComponent } from './skill-card/skill-delete/skill-delete.component';
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY'
+    dateInput: 'DD/MM/YYYY',
   },
   display: {
     dateInput: 'DD/MM/YYYY',
     monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY'
-  }
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
 };
 @NgModule({
   declarations: [
@@ -63,19 +56,9 @@ export const MY_FORMATS = {
     AddSaleSkillsComponent,
     UserDetailsComponent,
     UserDetailEditComponent,
-    // TriangleAnimateComponent
+    SkillDeleteComponent,
   ],
   imports: [
-    // SimpleNotificationsModule.forRoot({
-    //   icons: {
-    //     success: '<i class="icon-check-sign icon-3x left"></i>',
-    //     alert: '<i class="icon-exclamation icon-3x left"></i>',
-    //     error: '<i class="icon-bug icon-3x left"></i>',
-    //     info: '<i class="icon-info icon-3x left"></i>',
-    //     warn: '<i class="icon-warning-sign icon-3x left"></i>',
-    //   },
-    //   rtl: true,
-    // }),
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -93,10 +76,8 @@ export const MY_FORMATS = {
     FormsModule,
     MatInputModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
   ],
-  providers: [   ],
+  providers: [],
 })
-export class ProfileModule {
-  
-}
+export class ProfileModule {}

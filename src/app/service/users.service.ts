@@ -17,19 +17,9 @@ export class UsersService {
   // @Input() categoryId :any;
 
   constructor(private http: HttpClient) {}
-  //login
-  // loginRequest(data:any){
-  //   return this.http.post(`${this.url}login`, data)
-  // }
-  // isAuthendication():boolean{
-  //   if(sessionStorage.getItem('token')!==null){
-  //     return true;
-  //   }
-  //   return false
-  // }
+  
   logout() {
-    //this.token = null;
-    // this.isAuthenticated = false;
+    
   }
 
   //get user details

@@ -1,7 +1,7 @@
-body{
+body {
   overflow-x: hidden;
 }
-.notification-msg{
+.notification-msg {
   position: fixed;
   bottom: 4%;
   right: 0%;

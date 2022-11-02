@@ -94,49 +94,6 @@ export class SkillEditComponent implements OnInit {
       });
   }
 
-  addStringtoWishes(val: any) {
-    return val.map((e: any) => e + ' this skill');
-  }
+  
 
-  editSkillData() {
-
-    const formValue = this.editedData.value;
-    const payload = {
-      skillId: this.skillId,
-      categoryId: formValue.categoryId,
-      subCategoryId: formValue.subCategoryId,
-      skillLevel: formValue.skillLevel,
-      teachLevel: formValue.teachLevel,
-      selectWishes:
-        formValue.selectWishes == ['']
-          ? ''
-          : this.addStringtoWishes(formValue.selectWishes),
-    };
-    this.userService.skillDataUpdate(payload).subscribe((updateAlert: any) => {
-      // this.updateAlert = updateAlert;
-      this.matDialogClose = true;
-      updateMsgs(updateAlert);
-
-      //this.editMsg.emit('{ updateAlert}');
-      // this.profileComponent.updatemsg();
-      //this.ngOnInit();
-      // this.editPopup = true;
-      //updateMsg(updateAlert);
-    });
-
-    // this.updateMsg = function (updateAlert: any) {
-    //   alert(this.updateMsg);
-    //   this.msg.emit(this.updateMsg);
-    //this.userService.updateMsgs = updateAlert;
-    //};
-
-  }
-}
-
-function updateMsgs(updateAlert: any) {
-  throw new Error('Function not implemented.');
-}
-
-function updateAlert(updateAlert: any) {
-  throw new Error('Function not implemented.');
 }

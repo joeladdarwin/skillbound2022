@@ -2,32 +2,32 @@
   position: relative;
 }
 /* start button  */
-.disable{
-  cursor:not-allowed;
+.disable {
+  cursor: not-allowed;
 }
 .btn-submit {
   /* background-color: #a4e5fa; */
   position: relative;
   /* background: #1b90c6; */
   background: linear-gradient(0deg, #43b9f0 0%, #97cfe9 100%);
-  
-    width: 180px;
-    height: 40px;
-    line-height: 42px;
-    padding: 0;
-    border: none;
+
+  width: 180px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
 }
-.btn-submit span{
+.btn-submit span {
   position: relative;
   display: block;
   width: 99%;
   height: 100%;
-  color:#eee;
+  color: #eee;
 }
 
 /* .btn-submit:hover {
   /* background-color: #76d6f7; */
-  /* box-shadow: 2px 5px 5px #757575; 
+/* box-shadow: 2px 5px 5px #757575; 
 } */
 .btn-submit:before,
 .btn-submit:after {
@@ -46,8 +46,8 @@
   width: 0%;
   height: 2px;
 }
-.btn-submit:hover{
-   background: transparent;
+.btn-submit:hover {
+  background: transparent;
   box-shadow: none;
 }
 .btn-submit:hover:before {
@@ -56,8 +56,8 @@
 .btn-submit:hover:after {
   width: 99%;
 }
-.btn-submit span:hover{
-   color: #43b9f0;
+.btn-submit span:hover {
+  color: #43b9f0;
 }
 .btn-submit span:before,
 .btn-submit span:after {
