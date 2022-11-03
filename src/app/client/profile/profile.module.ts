@@ -31,6 +31,7 @@ import { AddSaleSkillsComponent } from './skills-sale/add-sale-skills/add-sale-s
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserDetailEditComponent } from './user-details/user-detail-edit/user-detail-edit.component';
 import { SkillDeleteComponent } from './skill-card/skill-delete/skill-delete.component';
+import { DeleteWantSkillComponent } from './want-skill-card/delete-want-skill/delete-want-skill.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -57,6 +58,7 @@ export const MY_FORMATS = {
     UserDetailsComponent,
     UserDetailEditComponent,
     SkillDeleteComponent,
+    DeleteWantSkillComponent,
   ],
   imports: [
     MatTabsModule,

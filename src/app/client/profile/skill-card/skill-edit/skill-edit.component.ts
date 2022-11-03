@@ -3,8 +3,6 @@ import { UsersService } from 'src/app/service/users.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
-//import { SkillCardComponent } from 'src/app/client/profile/skill-card/skill-card.component';
-//import { ProfileComponent } from 'src/app/client/profile/profile.component';
 interface Food {
   value: string;
   viewValue: string;
@@ -66,7 +64,6 @@ export class SkillEditComponent implements OnInit {
       .toString()
       .replace(/this skill/g, '')
       .split(',');
-
   }
   levels = [{ name: 'Basic' }, { name: 'Good' }, { name: 'Expert' }];
   swapList: string[] = [
@@ -80,8 +77,6 @@ export class SkillEditComponent implements OnInit {
 
   selectSubCategory(selectedCategoryId: any) {
     this.selectedCategoryId = selectedCategoryId;
-    // alert(selectedCategoryId);
-
     this.callService(this.selectedCategoryId);
   }
 
@@ -89,11 +84,7 @@ export class SkillEditComponent implements OnInit {
     this.userService
       .getSubCategory(selectedCategoryId)
       .subscribe((subCategory: any) => {
-        //console.log("asfsfd" + subCategory);
         this.subCategoryData = subCategory;
       });
   }
-
-  
-
 }

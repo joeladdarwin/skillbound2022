@@ -63,6 +63,4 @@ export class SkillAddComponent implements OnInit {
   addStringtoWishes(val: any) {
     return val.map((e: any) => e + ' this skill');
   }
-
-  
 }

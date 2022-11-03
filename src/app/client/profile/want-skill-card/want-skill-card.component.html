@@ -1,5 +1,7 @@
 <div class="container m-2" *ngIf="wantSkillDetails">
-  <mat-icon mat-button class="addIcon" (click)="addWantSkill()">add_circle</mat-icon>
+  <mat-icon mat-button class="addIcon" (click)="addWantSkill()"
+    >add_circle</mat-icon
+  >
   <!-- Start Card -->
   <div class="row card">
     <div class="container row justify-content-center">
@@ -18,7 +20,12 @@
             (click)="editSkill(wantSkill.wantSkillId)"
             >edit</mat-icon
           >
-          <mat-icon class="deleteIcon" mat-button (click)="deleteWantSkill(wantSkill.wantSkillId)">delete</mat-icon>
+          <mat-icon
+            class="deleteIcon"
+            mat-button
+            (click)="deleteWantSkill(wantSkill.wantSkillId)"
+            >delete</mat-icon
+          >
           <!-- skill wishes -->
           <div
             class="wishesPart justify-content-around align-items-center d-flex p-3"

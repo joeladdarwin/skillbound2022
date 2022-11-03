@@ -2,15 +2,13 @@
   <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
 
   <div class="lh-1 justify-content-center">
-    <h5 class="text-center">Edit member looking skills
-    </h5>
+    <h5 class="text-center">Edit member looking skills</h5>
 
     <form
-      class="row justify-content-evenly justify-content-col-center flex-col-column" (ngSubmit)="wnatEditSkillData()"
+      class="row justify-content-evenly justify-content-col-center flex-col-column"
+      (ngSubmit)="wnatEditSkillData()"
       [formGroup]="WantEditedData"
-
     >
-      <!-- <div class="row "> -->
       <!-- category -->
       <div class="form-group m-1 col-lg-4 col-md-4">
         <mat-form-field appearance="fill">
@@ -22,14 +20,12 @@
             class="form-control"
             [(ngModel)]="categoryId"
             formControlName="categoryId"
-
             required
           >
             <mat-option
               *ngFor="let category of categoryData"
               [value]="category.id"
-
-            >{{category.cat_name}}
+              >{{ category.cat_name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -40,17 +36,18 @@
         <mat-form-field appearance="fill">
           <mat-label for="subCategory">Sub Category:</mat-label>
           <mat-select
-          [(value)]="subCategoryId"
-          formControlName="subCategoryId"
+            [(value)]="subCategoryId"
+            formControlName="subCategoryId"
             id="subCategoryId"
             name="subCategoryId"
             class="form-control"
             [(ngModel)]="subCategoryId"
-            required
           >
-            <!-- <mat-option disabled selected></mat-option> -->
-            <mat-option *ngFor="let subCategory of subCategoryData"
-            [value]="subCategory.id">{{subCategory.s_cat_name}} </mat-option>
+            <mat-option
+              *ngFor="let subCategory of subCategoryData"
+              [value]="subCategory.id"
+              >{{ subCategory.s_cat_name }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -68,25 +65,27 @@
             [(ngModel)]="wishesTo"
             [(value)]="wishesTo"
             formControlName="selectWishes"
-
             multiple
             required
           >
-            <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{swapList}}</mat-option>
+            <mat-option *ngFor="let swapList of swapList" [value]="swapList">{{
+              swapList
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
 
       <!-- button -->
-      <div class="form-group m-1  col-lg-4 col-md-4">
-        <button class="btn btn-submit" type="submit"  [mat-dialog-close]="matDialogClose"
-        [disabled]="!WantEditedData.valid">
-        <span>          Submit
-        </span>
-          <!-- <mat-icon class="rounded-circle">done</mat-icon> -->
+      <div class="form-group m-1 col-lg-4 col-md-4">
+        <button
+          class="btn btn-submit"
+          type="submit"
+          [mat-dialog-close]="[WantEditedData, wantSkillId]"
+          [disabled]="!WantEditedData.valid"
+        >
+          <span> Submit </span>
         </button>
       </div>
-      <!-- </div> -->
     </form>
   </div>
 </div>

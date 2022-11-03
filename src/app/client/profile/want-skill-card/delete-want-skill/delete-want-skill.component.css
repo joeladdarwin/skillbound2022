@@ -1,11 +1,10 @@
-.container {
-  position: relative;
+.popup {
+  width: 260px;
 }
-
 .btn-submit {
   position: relative;
   background: linear-gradient(0deg, #43b9f0 0%, #97cfe9 100%);
-  width: 250px;
+  width: 100px;
   height: 40px;
   line-height: 42px;
   padding: 0;
@@ -20,6 +19,10 @@
   color: #eee;
 }
 
+.btn-submit:hover {
+  background-color: #76d6f7;
+  box-shadow: 2px 5px 5px #757575;
+}
 .btn-submit:before,
 .btn-submit:after {
   position: absolute;
@@ -45,7 +48,7 @@
   height: 100%;
 }
 .btn-submit:hover:after {
-  width: 100%;
+  width: 99%;
 }
 .btn-submit span:hover {
   color: #43b9f0;
@@ -71,13 +74,5 @@
   height: 100%;
 }
 .btn-submit span:hover:after {
-  width: 101%;
-}
-/* End button  */
-.close-icon {
-  position: absolute;
-  top: -5px;
-  right: 15px;
-  font-size: 25px;
-  font-weight: bolder;
+  width: 100%;
 }

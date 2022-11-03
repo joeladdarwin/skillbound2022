@@ -45,11 +45,8 @@ export class SkillCardComponent implements OnInit {
     // get skill value
     this.userService.getCurrentUserSkill().subscribe((user: any) => {
       this.userData = this.userInterFaceData(user);
-      console.log(user);
       this.userId = user[0].user_id;
       this.countryId = user[0].country;
-
-      console.log(this.userId);
     });
   }
 
@@ -62,53 +59,98 @@ export class SkillCardComponent implements OnInit {
       .filter(Boolean);
     var wishValue = wishes[wishes.length - 1];
 
-    let wishColorCode = '#8af2d6';
+    let wishColorCode = '#ff9f9f';
     switch (wishValue) {
       case 'swap ':
-        wishColorCode = '#DBF227';
+        wishColorCode = '#ff498c';
+        break;
+
+      case 'partner with ':
+        wishColorCode = '#fcb589';
+        break;
+
+      case 'start a group ':
+        wishColorCode = '#ffe895';
         break;
 
       case 'swap and train ':
-        wishColorCode = '#D6D58E';
+        wishColorCode = '#ffdb57';
         break;
-      case 'form a group ':
-        wishColorCode = '#64b4cc';
+
+      case 'tech ':
+        wishColorCode = '#ffca0b';
         break;
-      case 'consoult in ':
-        wishColorCode = '#A69BBF';
-        break;
-      case 'offer a good or service ':
-        wishColorCode = '#F2A71B';
-        break;
-      case 'be hired by someone ':
-        wishColorCode = '#A5A692';
-        break;
-      case 'teach ':
-        wishColorCode = '#fd71a4';
-        break;
+
       case 'tutor ':
-        wishColorCode = '#ac60db';
+        wishColorCode = '#ad8700';
         break;
-      case 'consult in ':
-        wishColorCode = '#fb8cff';
-        break;
+
       case 'be employed in ':
-        wishColorCode = '#F2DCDE';
+        wishColorCode = '#97a400';
         break;
-      case 'perform ':
-        wishColorCode = '#2ee1e0';
+
+      case 'consult in ':
+        wishColorCode = '#eaff06';
         break;
-      case 'mentor ':
-        wishColorCode = '#FFEC5C';
+
+      case 'offer a good or service ':
+        wishColorCode = '#aeff00';
         break;
-      case 'partners with ':
-        wishColorCode = '#D97652';
+
+      case 'swap and train ':
+        wishColorCode = '#5d8800';
         break;
-      case 'hire a tutor ':
-        wishColorCode = '#f54745';
-        break;
+
       case 'employ ':
-        wishColorCode = '#49D907';
+        wishColorCode = '#47e512';
+        break;
+
+      case 'hire to consult ':
+        wishColorCode = '#95fe71';
+        break;
+
+      case 'form a group ':
+        wishColorCode = '#449a8c';
+        break;
+
+      case 'partner with someone ':
+        wishColorCode = '#68ffe6';
+        break;
+
+      case 'be hired by someone ':
+        wishColorCode = '#1bffd9';
+        break;
+
+      case 'partner with ':
+        wishColorCode = '#2eceff';
+        break;
+
+      case 'perform ':
+        wishColorCode = '#9de8ff';
+        break;
+
+      case 'mentor ':
+        wishColorCode = '#8cbefe';
+        break;
+
+      case 'swap and be trained in ':
+        wishColorCode = '#6f80ff';
+        break;
+
+      case 'hire to ':
+        wishColorCode = '#b76fff';
+        break;
+
+      case 'hire a tutor ':
+        wishColorCode = '#F27405';
+        break;
+
+      case 'pay some one to perform skill ':
+        wishColorCode = '#f66b75';
+        break;
+
+      case 'be mentor in ':
+        wishColorCode = '#d058e2';
         break;
     }
 
@@ -158,7 +200,6 @@ export class SkillCardComponent implements OnInit {
         village: userData.village,
         town: userData.town,
         city: userData.city,
-        // state:userData.state,
         zip: userData.zip,
         phone: userData.phone,
         cat_id: userData.cat_id,
@@ -181,8 +222,6 @@ export class SkillCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((editedData) => {
       const formValue = editedData[0].value;
       const skillId = editedData[1];
-      // console.log(formValue);
-      // console.log(skillId);
 
       const payload = {
         skillId: skillId,
@@ -195,11 +234,9 @@ export class SkillCardComponent implements OnInit {
             ? ''
             : this.addStringtoWishes(formValue.selectWishes),
       };
-      console.log(payload);
       this.userService
         .skillDataUpdate(payload)
         .subscribe((updateAlert: any) => {
-          console.log(updateAlert);
           this.getSkills();
         });
     });
@@ -218,7 +255,6 @@ export class SkillCardComponent implements OnInit {
   deleteSkill(skills: any) {
     const dialogRef = this.dialog.open(SkillDeleteComponent);
     dialogRef.afterClosed().subscribe((deleteCofirmation) => {
-      console.log(deleteCofirmation);
       this.userService
         .deleteSkill(skills.skillId)
         .subscribe((deleteMsg: any) => {
@@ -230,7 +266,6 @@ export class SkillCardComponent implements OnInit {
   addSkill() {
     const dialogRef = this.dialog.open(SkillAddComponent);
     dialogRef.afterClosed().subscribe((addData) => {
-      console.log(addData);
       const addSkilldata = {
         userId: this.userId,
         countryId: this.countryId,
@@ -245,7 +280,6 @@ export class SkillCardComponent implements OnInit {
       this.userService
         .userSkillAdd(addSkilldata)
         .subscribe((addSkillnotification: any) => {
-          console.log(addSkillnotification);
           this.getSkills();
         });
     });

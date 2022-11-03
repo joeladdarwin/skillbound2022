@@ -1,70 +1,74 @@
 <div class="container">
-    <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
-  
-    <h5 class="text-center">Please add the skills you have</h5>
-    <form
-      #addWantSkill="ngForm"
-      (ngSubmit)="onClickSubmit(addWantSkill.value)"
-      class="row justify-content-evenly justify-content-col-center flex-col-column"
-    >
-      <div class="m-1 col-lg-4 col-md-4">
-        <mat-form-field appearance="fill">
-          <mat-label>Category</mat-label>
-          <mat-select
-            (selectionChange)="selectSubCategory($event.value)"
-            name="categoryId"
-            ngModel
-            required
+  <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+
+  <h5 class="text-center">Please add the skills you have</h5>
+  <form
+    #addWantSkill="ngForm"
+    class="row justify-content-evenly justify-content-col-center flex-col-column"
+  >
+    <div class="m-1 col-lg-4 col-md-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select
+          (selectionChange)="selectSubCategory($event.value)"
+          name="categoryId"
+          ngModel
+          required
+        >
+          <mat-option
+            *ngFor="let categoryList of categoryData"
+            [value]="categoryList.id"
+            >{{ categoryList.cat_name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="m-1 col-lg-4 col-md-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Sub Category</mat-label>
+        <mat-select name="subCategoryId" ngModel>
+          <mat-option
+            *ngFor="let subCategoryDataList of subCategoryData"
+            [value]="subCategoryDataList.id"
           >
-            <mat-option
-              *ngFor="let categoryList of categoryData"
-              [value]="categoryList.id"
-              >{{ categoryList.cat_name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="m-1 col-lg-4 col-md-4">
-        <mat-form-field appearance="fill">
-          <mat-label>Sub Category</mat-label>
-          <mat-select name="subCategoryId" ngModel>
-            <mat-option
-              *ngFor="let subCategoryDataList of subCategoryData"
-              [value]="subCategoryDataList.id"
-            >
-              {{ subCategoryDataList.s_cat_name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      
-      <div class="m-1 col-lg-4 col-md-4">
-        <mat-form-field appearance="fill">
-          <mat-label>I wish to</mat-label>
-          <mat-select name="wishes"  ngModel multiple required>
-            <mat-option *ngFor="let swapList of swapList" [value]="swapList"
-              >{{swapList}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="m-1 col-lg-4 col-md-4" >
-        <button
-          class="btn btn-submit"[ngClass]="{'disable':!addWantSkill.valid}"
-          type="submit" >
-          <span>          Please post the skills you want
-          </span>
+            {{ subCategoryDataList.s_cat_name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="m-1 col-lg-4 col-md-4">
+      <mat-form-field appearance="fill">
+        <mat-label>I wish to</mat-label>
+        <mat-select name="wishes" ngModel multiple required>
+          <mat-option
+            *ngFor="let swapList of swapList"
+            [value]="swapList"
+            required
+            >{{ swapList }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="m-1 col-lg-4 col-md-4">
+      <button
+        class="btn btn-submit"
+        [disabled]="!addWantSkill.valid"
+        [ngClass]="{ disable: !addWantSkill.valid }"
+        [mat-dialog-close]="addWantSkill.value"
+        type="submit"
+      >
+        <span> Please post the skills you want </span>
+      </button>
+    </div>
+    <div class="m-3">
+      <span>
+        <button class="btn">
+          ** If you don't find the skill you are looking for, please submit the
+          skill here, and we will add the missing skill if appropriate
         </button>
-      </div>
-      <div class="m-3">
-        <span>
-          <button class="btn" >
-            ** If you don't find the skill you are looking for, please submit the
-            skill here, and we will add the missing skill if appropriate
-          </button>
-          <!-- <a href="">Click here</a> -->
-        </span>
-      </div>
-    </form>
-  </div>
-  
+        <!-- <a href="">Click here</a> -->
+      </span>
+    </div>
+  </form>
+</div>
