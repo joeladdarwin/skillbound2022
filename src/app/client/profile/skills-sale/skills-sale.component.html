@@ -1,38 +1,39 @@
 <div class="container m-2" *ngIf="skillSaleDetails">
-  <mat-icon mat-button class="addIcon" (click)="addSkill()" >add_circle</mat-icon>
+  <mat-icon mat-button class="addIcon" (click)="addSkill()"
+    >add_circle</mat-icon
+  >
   <!-- Start Card -->
-  <div class="row card" >
+  <div class="row card">
     <div class="container row justify-content-center">
       <div
-        class="d-flex col-xl-4 col-lg-6 col-md-6 col-12 justify-content-center cards" *ngFor="let skillSaleDetails of skillSaleDetails" >
-        <div class="col-3 my-4  d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle" >       
-          <!-- <mat-icon
-            class="editIcon"
-            mat-button
-            
-            >edit</mat-icon
-          >
-          <mat-icon class="deleteIcon" mat-button >delete</mat-icon> -->
-          <!-- skill wishes -->
-          <div class="card-content-part" >
+        class="d-flex col-xl-4 col-lg-6 col-md-6 col-12 justify-content-center cards"
+        *ngFor="let skillSaleDetails of skillSaleDetails"
+      >
+        <div
+          class="col-3 my-4 d-flex flex-column justify-content-center bg-light align-items-center p-4 position-relative card-container position-relative triangle"
+        >
+          <div class="card-content-part">
             <ng-template #content>Not specified</ng-template>
 
             <div class="class-name mt-p-1 mb-2">
               <span class="d-block fw-bold title-name">Class Name</span>
-              <span class="d-block" *ngIf="skillSaleDetails.className; else content">{{skillSaleDetails.className}}</span>
-
+              <span
+                class="d-block"
+                *ngIf="skillSaleDetails.className; else content"
+                >{{ skillSaleDetails.className }}</span
+              >
             </div>
-            
+
             <!-- Skill name -->
             <div class="class-name mt-1 mb-2">
-              <span class="d-block mt-1 fw-bold title-name">Conducted 
-              </span>
-              <span>{{skillSaleDetails.conductedby}}</span>
+              <span class="d-block mt-1 fw-bold title-name">Conducted </span>
+              <span>{{ skillSaleDetails.conductedby }}</span>
             </div>
             <div class="class-name mt-1 mb-2">
-              <span class="d-block mt-1 fw-bold title-name" >Skills
-              </span>
-              <span *ngIf="skillSaleDetails.saleSkills; else content">{{skillSaleDetails.saleSkills}}</span>
+              <span class="d-block mt-1 fw-bold title-name">Skills </span>
+              <span *ngIf="skillSaleDetails.saleSkills; else content">{{
+                skillSaleDetails.saleSkills
+              }}</span>
             </div>
 
             <!-- Sub skill name-->
@@ -41,9 +42,8 @@
       </div>
     </div>
     <!-- End Card -->
-    <!-- <div class="delete-msg">That skill was deteletd</div> -->
   </div>
 </div>
-<div  class="text-center m-2" *ngIf="!skillSaleDetails">
+<div class="text-center m-2" *ngIf="!skillSaleDetails">
   Sorry, no skills are listed on your profile.
 </div>

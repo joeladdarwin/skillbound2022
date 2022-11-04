@@ -114,6 +114,7 @@ export class UsersService {
 
   //add skill sale data
   saleSkillData(saleData:any):Observable<any>{
+    console.log(saleData);
     const formData = new FormData(); 
       formData.set("file", saleData.videoFile);
       formData.set("userId", saleData.userId);
@@ -122,7 +123,8 @@ export class UsersService {
       formData.set("currency", saleData.currency);
       formData.set("payment", saleData.payment);
       formData.set("serviceOffer", saleData.serviceOffer);
-    return this.http.post(`${this.url}addSaleSkill/`, formData,);
+      console.log(formData);
+    return this.http.post(`${this.url}addSaleSkill/`, formData);
   }
 
   //Start user Details

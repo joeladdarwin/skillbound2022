@@ -29,7 +29,6 @@ export class WantSkillCardComponent implements OnInit {
       .getCurrentUserWantSkill()
       .subscribe((userWantSkills: any) => {
         this.wantSkillDetails = this.userDetails(userWantSkills);
-        console.log(userWantSkills);
         this.userId = userWantSkills[0].user_id;
         this.countryId = userWantSkills[0].country;
       });

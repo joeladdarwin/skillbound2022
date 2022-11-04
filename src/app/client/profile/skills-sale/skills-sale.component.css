@@ -1,58 +1,58 @@
-  .card-container {
-    box-shadow: 1px 2px 8px #aaa;
-    position: relative;
-    width: 180px;
-    height: 200px;
-    background: #d6d5d564;
-    border-radius: 12px;
-    overflow: hidden;
-    font-size: 13px;
-  }  
-  
-  
-  mat-icon {
-    font-size: 22px;
-  }
-  .editIcon {
-    cursor: pointer;
-    position: absolute;
-    color: #6cc6e4;
-    top: 15px;
-    left: 15px;
-  }
-  .deleteIcon {
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    left: 40px;
-  }
-  .addIcon {
-    /* float: right; */
-    cursor: pointer;
-    margin-left: 98%;
-  }
-  .class-name {
-    width: 120px;
-    text-align: center;
-    line-height: 1.25;
-  }
-  /* .skill-name:hover .wishesPart { */
-  /* } */
-  .title-name{
-    color: #aaa;
-    font-size: 13px;
-  }
-  .title-name:hover{
-    color: #6cc6e4;
-  }
-  .title-name+span{
-    font-size: 13px;
+.card-container {
+  box-shadow: 1px 2px 8px #aaa;
+  position: relative;
+  width: 180px;
+  height: 200px;
+  background: linear-gradient(
+    to bottom right,
+    #6cc6e4,
+    #9fdef4,
+    #cbeef9,
+    #eaf8fc,
+    #d6d5d564
+  );
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 13px;
+}
 
-  }
-  ng-template{
-    font-size: 13px;
+mat-icon {
+  font-size: 22px;
+}
+.editIcon {
+  cursor: pointer;
+  position: absolute;
+  color: #6cc6e4;
+  top: 15px;
+  left: 15px;
+}
+.deleteIcon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 40px;
+}
+.addIcon {
+  cursor: pointer;
+  margin-left: 98%;
+}
+.class-name {
+  width: 120px;
+  text-align: center;
+  line-height: 1.25;
+}
 
-  }
-  
-  
-  
+.title-name {
+  color: #444;
+  font-size: 13px;
+}
+.title-name:hover {
+  color: #000;
+  font-weight: 700;
+}
+.title-name + span {
+  font-size: 13px;
+}
+ng-template {
+  font-size: 13px;
+}

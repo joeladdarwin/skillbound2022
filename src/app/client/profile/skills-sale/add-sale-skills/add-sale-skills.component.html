@@ -1,91 +1,138 @@
-<div class="container p-2" style="max-width: 600px; min-width:250px">
-    <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
-  
-    <h5 class="text-center p-2">Monetize your skills
-    </h5>
-    <form
-      
-      class="row justify-content-evenly justify-content-center "  enctype="multipart/form-data" (ngSubmit)="skillData()" [formGroup]="addSaleDataData"
-      ng2FileSelect >
-    <!-- <div class="row justify-content-evenly justify-content-center flex-col-column"> -->
-        <div class="row " >
-            <!-- Skill name -->
-            <div class="col-lg-6">
-                <mat-form-field class="example-full-width" appearance="fill" >
-                    <mat-label>What is the name of your skill</mat-label>
-                    <input matInput  name="saleSkillName" [formControl]="myControl" [matAutocomplete]="auto" aria-label="skilldata" value="saleSkillName" required>
-                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"  >
-                        <mat-option *ngFor="let categoryDatas of filteredOptions |async" [value]="categoryDatas"  >
-                          {{categoryDatas.cat_name}}
-                        </mat-option>
-                      </mat-autocomplete>
-                </mat-form-field>
-            </div>
+<div class="container p-2" style="max-width: 600px; min-width: 250px">
+  <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
 
-            <!-- class Name -->
-            <div class="col-lg-6">
-                <mat-form-field class="example-full-width" appearance="fill" >
-                    <mat-label>What is the name of your class </mat-label>
-                    <input matInput name="className" formControlName="className"  >
-                </mat-form-field>
-            </div>
-        </div>
-        
-        <div class="row">
-            <span class="col-lg-12" >What do you think people will pay for a one hour class with you</span>
+  <h5 class="text-center p-2">Monetize your skills</h5>
+  <form
+    class="row justify-content-evenly justify-content-center"
+    enctype="multipart/form-data"
+    [formGroup]="addSaleDataData"
+    ng2FileSelect
+  >
+    <div class="row">
+      <!-- Skill name -->
+      <div class="col-lg-6">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>What is the name of your skill</mat-label>
+          <input
+            matInput
+            name="saleSkillName"
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+            aria-label="skilldata"
+            value="saleSkillName"
+            formControlName="saleSkillName"
+            required
+          />
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option
+              *ngFor="let categoryDatas of filteredOptions | async"
+              [value]="categoryDatas"
+            >
+              {{ categoryDatas.cat_name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
 
-            <div class="col-lg-6 ">
-                <mat-form-field appearance="fill">
-                    <mat-label>Currency</mat-label>
-                    <mat-select matNativeControl  formControlName="currencyType" name="currencyType">
-                    <mat-option [value]="currency.values" *ngFor="let currency of currency">{{currency.name}}</mat-option>
-                    
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-lg-6 ">
-                <mat-form-field class="example-full-width" appearance="fill" >
-                    <mat-label>Payment</mat-label>
-                    <input matInput formControlName="payment"  name="payment">
-                </mat-form-field>
-            </div>
+      <!-- class Name -->
+      <div class="col-lg-6">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>What is the name of your class </mat-label>
+          <input matInput name="className" formControlName="className" />
+        </mat-form-field>
+      </div>
+    </div>
 
-        </div>
-        <div class="row">
-            <div  class="col-lg-6">
-                <mat-form-field appearance="fill">
-                    <mat-label>Do you have a promotional video</mat-label>
-                    <mat-select matNativeControl disableRipple (selectionChange)="fileUpload($event.value)" formControlName="fileUploadCofirmation">
-                      <mat-option value="yes">Yes</mat-option>
-                      <mat-option value="no">No</mat-option>
-                      
-                    </mat-select>
-                  </mat-form-field>
-            </div>
-            <div class="col-lg-6 mb-3" *ngIf="fileData === 'yes'">
-                <input type="file" id="file" name="videoFile" style="font-size: 14px;" accept=".mp4,.mov,.wmv,.avi" (change)="fileDetails($event)" >    
+    <div class="row">
+      <span class="col-lg-12"
+        >What do you think people will pay for a one hour class with you</span
+      >
 
-            </div>
-            
-        </div>
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <mat-form-field class="example-full-width" appearance="fill" >
-                    <mat-label>Do you want to offer your service</mat-label>
-                    <mat-select matNativeControl  formControlName="offerService" name="offerService">
-                        <mat-option [value]="serviceOffer.values" *ngFor="let serviceOffer of serviceOffer">{{serviceOffer.name}}</mat-option>
-                    </mat-select>
-                    </mat-form-field>
-            </div>
-            <div class="col-lg-6 align-items-center">
-                <button type="submit" class="btn btn-submit" ><span>Submit</span>
-                    </button>
-            </div>
-            
-        </div>
+      <div class="col-lg-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Currency</mat-label>
+          <mat-select
+            matNativeControl
+            formControlName="currencyType"
+            name="currencyType"
+          >
+            <mat-option
+              [value]="currency.values"
+              *ngFor="let currency of currency"
+              >{{ currency.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Payment</mat-label>
+          <input
+            matInput
+            formControlName="payment"
+            type="number"
+            name="payment"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Do you have a promotional video</mat-label>
+          <mat-select
+            matNativeControl
+            disableRipple
+            (selectionChange)="fileUpload($event.value)"
+            formControlName="fileUploadCofirmation"
+          >
+            <mat-option value="yes">Yes</mat-option>
+            <mat-option value="no">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 mb-3" *ngIf="fileData === 'yes'">
+        <input
+          type="file"
+          id="file"
+          name="videoFile"
+          style="font-size: 14px"
+          accept=".mp4,.mov,.wmv,.avi"
+          (change)="fileDetails($event)"
+        />
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Do you want to offer your service</mat-label>
+          <mat-select
+            matNativeControl
+            formControlName="offerService"
+            name="offerService"
+          >
+            <mat-option
+              [value]="serviceOffer.values"
+              *ngFor="let serviceOffer of serviceOffer"
+              >{{ serviceOffer.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 align-items-center">
+        <button
+          type="submit"
+          class="btn btn-submit"
+          [disabled]="!addSaleDataData.valid"
+          [mat-dialog-close]="[addSaleDataData, fileUrl]"
+        >
+          <span>Submit</span>
+        </button>
+      </div>
+    </div>
     <!-- </div> -->
-         
-                <!-- <mat-form-field class="example-full-width" appearance="fill">
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>First name</mat-label>
                     <input matInput>
                 </mat-form-field>
@@ -95,11 +142,5 @@
                     <input matInput>
                 </mat-form-field>
            -->
-      
-      
-      
-     
-      
-    </form>
+  </form>
 </div>
-  
