@@ -1,34 +1,33 @@
-ul li{
+ul li {
   list-style: none;
 }
-ul{
+ul {
   padding: 0;
 }
-li a{
+li a {
   text-decoration: none;
 }
-.card{
+.card {
   background-color: #f4f4f4;
 }
-.fa-6{
+.fa-6 {
   font-size: 5em;
 }
-.panel{
+.panel {
   background-color: #f4f4f4;
-  color: #111 ;
+  color: #111;
 }
-.offering{
+.offering {
   font-weight: 600;
 }
-.monotize_skill ul li a{
+.monotize_skill ul li a {
   color: #111;
   cursor: pointer;
-  
 }
-.monotize_skill ul li a:hover{
+.monotize_skill ul li a:hover {
   font-weight: 700;
 }
-.monotize_skill ul li{
+.monotize_skill ul li {
   line-height: 2;
   font-weight: 500;
   font-size: 14px;

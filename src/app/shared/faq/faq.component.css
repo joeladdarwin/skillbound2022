@@ -1,33 +1,32 @@
-h2{
-  color:#49c1f9;  
+h2 {
+  color: #49c1f9;
 }
-ul li{
+ul li {
   list-style: none;
-  /* margin: 8px auto !important; */
 }
 
-.question-list{
+.question-list {
   font-weight: 500;
-  margin-top:15px ;
+  margin-top: 15px;
 }
-.answer-list{
-  margin:10px auto;
+.answer-list {
+  margin: 10px auto;
 }
-.textBold{
+.textBold {
   font-weight: 500;
 }
 
-ul li{
-  margin:10px auto 10px auto !important;
+ul li {
+  margin: 10px auto 10px auto !important;
 }
-li a{
+li a {
   text-decoration: none;
-  color:#4a4a4a;
+  color: #4a4a4a;
   font-weight: 500;
 }
-li a:hover{
+li a:hover {
   color: #6abecd;
 }
-ul{
+ul {
   padding-left: 15px !important;
 }

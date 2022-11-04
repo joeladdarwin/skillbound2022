@@ -1,22 +1,21 @@
-ul li{
+ul li {
   margin: 10px auto;
-font-size: 14px;
+  font-size: 14px;
 }
-li a{
+li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
 }
-li a:hover{
-    color: #6ebde2
+li a:hover {
+  color: #6ebde2;
 }
-h2{
-  color:#49c1f9;
+h2 {
+  color: #49c1f9;
   margin: 15px auto;
-
 }
-.border{
+.border {
   padding: auto 15px !important;
-  border:2px solid #b2b2b2;
-  background-color:#f4f4f4;
+  border: 2px solid #b2b2b2;
+  background-color: #f4f4f4;
 }

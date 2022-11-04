@@ -11,16 +11,14 @@ export class UsersService {
   currentSkillCard: any;
   notificationData: any;
   currentWantSkillCard: any;
-  userDetail:any;
+  userDetail: any;
   searchUser: any;
   // searchUser: any;
   // @Input() categoryId :any;
 
   constructor(private http: HttpClient) {}
-  
-  logout() {
-    
-  }
+
+  logout() {}
 
   //get user details
   userDetails() {
@@ -42,20 +40,19 @@ export class UsersService {
   }
 
   //get Country list
-  getCountryList(){
+  getCountryList() {
     return this.http.get(`${this.url}country`);
   }
 
   //get State List
-  getStateList(countryNameId:any){
+  getStateList(countryNameId: any) {
     return this.http.get(`${this.url}state/${countryNameId}`);
-
   }
 
   //get city List
 
-  getCityList(stateNameId:any){
-    return this.http.get(`${this.url}city/${stateNameId} `)
+  getCityList(stateNameId: any) {
+    return this.http.get(`${this.url}city/${stateNameId} `);
   }
   //skill data update
   skillDataUpdate(data: any) {
@@ -92,97 +89,96 @@ export class UsersService {
     return this.currentWantSkillCard;
   }
   //want skill update data
-  wantSkillDataUpdate(data:any){
-    return this.http.put(`${this.url}wantSkillUpdate/`,data);
+  wantSkillDataUpdate(data: any) {
+    return this.http.put(`${this.url}wantSkillUpdate/`, data);
   }
   //want skill add data
-  userWantSkillAdd(addWantSkilldata:any){
+  userWantSkillAdd(addWantSkilldata: any) {
     return this.http.post(`${this.url}addWantSkill`, addWantSkilldata);
-
   }
 
   //want skill delete data
-  deleteWantSkills(wantSkillId:any){
+  deleteWantSkills(wantSkillId: any) {
     return this.http.delete(`${this.url}WantSkilldelete/${wantSkillId}`);
-
   }
 
   //get skill sale data
-  getSkillSaleData(){
-    return this.http.get(`${this.url}getSkillSale/${this.userId}`)
+  getSkillSaleData() {
+    return this.http.get(`${this.url}getSkillSale/${this.userId}`);
   }
 
   //add skill sale data
-  saleSkillData(saleData:any):Observable<any>{
+  saleSkillData(saleData: any): Observable<any> {
     console.log(saleData);
-    const formData = new FormData(); 
-      formData.set("file", saleData.videoFile);
-      formData.set("userId", saleData.userId);
-      formData.set("className", saleData.className);
-      formData.set("skillName", saleData.skillName);
-      formData.set("currency", saleData.currency);
-      formData.set("payment", saleData.payment);
-      formData.set("serviceOffer", saleData.serviceOffer);
-      console.log(formData);
+    const formData = new FormData();
+    formData.set('file', saleData.videoFile);
+    formData.set('userId', saleData.userId);
+    formData.set('className', saleData.className);
+    formData.set('skillName', saleData.skillName);
+    formData.set('currency', saleData.currency);
+    formData.set('payment', saleData.payment);
+    formData.set('serviceOffer', saleData.serviceOffer);
+    console.log(formData);
     return this.http.post(`${this.url}addSaleSkill/`, formData);
   }
 
   //Start user Details
-  getUserDetails(){
-    return this.http.get(`${this.url}userdetails/${this.userId}`)
-
+  getUserDetails() {
+    return this.http.get(`${this.url}userdetails/${this.userId}`);
+  }
+  //update user Details
+  updateUserDetails(data: any) {
+    return this.http.put(`${this.url}updateUserDetails/`, data);
   }
   //End user Details
 
   //start friends details
 
   // get friends list
-  getFriendlist(){
+  getFriendlist() {
     return this.http.get(`${this.url}friends/${this.userId}`);
   }
 
   // get friends request list
-  getFriendRequestList(){
+  getFriendRequestList() {
     return this.http.get(`${this.url}friendRequest/${this.userId}`);
   }
 
-//get user user name list
-  userNamelist(){
-    return this.http.get(`${this.url}userNameList`)
+  //get user user name list
+  userNamelist() {
+    return this.http.get(`${this.url}userNameList`);
   }
 
-//un friend reques
-  unfriend(id:any){
+  //un friend reques
+  unfriend(id: any) {
     console.log(id);
     return this.http.delete(`${this.url}unfriend/${id}`);
   }
 
-  blockedUser(id:any){
+  blockedUser(id: any) {
     return this.http.put(`${this.url}userBlock/`, id);
   }
 
-  requestAcceptCall(details:any){
+  requestAcceptCall(details: any) {
     return this.http.put(`${this.url}requestAccept/`, details);
   }
 
-  getBlockedList(){
+  getBlockedList() {
     return this.http.get(`${this.url}blockedList/${this.userId}`);
   }
 
-  unBlockService(details:any){
+  unBlockService(details: any) {
     return this.http.put(`${this.url}unBlock`, details);
   }
 
-
-//get specific user details
+  //get specific user details
   // getEnteredUser(user:any){
   //   return this.http.get(`${this.url}user/${user}`)
   // }
 
   //username pass another component
-  searchedUserName(){
-    console.log("h")
+  searchedUserName() {
+    console.log('h');
     return this.searchUser;
   }
 }
-    

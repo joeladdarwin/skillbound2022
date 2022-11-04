@@ -1,35 +1,44 @@
-<div class="containers " >
-    <ng-template [ngIf]="blockeduserDetailsList" [ngIfElse]="instruction">
-        <div class="row justify-content-around" >
-            <mat-card class="example-card m-2 col-sm-5" *ngFor="let list of blockeduserDetailsList">
-                <div class="d-flex">
-                    <div >
-                        <img [src]="list.gender" alt="male" class="profileImage" >       
-                    </div>
-                    <div class="userDetails mx-3 ">
-                        <h6 class="m-0">
-                            {{list.userName}}
-                        </h6>
-                        <span>
-                            {{list.work}}
-                        </span>
-            
-                    </div>
-                    
-                </div>
-                <mat-card-actions>
-                    <button mat-button class="accept-btn" (click)="unBlockUser(list.requestId)">Unblock</button>
-                    <button mat-button class="delete-btn" (click)="unfriend(list.requestId)">Unfriend</button>
-                </mat-card-actions>
-                
-            </mat-card>
+<div class="containers">
+  <ng-template [ngIf]="blockeduserDetailsList" [ngIfElse]="instruction">
+    <div class="row justify-content-around">
+      <mat-card
+        class="example-card m-2 col-sm-5"
+        *ngFor="let list of blockeduserDetailsList"
+      >
+        <div class="d-flex">
+          <div>
+            <img [src]="list.gender" alt="male" class="profileImage" />
+          </div>
+          <div class="userDetails mx-3">
+            <h6 class="m-0">
+              {{ list.userName }}
+            </h6>
+            <span>
+              {{ list.work }}
+            </span>
+          </div>
+        </div>
+        <mat-card-actions>
+          <button
+            mat-button
+            class="accept-btn"
+            (click)="unBlockUser(list.requestId)"
+          >
+            Unblock
+          </button>
+          <button
+            mat-button
+            class="delete-btn"
+            (click)="unfriend(list.requestId)"
+          >
+            Unfriend
+          </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-    </ng-template>
-    
-    <ng-template #instruction>
-        <div>No blocked user</div>
-    </ng-template> 
-     
-        
+  </ng-template>
+
+  <ng-template #instruction>
+    <div>No blocked user</div>
+  </ng-template>
 </div>
-    

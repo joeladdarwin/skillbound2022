@@ -12,9 +12,8 @@ export class AppComponent {
   customer: any;
 
   constructor(
-    public service: UsersService
-  ) //public notificationService: NotificationsService
-  {
+    public service: UsersService //public notificationService: NotificationsService
+  ) {
     //this.service.getCurrentUserSkill().subscribe((data: any) =>{
     //  console.log(data);
     // })

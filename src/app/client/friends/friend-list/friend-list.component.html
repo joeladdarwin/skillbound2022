@@ -1,39 +1,45 @@
-<div class="containers ">
-    <div class="row justify-content-around">
-        <mat-card class="example-card m-2 col-sm-5" *ngFor="let friendList of friendList">
-            <div class="d-flex">
-                <div >
-                    <img [src]="friendList.gender" alt="male" class="profileImage" >                    
-        
-                </div>
-                <div class="userDetails mx-3 ">
-                    <h6 class="m-0">{{friendList.userName}}</h6>
-                    <span>{{friendList.work}}</span>
-        
-                </div>
-                <div class="elipseVertical">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="border-0  ">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item >
-                      <span class="m-1"><i class="fa-solid fa-comment"></i></span>
-                      <span class="m-1">Message</span>
-                    </button>
-                    <button mat-menu-item (click)="unfriendRequest(friendList.friendId)">
-                      <span class="m-1"><i class="fa-solid fa-user-slash"></i></span>
-                      <span class="m-1">UnFriend</span>
-                    </button>
-                    <button mat-menu-item (click)="blockRequest(friendList.friendId)">
-                      <span class="m-1"><i class="fa-solid fa-ban"></i></span>
-                      <span class="m-1">block</span>
-                    </button>
-                </mat-menu>
-                </div>
-            </div>
-            
-        </mat-card>
-        
-    </div>
-    
+<div class="containers">
+  <div class="row justify-content-around">
+    <mat-card
+      class="example-card m-2 col-sm-5"
+      *ngFor="let friendList of friendList"
+    >
+      <div class="d-flex">
+        <div>
+          <img [src]="friendList.gender" alt="male" class="profileImage" />
+        </div>
+        <div class="userDetails mx-3">
+          <h6 class="m-0">{{ friendList.userName }}</h6>
+          <span>{{ friendList.work }}</span>
+        </div>
+        <div class="elipseVertical">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+            class="border-0"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span class="m-1"><i class="fa-solid fa-comment"></i></span>
+              <span class="m-1">Message</span>
+            </button>
+            <button
+              mat-menu-item
+              (click)="unfriendRequest(friendList.friendId)"
+            >
+              <span class="m-1"><i class="fa-solid fa-user-slash"></i></span>
+              <span class="m-1">UnFriend</span>
+            </button>
+            <button mat-menu-item (click)="blockRequest(friendList.friendId)">
+              <span class="m-1"><i class="fa-solid fa-ban"></i></span>
+              <span class="m-1">block</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>

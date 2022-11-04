@@ -8,8 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-
+import { MatInputModule } from '@angular/material/input';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { SimpleNotificationsModule } from 'angular2-notifications';
@@ -54,7 +53,6 @@ import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
 import { NotificationComponent } from './profile-detail/notification/notification.component';
 // import { SkillCardComponent } from './profile/skill-card/skill-card.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,8 +73,6 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     PrivacyComponent,
     GuidelinesComponent,
     NotificationComponent,
-    
-  
 
     // SkillCardComponent
   ],
@@ -104,7 +100,6 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     ReactiveFormsModule,
     MatInputModule,
 
-
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -126,8 +121,7 @@ import { NotificationComponent } from './profile-detail/notification/notificatio
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    MatAutocompleteModule
-    
+    MatAutocompleteModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

@@ -1,14 +1,15 @@
 <!-- TOP HEADER Start
     ================================================== -->
-<!-- <ng-container *ngIf="this.service.isAuthendication();then authenticated;"> -->
-<!-- </ng-container> -->
-<!-- <ng-template #authenticated> -->
+
 <section id="top">
   <div class="container-fluid">
-    <div class="row icon-navbar ">
+    <div class="row icon-navbar">
       <!-- Icons -->
-      <div class="col-md-4 d-flex d-flex flex-row align-items-center icon-navbar-1">
-        <div class="px-3"><a href="#">
+      <div
+        class="col-md-4 d-flex d-flex flex-row align-items-center icon-navbar-1"
+      >
+        <div class="px-3">
+          <a href="#">
             <mat-icon matBadge="15" matBadgeColor="primary">email</mat-icon>
           </a>
         </div>
@@ -21,43 +22,66 @@
 
         <div class="px-3">
           <a href="#">
-            <mat-icon matBadge="0" matBadgeColor="accent">supervisor_account</mat-icon>
+            <mat-icon matBadge="0" matBadgeColor="accent"
+              >supervisor_account</mat-icon
+            >
           </a>
         </div>
 
-        <div class="px-3"><a href="#">
+        <div class="px-3">
+          <a href="#">
             <mat-icon>facebook</mat-icon>
           </a>
         </div>
-
       </div>
 
       <div class="col-md-4 py-1 d-flex justify-content-center icon-navbar-2">
         <div class="search-box">
           <div class="input-group">
-            <form class="form-inline my-2 my-lg-0 d-flex" [formGroup]="formGroup" (ngSubmit)="searchUser(formGroup)">
-              
-                <div class="">
-                  <input type="text" formControlName="userNames" placeholder="Find a friend"  matInput [matAutocomplete]="auto"  autocomplete="off"/>
-                  <mat-autocomplete  #auto="matAutocomplete"  >
-                    <mat-option *ngFor="let list of filteredOptions" [value]="list">
-                      {{list}}
-                    </mat-option>
-                  </mat-autocomplete>
-                </div>
-               
-               
-              <button class="btn btn-light person-btn" type="submit" routerLink="nameSearch"  ><i class="fa fa-search" aria-hidden="true"></i>
+            <form
+              class="form-inline my-2 my-lg-0 d-flex"
+              [formGroup]="formGroup"
+              (ngSubmit)="searchUser(formGroup)"
+            >
+              <div class="">
+                <input
+                  type="text"
+                  formControlName="userNames"
+                  placeholder="Find a friend"
+                  matInput
+                  [matAutocomplete]="auto"
+                  autocomplete="off"
+                />
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option
+                    *ngFor="let list of filteredOptions"
+                    [value]="list"
+                  >
+                    {{ list }}
+                  </mat-option>
+                </mat-autocomplete>
+              </div>
+
+              <button
+                class="btn btn-light person-btn"
+                type="submit"
+                routerLink="nameSearch"
+              >
+                <i class="fa fa-search" aria-hidden="true"></i>
               </button>
             </form>
-          </div><!-- /.input-group -->
-        </div><!-- /.search-box -->
+          </div>
+          <!-- /.input-group -->
+        </div>
+        <!-- /.search-box -->
       </div>
 
       <div
-        class="col-md-4 py-1 px-4 d-flex icon-navbar-3 justify-content-sm-center justify-content-lg-space-evenly align-items-center jusstify-content-lg-end">
-
-        <div class="px-2"><a href="#" class="text-decoration-none">Timeline</a></div>
+        class="col-md-4 py-1 px-4 d-flex icon-navbar-3 justify-content-sm-center justify-content-lg-space-evenly align-items-center jusstify-content-lg-end"
+      >
+        <div class="px-2">
+          <a href="#" class="text-decoration-none">Timeline</a>
+        </div>
         <div class="px-2 pt-2">
           <a href="#">
             <mat-icon>chat</mat-icon>
@@ -66,20 +90,27 @@
         <!-- Example split danger button -->
         <div class="dropdown profile-dropdown px-2">
           <button class="p-1 click">
-            <img src="../assets/img/profile.png" alt="profile" class="px-1" width="30px">
+            <img
+              src="../assets/img/profile.png"
+              alt="profile"
+              class="px-1"
+              width="30px"
+            />
             <span class="px-1">User name</span>
           </button>
           <ul class="profile-dropdown-list">
-            <li *ngFor="let details of profile_detail"><a href="#">{{details.name}}</a></li>
-
+            <li *ngFor="let details of profile_detail">
+              <a href="#">{{ details.name }}</a>
+            </li>
           </ul>
         </div>
-
       </div>
-
-    </div> <!-- End Of /.row -->
-  </div> <!-- End Of /.Container -->
-</section> <!-- End of /Section -->
+    </div>
+    <!-- End Of /.row -->
+  </div>
+  <!-- End Of /.Container -->
+</section>
+<!-- End of /Section -->
 <!-- </ng-template> -->
 
 <!-- LOGO Start
@@ -90,15 +121,16 @@
     <div class="row">
       <div class="col-md-12">
         <a href="#">
-          <img src="../assets/img/newLogo.png" alt="logo">
+          <img src="../assets/img/newLogo.png" alt="logo" />
         </a>
-      </div> <!-- End of /.col-md-12 -->
-    </div> <!-- End of /.row -->
-  </div> <!-- End of /.container -->
-</header> <!-- End of /Header -->
-
-
-
+      </div>
+      <!-- End of /.col-md-12 -->
+    </div>
+    <!-- End of /.row -->
+  </div>
+  <!-- End of /.container -->
+</header>
+<!-- End of /Header -->
 
 <!-- MENU Start
     ================================================== -->
@@ -106,20 +138,25 @@
 <nav class="navbar navbar-expand-sm navbar-dark p-0">
   <div class="container-fluid p-0">
     <!-- <a class="navbar-brand" href="#">Logo</a> -->
-    <button class="navbar-toggler text-black bg-black" type="button" data-bs-toggle="collapse"
-      data-bs-target="#collapsibleNavbar">
+    <button
+      class="navbar-toggler text-black bg-black"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
       <span class="navbar-toggler-icon text-black"></span>
     </button>
-    <div class="collapse navbar-collapse navbars " id="collapsibleNavbar">
+    <div class="collapse navbar-collapse navbars" id="collapsibleNavbar">
       <ul class="navbar-nav navbar-list d-flex justify-content-space-around">
         <li class="nav-item" *ngFor="let link of links">
-          <a class="nav-link" href="logout" (click)="onLogout()">{{link.name}}</a>
+          <a class="nav-link" href="logout" (click)="onLogout()">{{
+            link.name
+          }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
 
 <!-- MENU End 
   =================================================== -->
