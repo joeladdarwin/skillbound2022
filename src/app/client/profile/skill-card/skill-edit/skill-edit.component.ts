@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 interface Food {
@@ -16,7 +16,7 @@ export class SkillEditComponent implements OnInit {
   matDialogClose: boolean = false;
 
   [x: string]: any;
-  selectWishes = new FormControl('');
+  selectWishes = new UntypedFormControl('');
   categoryData: any;
   subCategoryData: any;
   selectedCategoryId: any;
@@ -36,12 +36,12 @@ export class SkillEditComponent implements OnInit {
   // };
   selectedObject: any;
   showPopover = false;
-  editedData = new FormGroup({
-    categoryId: new FormControl('', Validators.required),
-    subCategoryId: new FormControl('', Validators.required),
-    skillLevel: new FormControl('', Validators.required),
-    teachLevel: new FormControl('', Validators.required),
-    selectWishes: new FormControl([''], Validators.required),
+  editedData = new UntypedFormGroup({
+    categoryId: new UntypedFormControl('', Validators.required),
+    subCategoryId: new UntypedFormControl('', Validators.required),
+    skillLevel: new UntypedFormControl('', Validators.required),
+    teachLevel: new UntypedFormControl('', Validators.required),
+    selectWishes: new UntypedFormControl([''], Validators.required),
   });
 
   constructor(public userService: UsersService, private dialog: MatDialog) {}

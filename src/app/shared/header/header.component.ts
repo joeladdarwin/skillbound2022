@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup, NgForm } from '@angular/forms';
 import { from, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { LowerCasePipe } from '@angular/common';
@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
   // myControl = new FormControl('');
   @Output('user') filterUser = new EventEmitter<{ name: string }>();
 
-  formGroup: any = FormGroup;
-  constructor(private service: UsersService, private fb: FormBuilder) {}
+  formGroup: any = UntypedFormGroup;
+  constructor(private service: UsersService, private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();

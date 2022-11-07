@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/service/users.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -20,11 +20,11 @@ export class WantSkillEditComponent implements OnInit {
   matDialogClose: boolean = false;
 
   constructor(private userService: UsersService, private dialog: MatDialog) {}
-  WantEditedData = new FormGroup({
-    categoryId: new FormControl('', Validators.required),
-    subCategoryId: new FormControl(''),
+  WantEditedData = new UntypedFormGroup({
+    categoryId: new UntypedFormControl('', Validators.required),
+    subCategoryId: new UntypedFormControl(''),
 
-    selectWishes: new FormControl([''], Validators.required),
+    selectWishes: new UntypedFormControl([''], Validators.required),
   });
 
   ngOnInit(): void {

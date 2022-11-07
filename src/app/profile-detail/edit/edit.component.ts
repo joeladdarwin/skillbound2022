@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SkillCardComponent } from 'src/app/client/profile/skill-card/skill-card.component';
 @Component({
   selector: 'app-edit',
@@ -11,7 +11,7 @@ import { SkillCardComponent } from 'src/app/client/profile/skill-card/skill-card
 })
 export class EditComponent implements OnInit {
   [x: string]: any;
-  selectWishes = new FormControl('');
+  selectWishes = new UntypedFormControl('');
   categoryData: any;
   subCategoryData: any;
   selectedCategoryId: any;
@@ -32,12 +32,12 @@ export class EditComponent implements OnInit {
   // };
   selectedObject: any;
   showPopover = false;
-  editedData = new FormGroup({
-    categoryId: new FormControl(''),
-    subCategoryId: new FormControl(''),
-    skillLevel: new FormControl(''),
-    teachLevel: new FormControl(''),
-    selectWishes: new FormControl(['']),
+  editedData = new UntypedFormGroup({
+    categoryId: new UntypedFormControl(''),
+    subCategoryId: new UntypedFormControl(''),
+    skillLevel: new UntypedFormControl(''),
+    teachLevel: new UntypedFormControl(''),
+    selectWishes: new UntypedFormControl(['']),
   });
 
   // userService: any;

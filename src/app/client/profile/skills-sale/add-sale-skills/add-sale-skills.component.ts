@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
 import { Observable } from 'rxjs';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -15,7 +15,7 @@ export interface User {
   styleUrls: ['./add-sale-skills.component.css'],
 })
 export class AddSaleSkillsComponent implements OnInit {
-  myControl = new FormControl('');
+  myControl = new UntypedFormControl('');
   options: User[] = [];
   filteredOptions: Observable<User[]> | undefined;
   fileUrl: any = '';
@@ -29,13 +29,13 @@ export class AddSaleSkillsComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   // file Validation
-  addSaleDataData = new FormGroup({
-    saleSkillName: new FormControl('', [Validators.required]),
-    offerService: new FormControl('', Validators.required),
-    payment: new FormControl('', Validators.required),
-    currencyType: new FormControl('', Validators.required),
-    className: new FormControl('', Validators.required),
-    fileUploadCofirmation: new FormControl('', Validators.required),
+  addSaleDataData = new UntypedFormGroup({
+    saleSkillName: new UntypedFormControl('', [Validators.required]),
+    offerService: new UntypedFormControl('', Validators.required),
+    payment: new UntypedFormControl('', Validators.required),
+    currencyType: new UntypedFormControl('', Validators.required),
+    className: new UntypedFormControl('', Validators.required),
+    fileUploadCofirmation: new UntypedFormControl('', Validators.required),
   });
 
   ngOnInit() {

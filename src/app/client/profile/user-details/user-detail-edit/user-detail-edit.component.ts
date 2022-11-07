@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/service/users.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import * as moment from 'moment'; //import moment
 @Component({
@@ -22,25 +22,25 @@ export class UserDetailEditComponent implements OnInit {
   date: any;
   serializedDate: any;
 
-  EditeduserDetail = new FormGroup({
-    password: new FormControl('', Validators.required),
-    work: new FormControl('', Validators.required),
-    companyName: new FormControl('', Validators.required),
-    qualifications: new FormControl('', Validators.required),
-    schoolName: new FormControl('', Validators.required),
-    licenses: new FormControl(''),
-    experience: new FormControl(''),
-    rates: new FormControl(''),
-    countryId: new FormControl('', Validators.required),
-    stateId: new FormControl('', Validators.required),
-    cityId: new FormControl('', Validators.required),
-    gender: new FormControl('', Validators.required),
+  EditeduserDetail = new UntypedFormGroup({
+    password: new UntypedFormControl('', Validators.required),
+    work: new UntypedFormControl('', Validators.required),
+    companyName: new UntypedFormControl('', Validators.required),
+    qualifications: new UntypedFormControl('', Validators.required),
+    schoolName: new UntypedFormControl('', Validators.required),
+    licenses: new UntypedFormControl(''),
+    experience: new UntypedFormControl(''),
+    rates: new UntypedFormControl(''),
+    countryId: new UntypedFormControl('', Validators.required),
+    stateId: new UntypedFormControl('', Validators.required),
+    cityId: new UntypedFormControl('', Validators.required),
+    gender: new UntypedFormControl('', Validators.required),
   });
 
   constructor(public userService: UsersService) {}
 
   ngOnInit(): void {
-    this.time = new FormControl(moment(this.date).format());
+    this.time = new UntypedFormControl(moment(this.date).format());
     console.log(this.time);
 
     // start get user details
@@ -81,7 +81,7 @@ export class UserDetailEditComponent implements OnInit {
   dateConvertion(date: any) {
     if (date !== '') {
       this.date = date.split('/').join(',');
-      this.time = new FormControl(moment(this.date).format());
+      this.time = new UntypedFormControl(moment(this.date).format());
       return this.time;
     }
   }
